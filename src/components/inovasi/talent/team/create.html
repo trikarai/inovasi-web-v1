@@ -1,0 +1,89 @@
+
+<section class="content">
+  
+    <div class="alert alert-danger" v-show="error" v-for="msg in err_msg.error_details">
+      <strong>{{err_msg.code}}</strong> {{ msg }}
+    </div>
+    
+    <div class="cretim" v-if="errors.length">
+          <b>Please correct the following error(s):</b>
+        <ul>
+          <li v-for="error in errors">{{ error }}</li>
+        </ul>
+    </div>
+    
+<div class="box" style="overflow: auto" v-show="!error">
+      <div class="box-body">
+        <button
+            class="btn btn-info"
+            @click="learningVMB"
+            style="border-radius: 5px; padding: 2px 8px;margin-bottom:20px;">
+            <i class="fa fa-info-circle"></i> Klik disini apabila kamu ingin mempelajari tentang  Visi, Misi, dan Budaya perusahaan
+        </button>
+        <div class="row">
+          <div class="col-md-3">
+            <label style="padding: 6px">Nama Tim</label>
+          </div>
+          <div class="col-md-4">
+              <input class="kotak" style="width:100%" type="text" v-model="team.name" required="required">    
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+              <label style="padding: 6px">Visi <a href="#" class="tultip" data-toggle="tooltip" data-placement="right" title="Vision Statement adalah kalimat yang mendeskripsikan masa depan dari bisnis anda. Contoh Vision Statement dari Amazon: To be Earth’s most customer-centric company, where customers can find and discover anything they might want to buy online."> <i style="margin-left: 20px" class="fa fa-info-circle"></i></a></label>
+          </div>
+            
+          <div class="col-md-4">
+              <textarea class="kotak" style="width:100%;height: 80px;" type="text" v-model="team.vision" required="required"></textarea> 
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+              <label style="padding: 6px">Misi <a href="#" class="tultip" data-toggle="tooltip" data-placement="right" title="Mission Statement adalah kalimat yang mendeskripsikan tentang bisnis anda, tujuan serta cara perusahaan anda untuk mencapai tujuan tersebut. Contoh Mission Statement dari Amazon: We strive to offer our customers the lowest possible prices, the best available selection, and the utmost convenience."> <i style="margin-left: 20px" class="fa fa-info-circle"></i></a></label>
+          </div>
+            
+          <div class="col-md-4">
+            <textarea class="kotak" style="width:100%;height: 80px;" type="text" v-model="team.mission" required="required"></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+              <label style="padding: 6px">Budaya  <a href="#" class="tultip" data-toggle="tooltip" data-placement="right" title="Culture/Budaya menjelaskan karakter dari perusahaan anda. Menjelaskan bagaimana perusahaan anda bekerja. Company Culture memiliki berbagai unsur, termasuk lingkungan kerja, tujuan perusahaan, etos kerja, dan value dari perusahaan."> <i style="margin-left: 20px" class="fa fa-info-circle"></i></a></label>
+          </div>
+           
+          <div class="col-md-4">
+              <textarea class="kotak" style="width:100%;height: 80px;" type="text" v-model="team.culture" required="required"></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+              <label style="padding: 6px">Posisi Anda dalam tim</label>
+          </div>
+          <div class="col-md-4">
+              <!--<input class="kotak" style="width:100%" type="text" v-model="team.position" required="required">-->
+              <select class="kotak" style="width:100%" v-model="team.position">
+                <option value="" disabled="">-Select Position-</option>
+                <option value="Creative">Creative</option>
+                <option value="Business">Business</option>
+                <option value="Technical">Technical</option>
+              </select>
+          </div>
+        </div>
+    <!--
+        <div>
+          <input type="text" v-model="team.founder_agreement" required="required">
+          <label>Founder Agreement</label>
+        </div>
+-->
+
+    <div>
+      <button class="btn btn-default" @click="submit"><i class="fa fa-plus"></i> Buat Tim</button> 
+    </div>
+  </div>  
+    
+</div>
+   
+</section>
+  
+
+

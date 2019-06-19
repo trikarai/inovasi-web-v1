@@ -1,0 +1,150 @@
+  <div>
+
+  <loading v-show="loading"></loading>
+  <section class="content">
+
+    <error-flash v-bind:error="error" v-bind:success="success" v-bind:err_msg="err_msg"/>
+      
+    <div class="box">
+      <div class="box-body">
+
+      <!--start breadcrumb-->    
+          <nav aria-label="breadcrumb" class="remahroti">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><router-link v-bind:to="'/talent/dashboard'">Dashboard</router-link></li>
+              <li class="breadcrumb-item"><router-link v-bind:to="'/talent/team/membership'">Tim</router-link></li>
+              <li class="breadcrumb-item active" aria-current="page">Kelola Tim</li>
+            </ol>
+          </nav>
+          <!--end breadcrumb-->
+      
+        <div class="box-header with-border">
+            <h3>Profil Tim</h3>  
+        </div>
+        <div class="box-body">
+            <div class="row">
+          <div class="col-md-2">
+            <label>Nama Tim</label>
+          </div>
+          <div class="col-md-4">
+              {{dataTeam.team.name}}    
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+              <label>Visi</label>
+          </div>
+          <div class="col-md-4">
+              {{dataTeam.team.vision}} 
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+              <label>Misi</label>
+          </div>
+          <div class="col-md-4">
+            {{dataTeam.team.mission}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+              <label>Budaya</label>
+          </div>
+          <div class="col-md-4">
+              {{dataTeam.team.culture}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+              <label>Pembuat Tim</label>
+          </div>
+          <div class="col-md-4">
+              {{dataTeam.team.creator.name}}
+          </div>
+        </div>
+          <hr>
+          <a class="btn btn-default" @click="editTeam()">
+          <i class="fa fa-pencil"></i> Ubah Profil Tim
+          </a>
+        </div>
+       </div>
+      </div>
+    
+    <div class="box">
+      <div class="box-body">
+        
+        <div class="col-md-4" style="padding: 7px;">
+                <div class="form-group">
+                <label for="sel1">Status:</label>
+                <select class="drpdwn" v-model="status">
+                  <option value="active">Aktif</option>
+                  <option value="invited">Diundang</option>
+                </select>
+                </div>
+        </div>
+        
+        <!--{{data}}-->
+        <table class="table table-hover">
+         <thead>
+           <tr>
+             <th>Nama Peserta</th>
+             <th>Email</th>
+             <th>Telepon</th>
+             <th>Posisi</th>
+             <th>Status</th>
+             <th colspan="2"></th>
+           </tr>
+         </thead>
+         
+         <tbody>
+           <tr v-for="data in data.list" v-if="data.status == status">
+             <td>{{data.talent.name}}</td>
+             <td>{{data.talent.email}}</td>
+             <td>{{data.talent.phone}}</td>
+             <td>{{data.position}}</td>
+             <td><span class="statusp" v-bind:class="{'statuse' : data.status != 'active'}">{{data.status}}</span></td>
+             <td>
+               <template v-if="data.is_admin">
+                 Admin
+               </template>
+             </td>
+             
+             <td>
+                <template v-if="data.status === 'active'">
+                  <template v-if="data.talent.id !== dataUser.id">
+                    <a style="font-size:10px;margin-bottom: 0px !important" class="btn btn-danger" @click="confirm('Expell Talent', data.id)"> Expell</a>
+                  </template>
+                </template>
+                <template v-else>
+                </template> 
+             
+                <template v-if="data.status === 'invited'">
+                  <a style="font-size:10px;margin-bottom: 0px !important" class="btn btn-warning" @click="confirm2('Cancel Invitation',data.id)"> Cancel</a>
+                </template> 
+                <template v-else>
+                </template> 
+             </td>
+            
+           </tr>  
+           
+         </tbody>
+         
+       </table>      
+        <hr>
+       <router-link class="btn btn-default" v-bind:to="'/team/'+ dataTeam.team.id + '/browse'">
+           <i class="fa fa-handshake-o"></i> Undang Peserta Baru
+       </router-link>
+
+        
+     </div>
+    </div>
+
+  </section>  
+  
+  <edit-team v-bind:teamid="membershipId" v-bind:edit="edit" v-bind:data="dataTeam" v-if="showForm" @close="showForm = false" @closemodal="closeModalRefresh">
+  </edit-team>
+  
+  <ondelete v-if="toconfirm" @close="toconfirm = false" v-bind:act="act" @confirmed="confirmed"></ondelete>
+  <ondelete v-if="toconfirm2" @close="toconfirm2 = false" v-bind:act="act" @confirmed="confirmed2"></ondelete>
+
+</div>  

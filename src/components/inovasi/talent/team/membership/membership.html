@@ -1,0 +1,141 @@
+<div>
+  
+  <loading v-show="loading"></loading>
+
+  <section class="content">
+
+    <error-flash v-bind:error="error" v-bind:success="success" v-bind:err_msg="err_msg"/>
+   
+    <div class="box" style="overflow: auto" v-show="!error">
+      <div class="box-body">
+        <div class="row">
+            <div class="col-md-4">
+                <router-link class="btn btn-default" :to="'/talent/team/create'"><i class="fa fa-plus-square"></i> <b>Buat Tim<b></router-link>
+            </div> 
+            <div class="col-md-4" style="padding: 7px;">
+                <div class="form-group">
+                <label for="sel1">Status Tim:</label>
+                <select class="drpdwn" v-model="statusTeam" @change="changeStatus">
+                  <option value="">All</option>
+                  <option value="active">Aktif</option>
+                  <option value="resigned">Resign</option>
+                </select>
+                </div>
+            </div>
+            <div class="col-md-4" style="padding: 7px;">
+                <div class="form-group">
+                <label for="sel1">Status Undangan:</label>
+                <select class="drpdwn" v-model="statusInvitation" @change="changeStatus">
+                  <option value="">All</option>
+                  <option value="invited">Diundang</option>>
+                </select>
+                </div>
+            </div>
+        </div> 
+        
+        <table class="table table-hover table-striped" v-if="data.list.length > 0">
+         <thead>
+           <tr>
+             <th>Nama Tim</th>
+             <th>Pembuat Tim</th>
+             <th>Wilayah</th>
+             <th>Posisi dalam Tim</th>
+             <th>Status</th>
+             <th colspan="4"></th>
+           </tr>
+         </thead>
+         
+         <tbody>
+           <tr v-for="data in data.list">
+             <!--<td><router-link v-bind:to="'/talent/team/membership/'+ data.id"><span class="dttmnm hvr-ripple-out">{{data.team.name}}</span></router-link></td>-->
+             <td>{{data.team.name}}</td>
+             <td>{{data.team.creator.name}}</td>
+             <td>{{data.team.creator.region.name}}</td>
+             <td style="text-align: center;color: #8bc751">{{data.position}}</td>
+             <td>
+               <span v-if="data.status == 'active'" class="statusp">{{data.status}}</span>
+               <span v-if="data.status == 'resigned'" class="statuse">{{data.status}}</span>
+               <span v-if="data.status == 'invited'" class="statusi">{{data.status}}</span>
+               <span v-if="data.status == 'expelled'" class="statuse">{{data.status}}</span>
+               <span v-if="data.status == 'cancelled'" class="statuse">{{data.status}}</span>
+               <span v-if="data.status == 'refused'" class="statuse">{{data.status}}</span>
+             </td>
+             <td>  
+               </template>
+               <template v-show="data.status == 'active'">
+                 <template v-if="data.is_admin">
+                   <template v-if="data.status != 'expelled'">  
+                     <template v-if="data.status != 'invited'">  
+                       <template v-if="data.status != 'resigned'">
+                       <template v-if="data.status != 'cancelled'">
+                       <template v-if="data.status != 'refused'">
+                         <router-link style="font-size:10px;margin-bottom: 0px !important" class="btn btn-default" v-bind:to="'/team/'+ data.team.id + '/manage/' + data.id ">
+                           <i class="fa fa-pencil-square-o"></i> Kelola Tim
+                         </router-link>
+                       </template> 
+                       </template> 
+                       </template> 
+                     </template> 
+                   </template> 
+                 </template>
+                 <template v-else>
+                   <template v-if="data.status != 'expelled'">  
+                     <template v-if="data.status != 'invited'">  
+                       <template v-if="data.status != 'resigned'">
+                         <template v-if="data.status != 'cancelled'">
+                         <template v-if="data.status != 'refused'">
+                           <router-link style="font-size:10px;margin-bottom: 0px !important" class="btn btn-default" v-bind:to="'/talent/team/membership/'+ data.id">
+                             <i class="fa fa-eye"></i> Lihat Tim</router-link>
+                         </template> 
+                         </template> 
+                       </template> 
+                     </template> 
+                   </template> 
+                 </template>
+             </td>
+             <td>
+               <template v-if="data.status == 'active'">  
+                 <!--<router-link style="font-size:10px;margin-bottom: 0px !important" class="btn btn-default" v-bind:to="'/team/'+ data.team.id + '/programmeparticipation'">-->
+                 <router-link style="font-size:10px;margin-bottom: 0px !important" class="btn btn-default" :to="{ path: '/team/'+data.team.id+'/programmeparticipation', query: { teamName : data.team.name }}">
+                     <i class="fa fa-list-alt"></i> Partisipasi Program
+                 </router-link>
+               </template> 
+                <template v-if="data.status == 'invited'">
+                   <a style="font-size:10px;margin-bottom: 0px !important" class="btn btn-default" @click="accept(data.id)"><i class="fa fa-check"></i> Terima</a>
+                </template> 
+             </td>
+             <td>
+               <template v-if="data.status == 'active'">
+                 <router-link style="font-size:10px;margin-bottom: 0px !important" class="btn btn-default" v-bind:to="'/team/'+ data.team.id + '/idea'">
+                     <i class="fa fa-lightbulb-o"></i> Ide
+                 </router-link>
+                </template>
+                 <template v-if="data.status == 'invited'">
+                   <a style="font-size:10px;margin-bottom: 0px !important" class="btn btn-warning" @click="reject(data.id)"><i class="fa fa-times"></i> Menolak</a>
+                </template>  
+             </td>
+             <td>
+               <template v-if="data.status != 'active'">
+               </template>
+                 <template v-else>
+                   <!--<a style="font-size:10px;margin-bottom: 0px !important" class="btn btn-danger" @click="resign(data.id)"><i class="fa fa-sign-out">Resign</a>-->
+                     <a style="font-size:10px;margin-bottom: 0px !important" class="btn btn-danger" @click="confirm('Resign', data.id)"><i class="fa fa-sign-out"></i> Resign</a>
+                </template> 
+             </td>  
+           </tr>  
+         </tbody>
+         
+       </table>
+        
+        <div style="padding: 20px;" v-else>
+          don't have a team ? Create one
+        </div>  
+ 
+     </div>
+    </div>
+    
+    <ondelete v-if="toconfirm" @close="toconfirm = false" v-bind:act="act" @confirmed="confirmed"></ondelete>
+
+  </section>  
+  
+</div>  

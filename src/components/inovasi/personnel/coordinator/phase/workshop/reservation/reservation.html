@@ -1,0 +1,48 @@
+<div>
+
+  <loading v-show="loading"></loading>
+
+  <section class="content">
+
+    <error-flash v-bind:error="error" v-bind:success="success" v-bind:err_msg="err_msg"/>
+
+    <div class="box">
+      <div class="box-body">
+
+        <table class="table" v-if="data.total > 0 ">
+          <thead>
+            <tr>
+              <th>Team <a href="#" data-toggle="tooltip" data-placement="right" title=" Click Team Name for Detail ! "><i class="fa fa-info-circle"></i></a></th>
+              <th>Booking Time</th>
+              <th>Check In Time</th>
+              <th>Check Out Time</th>
+              <th>Status</th>
+              <th colspan="2"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="data in data.list">
+              <td><a class="btn btn-default" @click="openDetail(data)">{{data.participant.team.name}}</a></td>
+              <td>{{data.booking_time}}</td>
+              <td>{{data.check_in_time}}</td>
+              <td>{{data.check_out_time}}</td>
+              <td>{{data.status}}</td>
+              <td><a class="btn btn-primary" @click="checkIn(data.id)"><i class="fa fa-sign-in"></i> Check In</a></td>
+              <td><a class="btn btn-warning" @click="checkOut(data.id)"><i class="fa fa-sign-out"></i> Check Out</a></td>
+                          
+          </tr>
+          </tbody>
+        </table>
+        <div v-else>
+          <h4 style="text-align: center;">No Reservation Yet</h4>
+        </div>
+
+        <!--{{data}}-->
+      </div>  
+    </div>  
+    
+  </section>
+
+  <detail v-bind:data="detail" v-if="showForm" @close="showForm = false"></detail>
+ 
+</div>

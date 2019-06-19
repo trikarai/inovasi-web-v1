@@ -1,0 +1,102 @@
+<div>
+
+  <loading v-show="loading"></loading>
+
+  <section class="content">
+
+    <error-flash v-bind:error="error" v-bind:success="success" v-bind:err_msg="err_msg"/>
+
+    <div class="box">
+      <div class="box-body">
+
+        <table class="table table-hover" v-if="data.total > 0 ">
+          <thead>
+            <tr>
+              <th style="width: 250px;">Name</th>
+              <!--<th>Description</th>-->
+              <th>Registration Start</th>
+              <th>Registration End</th>
+              <th>Start Time</th>
+              <th>End Time</th>
+              <th colspan="2"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="data in data.list">
+              <td>{{data.name}}</td>
+              <!--<td>{{data.description}}</td>-->
+              <td><span class="hari">{{data.registration_start_time | moment("dddd")}}</span></br><span class="tanggal">{{data.registration_start_time | moment(" MMMM Do YYYY")}}</span></br><span class="waktu">{{data.registration_start_time | moment("h:mm:ss a")}}</span></td>
+              <td><span class="hari">{{data.registration_end_time | moment("dddd")}}</span></br><span class="tanggal">{{data.registration_end_time | moment(" MMMM Do YYYY")}}</span></br><span class="waktu">{{data.registration_end_time | moment("h:mm:ss a")}}</span></td>
+              <td><span class="hari">{{data.start_time | moment("dddd")}}</span></br><span class="tanggal">{{data.start_time | moment(" MMMM Do YYYY")}}</span></br><span class="waktu">{{data.start_time | moment("h:mm:ss a")}}</span></td>
+              <td><span class="hari">{{data.end_time | moment("dddd")}}</span></br><span class="tanggal">{{data.end_time | moment(" MMMM Do YYYY")}}</span></br><span class="waktu">{{data.end_time | moment("h:mm:ss a")}}</span></td>
+              <td></td>
+              <td></td>
+              <td><a class="btn btn-warning" @click="changePeriod(data)"><i class="fa fa-calendar"></i> Change Period</a></br>
+                  <router-link style="margin-top:5px;margin-bottom: 5px;" class="btn btn-primary" :to="'/coordinator/programme/'+ programmeId +'/phase/'+ phaseId +'/workshop/'+ data.id +'/reservation'"><i class="fa fa-user-o"></i> Reservation</router-link></br>
+                  <a class="btn btn-info" @click="openDetail(data)"><i class="fa fa-asterisk"></i> Detail</a>
+              </td>
+
+                           
+          </tr>
+          </tbody>
+        </table>
+        <div v-else>
+          <h4 style="text-align: center">No Workshop Yet</h4>
+        </div>
+
+        <!--{{data}}-->
+      </div>  
+    </div>  
+    
+    <!-- publication content-->
+      <div class="box" v-if="showPublicationSection">
+        <div class="box-body">
+          
+          <div>
+            <a class="btn btn-warning btn-sm" @click="showPublicationSection = false"><i class="fa fa-close"></i> Close </a>
+          </div>
+
+          <div class="col-md-12" style="padding: 35px">
+              <div class="col-md-6">
+                  <span class="label label-default">Name</span>
+                  <p style="color: #8bc751"> {{detail.name}}</p>
+                  <span class="label label-default">Description</span>
+                  <p style="color: #8bc751"> {{detail.description}}</p>
+                  <span class="label label-default">Registration Start Time</span>
+                  <p style="color: #8bc751"> {{detail.registration_start_time}}</p>
+                  <span class="label label-default">Registration End Time</span>
+                  <p style="color: #8bc751"> {{detail.registration_end_time}}</p>
+                  
+              </div>
+              <div class="col-md-6">
+                  <span class="label label-default">Start Time</span>
+                  <p style="color: #8bc751"> {{detail.start_time}}</p>
+                  <span class="label label-default">End Time</span>
+                  <p style="color: #8bc751"> {{detail.end_time}}</p>
+                  <span class="label label-default">Cancel Hour</span>
+                  <p style="color: #8bc751"> {{detail.cancel_hour_window}}</p>
+                  <span class="label label-default">Max Seat</span>
+                  <p style="color: #8bc751"> {{detail.max_seat}}</p>
+                  <span class="label label-default">Max Participant Seat</span>
+                  <p style="color: #8bc751"> {{detail.max_participant_seat}}</p>
+              </div>
+          </div>
+
+          
+          
+          <div id="editor">
+            <h3>Publication</h3> 
+              <div v-html="compiledMarkdown(detail.publication)"></div>
+          </div>
+
+          
+        </div>
+      </div>      
+      <!-- publication content end-->
+
+
+  </section>
+
+  <period v-bind:programmeid="programmeId" v-bind:phaseid="phaseId" v-bind:workshopdata="workshopData" v-if="showForm" @close="showForm = false" @closemodal="closeModalRefresh"></period>
+  
+</div>

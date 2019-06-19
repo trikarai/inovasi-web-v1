@@ -1,0 +1,40 @@
+<div>
+
+  <loading v-show="loading"></loading>
+
+  <section class="content">
+
+    <error-flash v-bind:error="error" v-bind:success="success" v-bind:err_msg="err_msg"/>
+
+    <div class="box">
+      <div class="box-body">
+
+        <table class="table" v-if="data.list.length > 0 ">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Template</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="data in data.list">
+              <td><router-link :to="'/tutor/'+ tutorId +'/programme/'+ programmeId +'/phase/'+ phaseId+ '/scoring/' + data.id + '/participant/' + data.scoring_template.id" class="btn btn-info" style="width: 100%">{{data.name}}</router-link></td>
+              <td>{{data.scoring_template.name}}</td>
+              <td>{{data.start_date | moment("dddd, MMMM Do YYYY")}}</td>
+              <td>{{data.end_date | moment("dddd, MMMM Do YYYY")}}</td>    
+          </tr>
+          </tbody>
+        </table>
+        <div v-else>
+          No Scoring Yet...
+        </div>
+
+      </div>  
+    </div>  
+
+  </section>
+
+</div>

@@ -1,0 +1,44 @@
+<div>
+
+  <loading v-show="loading"></loading>
+
+  <section class="content">
+
+    <error-flash v-bind:error="error" v-bind:success="success" v-bind:err_msg="err_msg"/>
+
+    
+    <div class="box">
+      <div class="box-body">
+        <div class="box-header">
+            <a class="btn btn-default" @click="newReg"><span class="glyphicon glyphicon-plus-sign"></span> Add New Registration</a>
+        </div>  
+        <table class="table" v-if="data.list.length > 0 ">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th colspan="1"></th>   
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="data in data.list">
+              <td>{{data.name}}</td>
+              <td>{{data.start_date | moment("dddd, Do MMMM YYYY")}}</td>
+              <td>{{data.end_date | moment("dddd, Do MMMM YYYY")}}</td>
+              <td><a class="btn btn-warning btn-sm" @click="deleteReg(data.id)">Remove</a></td>
+          </tr>
+          </tbody>
+        </table>
+        <div v-else>
+          No registration Yet, please make a coffee first...
+        </div>
+
+      </div>  
+    </div>  
+
+  </section>
+  
+  <registration v-bind:programmeid="programmeId" v-if="showForm" @close="showForm = false" @closemodal="closeModalRefresh"></registration>
+
+</div>

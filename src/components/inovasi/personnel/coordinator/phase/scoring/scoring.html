@@ -1,0 +1,51 @@
+<div>
+
+  <loading v-show="loading"></loading>
+
+  <section class="content">
+
+    <error-flash v-bind:error="error" v-bind:success="success" v-bind:err_msg="err_msg"/>
+
+    <div class="box">
+      <div class="box-body">
+
+        <table class="table" v-if="data.total > 0 ">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th>Scoring Template</th>
+              <th>Team Viewable</th>
+              <th>Member Viewable</th>
+              <th colspan="2"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="data in data.list">
+              <td>{{data.name}}</td>
+              <td>{{data.start_date}}</td>
+              <td>{{data.end_date}}</td>
+              <td>{{data.scoring_template.name}}</td>
+              <td>{{data.is_team_profile_viewable}}</td>
+              <td>{{data.is_member_profile_viewable}}</td>
+              <td><a class="btn btn-warning" @click="changePeriod(data)"><i class="fa fa-calendar"></i> Change Period</a></td>
+
+                           
+          </tr>
+          </tbody>
+        </table>
+        <div v-else>
+          No scoring Yet
+        </div>
+
+        <!--{{data}}-->
+      </div>  
+    </div>  
+
+
+  </section>
+
+  <period v-bind:programmeid="programmeId" v-bind:phaseid="phaseId" v-bind:scoringdata="scoringData" v-if="showForm" @close="showForm = false" @closemodal="closeModalRefresh"></period>
+  
+</div>

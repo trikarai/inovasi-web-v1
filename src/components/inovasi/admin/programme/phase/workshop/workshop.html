@@ -1,0 +1,74 @@
+<div>
+  
+  <loading v-show="loading"></loading>
+
+  <section class="content">
+
+    <error-flash v-bind:error="error" v-bind:success="success" v-bind:err_msg="err_msg"/>
+
+    <a class="btn btn-warning" @click="$router.go(-1)">Take me back.</a>
+    <br>
+    <br>
+
+    <!-- workshop content-->
+    <div class="box">
+      <div class="box-body">
+        <form>
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" v-model="data.name" class="form-control" >
+          </div> 
+          <div class="form-group">
+            <label>description</label>
+            <input type="text" v-model="data.description" class="form-control" >
+          </div> 
+          
+<!--          <div>
+          <div class="form-group">
+            <label>Registration_start_time</label>
+            <input type="datetime-local" v-model="data.registration_start_time" class="form-control" >
+            <datetime format="YYYY-MM-DD HH:MM:SS" width="245px" v-model="data.registration_start_time"></datetime>
+          </div> 
+          <div class="form-group">
+            <label>Registration_end_time</label>
+            <input type="datetime-local" v-model="data.registration_end_time" class="form-control" >
+            <datetime format="YYYY-MM-DD HH:MM:SS" width="245px" v-model="data.registration_end_time"></datetime>
+          </div> 
+          <div class="form-group">
+            <label>Start Time</label>
+            <input type="datetime-local" v-model="data.start_time" class="form-control" >
+            <datetime format="YYYY-MM-DD HH:MM:SS" width="245px" v-model="data.start_time"></datetime>
+          </div> 
+          <div class="form-group">
+            <label>end_time</label>
+            <input type="datetime-local" v-model="data.end_time" class="form-control" >
+            <datetime format="YYYY-MM-DD HH:MM:SS" width="245px" v-model="data.end_time"></datetime>            
+          </div> 
+          </div>-->
+          
+          <div class="form-group">
+            <label>cancel_hour_window</label>
+            <input type="number" v-model="data.cancel_hour_window" class="form-control" >
+          </div> 
+          <div class="form-group">
+            <label>Max Seat</label>
+            <input type="number" v-model="data.max_seat" class="form-control" >
+          </div> 
+          <div class="form-group">
+            <label>Max Seat for Team</label>
+            <input type="number" v-model="data.max_seat_for_team" class="form-control" >
+          </div> 
+        </form>
+
+        <mavon-editor v-model="data.publication" language="en"/>
+
+        <hr>
+        <button class="btn btn-warning" @click.prevent="submit()">Submit</button>
+      </div>         
+    </div>   
+    <!-- workshop content end-->
+
+
+  </section>
+
+</div>

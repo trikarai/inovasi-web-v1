@@ -1,0 +1,60 @@
+<div>
+
+  <loading v-show="loading"></loading>
+
+  <section class="content">
+
+    <error-flash v-bind:error="error" v-bind:success="success" v-bind:err_msg="err_msg"/>
+
+    <div class="box">
+      <div class="box-body">
+
+        <table class="table" v-if="data.list.length > 0 ">
+          <thead>
+            <tr>
+              <th>Team</th>
+              <th>Registration Time</th>
+              <th>Current Phase</th>
+              <th>Status</th>
+              <th colspan="2"></th>   
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="data in data.list">
+              <td><router-link :to="'/participant/team/' + data.team.id" class="btn btn-default" style="width: 100%">{{data.team.name}}</router-link></td>
+              <td>{{data.registration_time | moment("dddd, Do MMMM YYYY")}}</td>
+              <td>{{data.current_phase.name}}</td>
+              <td>
+                <span v-if="data.status == 'active'" class="statusactive"><i class="fa fa-check-square-o"></i> {{data.status}}</span>
+                <span v-if="data.status == 'resigned'" class="statuse"><i class="fa fa-sign-out"></i> {{data.status}}</span>
+                <span v-if="data.status == 'failed'" class="statuse"><i class="fa fa-thumbs-o-down"> {{data.status}}</span>
+                <span v-if="data.status == 'registered'" class="statusregistered"><i class="fa fa-asterisk"></i> {{data.status}}</span>
+                <span v-if="data.status == 'cancelled'" class="statuscancelled"><i class="fa fa-minus-square-o"></i> {{data.status}}</span>
+                <span v-if="data.status == 'rejected'" class="statuse"><i class="fa fa-user-times"></i> {{data.status}}</span>
+                <span v-if="data.status == 'graduated'" class="statusgraduated"><i class="fa fa-graduation-cap"></i> {{data.status}}</span>
+              </td>
+              <template v-if="data.status !== 'resigned'">
+                <template v-if="data.status !== 'cancelled'">
+                  <template v-if="data.status == 'active'">
+                    <td><a class="btn btn-warning btn-sm" @click="pass(data.id)"><i class="fa fa-check"></i> Pass</a></td>
+                    <td><a class="btn btn-danger btn-sm" @click="fail(data.id)"><i class="fa fa-thumbs-o-down"></i> Fail</a></td>
+                  </template>  
+                  <template v-if="data.status == 'registered'">
+                    <td><a class="btn btn-warning btn-sm" @click="accept(data.id)"><i class="fa fa-check-square-o"></i> Accept</a></td>
+                    <td><a class="btn btn-danger btn-sm" @click="reject(data.id)"><i class="fa fa-user-times"></i> Reject</a></td>
+                  </template>  
+                </template>
+              </template>  
+          </tr>
+          </tbody>
+        </table>
+        <div v-else>
+          No Participant Yet, please wait and make some coffee first... <i class="fa fa-coffee"></i>
+        </div>
+
+      </div>  
+    </div>  
+
+  </section>
+
+</div>

@@ -1,0 +1,128 @@
+  <div>
+
+  <loading v-show="loading"></loading>
+  <section class="content">
+
+    <error-flash v-bind:error="error" v-bind:success="success" v-bind:err_msg="err_msg"/>
+      
+<!--    <div class="box">
+      <div class="box-header with-border">
+        <h3>Team Profile</h3>  
+      </div>
+      <div class="box-body">
+        <div class="row">
+          <div class="col-md-2">
+            <label>Team name</label>
+          </div>
+          <div class="col-md-4">
+            {{dataTeam.team.name}}    
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <label>Vision</label>
+          </div>
+          <div class="col-md-4">
+            {{dataTeam.team.vision}} 
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <label>Mission</label>
+          </div>
+          <div class="col-md-4">
+            {{dataTeam.team.mission}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <label>Culture</label>
+          </div>
+          <div class="col-md-4">
+            {{dataTeam.team.culture}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <label>Creator</label>
+          </div>
+          <div class="col-md-4">
+            {{dataTeam.team.creator.name}}
+          </div>
+        </div>
+        <hr>
+        <a class="btn btn-default" @click="editTeam()">
+          <i class="fa fa-pencil"></i> Edit Team Profile
+        </a>
+      </div>
+    </div>-->
+    
+    <div class="box">
+      <div class="box-body">
+        <!--{{data}}-->
+        <table class="table table-hover">
+         <thead>
+           <tr>
+             <th>Talent Name</th>
+             <th>email</th>
+             <th>phone</th>
+             <th>Position</th>
+             <th>Status</th>
+             <!--<th colspan="2"></th>-->
+           </tr>
+         </thead>
+         
+         <tbody>
+           <tr v-for="data in data.list">
+             <td><router-link :to="'/participant/team/talent/' + data.talent.id" class="btn btn-default" style="width: 100%">
+                 {{data.talent.name}} 
+                    <template v-if="data.is_admin">
+                        <div class="admtimico" style="float: right">A</div>
+                    </template>
+                 </router-link></td>
+             <td>{{data.talent.email}}</td>
+             <td>{{data.talent.phone}}</td>
+             <td>{{data.position}}</td>
+             <td><span class="statusp" v-bind:class="{'statuse' : data.status != 'active'}">{{data.status}}</span></td>
+<!--             <td>
+               <template v-if="data.is_admin">
+                 Admin
+               </template>
+             </td>-->
+             
+<!--             <td>
+                <template v-if="data.status === 'active'">
+                  <template v-if="data.talent.id !== dataUser.id">
+                    <a style="font-size:10px;margin-bottom: 0px !important" class="btn btn-danger" @click="expellTalent(data.id)"> Expell</a>
+                  </template>
+                </template>
+                <template v-else>
+                </template> 
+             
+                <template v-if="data.status === 'invited'">
+                  <a style="font-size:10px;margin-bottom: 0px !important" class="btn btn-warning" @click="cancelTalent(data.id)"> Cancel</a>
+                </template> 
+                <template v-else>
+                </template> 
+             </td>-->
+            
+           </tr>  
+           
+         </tbody>
+         
+       </table>      
+
+<!--       <router-link class="btn btn-default" v-bind:to="'/team/'+ dataTeam.team.id + '/browse'">
+           <i class="fa fa-handshake-o"></i> Invite New Talent
+       </router-link>-->
+
+        
+     </div>
+    </div>
+
+  </section>  
+  
+  <edit-team v-bind:teamid="membershipId" v-bind:edit="edit" v-bind:data="dataTeam" v-if="showForm" @close="showForm = false" @closemodal="closeModalRefresh">
+  </edit-team>
+
+</div>  

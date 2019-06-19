@@ -1,0 +1,50 @@
+<div>
+
+  <loading v-show="loading"></loading>
+
+  <section class="content">
+
+    <error-flash v-bind:error="error" v-bind:success="success" v-bind:err_msg="err_msg"/>
+
+    <div class="box">
+      <div class="box-body">
+
+        <table class="table" v-if="data.list.length > 0 ">
+          <thead>
+            <tr>
+              <th>Team</th>
+              <!--<th>Registration Time</th>-->
+              <th>Current Phase</th>
+              <th>Status</th>
+              <th>Idea</th>   
+              <th></th>   
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="data in data.list" v-if="data.status === 'active'">
+              <td><router-link :to="'/participant/team/' + data.team.id" class="btn btn-default" style="width: 100%">{{data.team.name}}</router-link></td>
+              <!--<td>{{data.registration_time}}</td>-->
+              <td>{{data.current_phase.name}}</td>
+              <td>{{data.status}}</td>
+              <td>
+                <router-link style="font-size:10px;margin-bottom: 0px !important" class="btn btn-default" v-bind:to="'/tutor/'+tutorId+'/participant/'+ data.team.id + '/idea'">
+                     <i class="fa fa-lightbulb-o"></i> Idea
+                 </router-link>
+              </td>
+              <td><a class="btn btn-info btn-sm" @click="addScore(data.id)"><i class="fa fa-plus"></i> Add Score</a></td>
+          </tr>
+          </tbody>
+        </table>
+        <div v-else>
+          No Participant Yet, please make a coffee first...
+        </div>
+
+      </div>  
+    </div>  
+
+  </section>
+
+  <scoring-form v-bind:templateid="templateId" v-bind:tutorid="tutorId" v-bind:programmeid="programmeId" v-bind:phaseid="phaseId" v-bind:scoringid="scoringId" v-bind:participantid="participantId" v-if="showScoringForm" @close="showScoringForm = false" @closemodal="closeModalRefresh">
+  </scoring-form>
+  
+</div>

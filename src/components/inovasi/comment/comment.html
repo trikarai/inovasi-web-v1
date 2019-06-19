@@ -1,0 +1,118 @@
+<div class="content">
+    <h3>Daftar Komentar</h3>
+    <error-flash v-bind:error="error" v-bind:success="success" v-bind:err_msg="err_msg"/>
+    <!--{{role}} {{dataId}}-->
+    <div class="">
+      <div class="row">
+        <div class="">
+          <div class="panel panel-success" style="margin: 1em;max-width: 530px;">
+            <div class="panel-body">
+              <textarea placeholder="Tuliskan Komentar Anda Disini..." class="pb-cmnt-textarea" v-model="komentar.content"></textarea>
+              <form class="form-inline">
+                <div v-show="!onComment">
+                  <button v-if="role === 'Talent'" @click="sendComment()" class="btn btn-primary pull-right" type="button">Bagikan</button>
+                  <button v-if="role === 'Personnel'" @click="sendCommentTutor()" class="btn btn-primary pull-right" type="button">Share as Tutor</button>
+                </div>
+                <onsub v-show="onComment"></onsub>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- comments section https://bootsnipp.com/snippets/featured/comment-posts-layout -->
+    <section class="comment-list" v-if="commentsExperiment.total > 0">
+      <div class="row" v-for="comment in commentsExperiment.list" :key="comment.id">
+<!--
+        <div class="col-md-3 col-sm-3 visible-lg">
+          <figure class="thumbnail" style="background-color: #e4e4e4;padding:19px !important">
+            <img width="45px" style="margin-bottom: 17px;" class="img-circle" v-bind:src="'/dashboard/images/profile.png'" />
+            <figcaption class="text-center">
+              <template v-if="comment.writer.hasOwnProperty('personnel')">
+                <span style="color:#7d7d7d">{{comment.writer.personnel.name}}</span>
+              </template>
+              <template v-else>
+                <span style="color:#7d7d7d">{{comment.writer.talent.name}}</span>
+              </template>
+            </figcaption>
+          </figure>
+        </div>
+-->
+
+        <div class="" style="margin:1em;max-width: 530px;">
+          <div class="panel panel-default arrow left">
+            <div class="panel-body" style="border-top-style: solid; border-top-color: #e4e4e4;">
+              <header class="text-left">
+                <div class="comment-user"><i class="fa fa-user"></i>
+                  <template v-if="comment.writer.hasOwnProperty('personnel')">
+                    {{comment.writer.personnel.name}}
+                  </template>
+                  <template v-else>
+                    {{comment.writer.talent.name}}
+                  </template>
+                </div>
+                <time style="font-size: 11px;color: #adadad;" class="comment-date"><i class="fa fa-clock-o"></i> {{comment.submit_time | moment("dddd, MMMM Do YYYY, h:mm:ss a")}}</time>
+              </header>
+              <div class="comment-post">
+
+                <br>
+                <template v-if="!comment.is_removed">
+                  <blockquote class="blockquote" v-if="comment.parent.hasOwnProperty('content')">
+                    <p class="mb-0"><small>{{comment.parent.content}}</small></p>
+                  </blockquote>
+
+                  <p>
+                    <h4>{{comment.content}}</h4> 
+                  </p>
+                </template>
+                <template v-else>
+                  <h4 style="color: red;font-size: 15px;"><i>Komentar telah dihapus</i></h4> 
+                </template>
+
+              </div>
+              <template v-if="!comment.is_removed">
+              <ul style="display: inline-flex;list-style-type:none;float:right;position: relative;top: 20px;">
+                  <li>
+                        <p style="margin-right: 11px;" class="text-right"><a @click="openReply(comment.id)" class="btn btn-default btn-sm"><i class="fa fa-reply"></i> Balas</a></p>
+                  </li>
+                  <li>
+                  <template v-if="comment.writer.hasOwnProperty('personnel')">
+                        <p v-if="dataId === comment.writer.personnel.id"><a @click="confirm('Delete', 'Tutor',comment.id)" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Hapus</a></p>
+                  </template>
+                  <template v-else>                    
+                        <p v-if="dataId === comment.writer.talent.id"><a @click="confirm('Delete', 'Talent',comment.id)" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Hapus</a></p>
+                  </template>
+                  </li>
+                  
+              </ul>
+              </template>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-success" :id="comment.id" v-show="comment.id == showId">
+          <div class="panel-body">
+            <textarea placeholder="Write your reply here!" class="pb-cmnt-textarea" v-model="balasan.content"></textarea>
+            <form class="form-inline">
+              <div v-show="!onComment">
+                <button v-if="role === 'Talent'" @click="sendReply(comment.id)" style="font-size: 11px;" class="btn btn-primary pull-right" type="button">Reply</button>
+                <button v-if="role === 'Personnel'" @click="sendReplyTutor(comment.id)" style="font-size: 11px;" class="btn btn-primary pull-right" type="button">Reply as Tutor</button>
+                <button style="margin-right: 11px;font-size: 11px;" @click="closeReply()" class="btn btn-primary pull-right" type="button">Close</button>
+              </div>
+              <onsub v-show="onComment"></onsub>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section>   
+    <section class="comment-list content" v-else>
+      No Comments Yet
+    </section>  
+    <!-- comments section  end-->
+    
+    <ondelete v-if="toconfirm" @close="toconfirm = false" v-bind:act="act" @confirmed="confirmed"></ondelete>
+    
+  </div>

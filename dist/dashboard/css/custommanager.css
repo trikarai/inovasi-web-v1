@@ -1,0 +1,208 @@
+/* button edit */
+
+a.logo:hover {
+    background: dimgrey !important;
+}
+
+@media (min-width: 768px)
+grid-framework.less:73
+.col-sm-offset-2 {
+    margin-left: 15.666667% !important;
+}
+
+a {
+	text-decoration: none !important;
+}
+
+.tomboledit {
+	border-right: 5px solid #737373 !important;
+    font-size: 10px !important;
+    background: #9a9a9a !important;
+	color: #fff !important;
+}
+
+.tomboledit:hover {
+	border-right: 5px solid #9a9a9a !important;
+    font-size: 10px !important;
+    background: #737373 !important;
+	color: #fff !important;
+}
+
+.tombolremove {
+	border-right: 5px solid #737373 !important;
+    font-size: 10px !important;
+    background: #9a9a9a !important;
+	color: #fff !important;
+}
+
+.tombolremove:hover {
+	border-right: 5px solid #9a9a9a !important;
+    font-size: 10px !important;
+    background: #737373 !important;
+	color: #fff !important;
+}
+
+.tomboladd {	
+    background-color: #009EE3;
+	color: #fff !important;
+	font-size:10px !important;
+}
+
+.tomboladd:hover {	
+    background-color: #52922b;
+	color: #fff !important;
+}
+
+.tombollogout {	
+/*    background-color: #009EE3;*/
+    background-color: #8bc751;
+	color: #fff !important;
+}
+
+.tombollogout:hover {	
+    background-color: #52922b;
+	color: #fff !important;
+}
+
+.tombolmodal {	
+    background-color: #009EE3;
+	color: #fff !important;
+}
+
+.tombolmodal:hover {	
+    background-color: #039fE3;
+	color: #fff !important;
+}
+
+.cancelstatus {
+	border-top: 3px solid #599237;
+    background-color: #009EE3;
+    display: inline-block;
+    padding: 5px;
+    color: #fff;
+    font-size: 12px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+	padding-left: 10px;
+    padding-right: 10px;
+}
+
+.appliedstatus {
+	border-top: 3px solid #009EE3;
+    background-color: #599237;
+    display: inline-block;
+    padding: 5px;
+    color: #fff;
+    font-size: 12px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+	padding-left: 10px;
+    padding-right: 10px;
+}
+
+button, html [type="button"], [type="reset"], [type="submit"] {
+    -webkit-appearance: inherit !important;
+}
+
+.alert-success {
+	border-color:#00a65a !important ;
+}
+
+.bg-bekup {
+	background-color: #009EE3 !important;
+}
+
+.info-box-team {
+	position: relative;
+    top: 27px;
+    color: #a2a2a2;
+    font-size: 18px;
+}
+
+.info-box:hover {
+	box-shadow: 0 2px 2px 0 rgba(45, 45, 45, 0.14), 0 3px 1px -2px rgba(43, 43, 43, 0.2), 0 1px 5px 0 rgba(49, 49, 49, 0.12);
+    transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.team-name {
+	font-weight: 900;
+    color: #009EE3;
+}
+
+.center-status {
+	background-color: #9a9a9a;
+    color: #fff;
+    margin: 0 auto;
+    display: inline-block;
+    position: relative;
+    left: 64%;
+    transform: translateX(-50%);
+}
+
+.center-status-team {
+	background-color: #d4d4d4;
+    color: #fff;
+    position: relative;
+    top: 20px;
+}
+
+.header-label {
+	background: #009EE3;
+    display: inline-block;
+    padding: 9px;
+    color: #fff;
+    padding-right: 14px;
+    border-top-right-radius: 20px;
+    border-left: 5px solid #629642 !important;
+}
+
+.edu {
+	padding:12px;
+}
+
+.edu:hover {
+    background: #f9f9f9;
+}
+
+.vision {
+	float: left;
+    margin-right: 10px;
+    height: 59px;
+    width: 59px;
+    color: #8c8c8c;
+    background-color: #e4e4e4;
+    border-radius: 10%;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 20px;
+    font-size: 21px;
+}
+
+.ateam {
+	float:left;
+	padding:10px;
+	margin:10px;
+	text-align:center;
+	width:30%;
+}
+
+.bteam {
+	text-transform:uppercase;text-transform: uppercase;
+	text-transform: uppercase;
+	background: #6f6f6f;
+	display: inline-block;
+	padding-top: 26px;
+	color: #fff;	
+	font-size: 20px;
+	margin-bottom: 10px;
+	width: 80px;
+	height: 80px;
+	text-align:center;
+}
+
+.cteam {
+	color: #b1b1b1;
+	font-size: 12px;
+	font-style: italic;
+	margin-bottom: 5px;
+}

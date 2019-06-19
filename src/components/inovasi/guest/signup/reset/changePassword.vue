@@ -1,0 +1,220 @@
+
+<script>
+import * as CONFIG from '@/app.config.js'
+import auth from '@/httpcontrol'
+import alertControl from '@/alertcontrol'
+import ErrorFlash from '@/components/inovasi/errorflash'
+import Loading from '@/components/loading'
+import OnDelete from '@/components/ondelete'
+
+export default {
+    template:require('./changePassword.html'),
+    components: {
+      'error-flash': ErrorFlash,
+      'loading': Loading
+    },
+    data: function () {
+      return {
+        data: '',
+        err_msg: '',
+        success: false,
+        error: false,
+        loading : false,
+        email: this.$route.query.email,
+        token: this.$route.query.token,
+        obj: {
+          password : ''
+        },
+        cpassword : ''
+      }
+    },
+    created: function () {
+    },
+    methods: {
+      submit: function (){
+        if(this.obj.password === '') {
+              this.$notify({
+                  group: 'passsignup',
+                  title: 'Empty Password',
+                  text: 'Password empty',
+                  type: 'warn'
+                });
+        }else if(this.obj.password.length < 8) {
+              this.$notify({
+                  group: 'passsignup',
+                  title: 'Password length',
+                  text: 'Passwords must be at least 8 characters long',
+                  type: 'warn'
+                });
+         }else if(this.obj.password !== this.cpassword) {
+              this.$notify({
+                  group: 'passsignup',
+                  title: 'Password ',
+                  text: 'password did not match',
+                  type: 'warn'
+                });
+         }else if(this.obj.password.search(/[a-zA-Z]/) === -1 || this.obj.password.search(/\d/) === -1) {
+              this.$notify({
+                  group: 'passsignup',
+                  title: 'Password',
+                  text: 'password must be alphanumeric, minimal 1 alphabet dan 1 numeric',
+                  type: 'warn'
+                });
+         }else{
+           this.changePassword()
+         }
+      },
+      changePassword: function (){
+        this.loading = true
+        auth.putData2(this, '/reset-password?email='+this.email+ '&token=' + this.token, this.obj)
+                .then(res => {
+                  console.log(res)
+                  this.success = true
+                  this.loading = false
+                }, error => {
+                  console.log(error)
+                  alertControl.showError(this, error.body.meta)
+                  this.loading = false
+                })
+      }
+    }      
+}
+
+</script>
+
+<style scoped>
+.mailpos {
+    position: absolute;
+    left: 23px;
+    top: 19px;
+    font-size: 38px;
+}
+.mailpos2 {
+    position: absolute;
+    left: 26px;
+    top: 20px;
+    font-size: 38px;
+}
+.alertinfo {
+    font-weight: 700;
+    letter-spacing: 5px;
+    font-size: 21px;
+}
+a {
+  color: #aaaaaa;
+  transition: all ease-in-out 200ms;
+}
+a:hover {
+  color: #333333;
+  text-decoration: none;
+}
+/*=== 4. Main Form ===*/
+.login-form-1 {
+  max-width: 300px;
+  border-radius: 5px;
+    margin: 0 auto;
+/*  display: inline-block;*/
+  width: 70%;
+}
+.main-login-form {
+  position: relative;
+}
+.login-form-1 .form-control {
+  border: 0;
+  box-shadow: 0 0 0;
+  border-radius: 0;
+  background: transparent;
+  color: #555555;
+  padding: 7px 0;
+  font-weight: bold;
+  height:auto;
+}
+.login-form-1 .form-control::-webkit-input-placeholder {
+  color: #999999;
+}
+.login-form-1 .form-control:-moz-placeholder,
+.login-form-1 .form-control::-moz-placeholder,
+.login-form-1 .form-control:-ms-input-placeholder {
+  color: #999999;
+}
+.login-form-1 .form-group {
+  margin-bottom: 0;
+  border-bottom: 2px solid #efefef;
+  padding-right: 20px;
+  position: relative;
+}
+.login-form-1 .form-group:last-child {
+  border-bottom: 0;
+}
+.login-group {
+  background: #ffffff;
+  color: #999999;
+  border-radius: 8px;
+  padding: 10px 20px;
+}
+.login-group-checkbox {
+  padding: 5px 0;
+}
+/*=== 5. Login Button ===*/
+.login-form-1 .login-button {
+  position: absolute;
+  right: -25px;
+  top: 50%;
+  background: #ffffff;
+  color: #999999;
+  padding: 11px 0;
+  width: 50px;
+  height: 50px;
+  margin-top: -25px;
+  border: 5px solid #efefef;
+  border-radius: 50%;
+  transition: all ease-in-out 500ms;
+}
+.login-form-1 .login-button:hover {
+  color: #555555;
+  transform: rotate(450deg);
+}
+.login-form-1 .login-button.clicked {
+  color: #555555;
+}
+.login-form-1 .login-button.clicked:hover {
+  transform: none;
+}
+.login-form-1 .login-button.clicked.success {
+  color: #2ecc71;
+}
+.login-form-1 .login-button.clicked.error {
+  color: #e74c3c;
+}
+/*=== 6. Form Invalid ===*/
+label.form-invalid {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 5;
+  display: block;
+  margin-top: -25px;
+  padding: 7px 9px;
+  background: #777777;
+  color: #ffffff;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 11px;
+}
+label.form-invalid:after {
+  top: 100%;
+  right: 10px;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: transparent;
+  border-top-color: #777777;
+  border-width: 6px;
+}
+    
+@import '/css/loginadmin.css';
+@import '/css/notif.css';
+</style>

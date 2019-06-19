@@ -1,0 +1,81 @@
+<div>
+
+  <loading v-show="loading"></loading>
+
+  <section class="content">
+
+    <error-flash v-bind:error="error" v-bind:success="success" v-bind:err_msg="err_msg"/>
+
+    <div class="box">
+      <div class="box-body">
+
+        <table class="table" v-if="data.list.length > 0 ">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Phase Plan</th>
+              <th>Start Period</th>
+              <th>End Period</th>
+              <th colspan="4"></th>   
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="data in data.list">
+              <td>{{data.name}}</td>
+              <td>{{data.phase_plan.name}}</td>
+              <td>{{data.start_period}}</td>
+              <td>{{data.end_period}}</td>
+              <td><router-link class="btn btn-primary" :to="'/tutor/'+ tutorId +'/programme/'+ programmeId +'/phase/'+ data.id+ '/scoring'"><i class="fa fa-envelope-o"></i> Scoring</router-link></td>
+              <td><router-link class="btn btn-primary" :to="'/tutor/'+ tutorId +'/programme/'+ programmeId +'/phase/'+ data.id+ '/score'"><i class="fa fa-asterisk"></i> Score</router-link></td>
+              
+          </tr>
+          </tbody>
+        </table>
+        <div v-else>
+          No Phase Yet
+        </div>
+
+      </div>  
+    </div>  
+    
+    <!--summary section-->
+    
+    <div class="box" v-if="showSummarySection">
+      <div class="box-body">
+        
+        <a class="btn btn-warning btn-sm" @click="showSummarySection = false"><i class="fa fa-close"></i> Close </a>
+        
+        <table class="table" v-if="summaryData.length > 0 ">
+          <thead>
+            <tr>
+              <th>Team Name</th>
+              <th>Status</th>
+              <th>Current Phase</th>
+              <th>Phase Plan</th>
+              <th>Score Recap</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="data in summaryData">
+              <td>{{data.participant.team.name}}</td>
+              <td>{{data.participant.status}}</td>
+              <td>{{data.participant.current_phase.name}}</td>
+              <td>{{data.participant.current_phase.phase_plan.name}}</td>
+              <td>{{data.score_recap}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div v-else>
+          No Recap Yet...
+        </div>
+        <!--{{summaryData}}-->
+      </div>  
+    </div>
+    
+    <!--end summary section-->
+
+  </section>
+
+  
+</div>

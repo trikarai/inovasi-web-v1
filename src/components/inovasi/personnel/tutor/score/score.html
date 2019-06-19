@@ -1,0 +1,54 @@
+<div>
+
+  <loading v-show="loading"></loading>
+
+  <section class="content">
+
+    <error-flash v-bind:error="error" v-bind:success="success" v-bind:err_msg="err_msg"/>
+
+    <!--<a class="btn btn-default" @click="addScore"><span class="glyphicon glyphicon-plus-sign"></span> Add New Score</a>-->
+    
+    <div class="box">
+      <div class="box-body">
+
+        <table class="table" v-if="data.list.length > 0 ">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Template</th>
+              <th>Participant</th>
+              <th>Scoring Time</th>
+              <th colspan="2"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="data in data.list">
+              <td>{{data.scoring.name}}</td>
+              <td>{{data.scoring.scoring_template.name}}</td>
+              <td>{{data.participant.team.name}}</td>
+              <td>{{data.scoring_time}}</td>
+              <td>
+                <template v-if="data.value.length > 0">
+                  <a class="btn btn-info btn-sm" @click="viewScore(data.value)"><span class="glyphicon glyphicon-eye-open"></span> View</a>
+                </template>
+                <template v-else>
+                  <a class="btn btn-default btn-sm" @click="addScore(data.scoring.scoring_template.id, data.participant.id, data.scoring.id)"><span class="glyphicon glyphicon-plus"></span> Add Score</a>
+                </template>  
+              </td>    
+              <td><a class="btn btn-danger btn-sm" @click="deleteScore(data.id)"><span class="glyphicon glyphicon-trash"></span> Remove</a></td>    
+          </tr>
+          </tbody>
+        </table>
+        <div v-else>
+          No Scoring Yet...
+        </div>
+
+      </div>  
+    </div>  
+
+  </section>
+
+  <score v-bind:summary="scoreDetail" v-if="showDetail" @close="showDetail = false"></score>
+  <scoref v-bind:phaseid="phaseId" v-bind:programmeid="programmeId" v-bind:participantid="participantId" v-bind:scoringid="scoringId" v-bind:tutorid="tutorId" v-bind:sessionid="sessionId" v-bind:formid="formId" v-if="showForm" @close="showForm = false" @closemodal="closeModalRefresh"></scoref>
+  
+</div>

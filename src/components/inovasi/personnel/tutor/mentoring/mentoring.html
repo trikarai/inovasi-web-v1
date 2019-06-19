@@ -1,0 +1,108 @@
+<div>
+
+  <loading v-show="loading"></loading>
+
+  <section class="content">
+
+    <error-flash v-bind:error="error" v-bind:success="success" v-bind:err_msg="err_msg"/>
+
+    <div class="box">
+      <div class="box-body">
+
+        <table class="table table-hover" v-if="data.list.length > 0 ">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Participant</th>
+              <th style="min-width: 149px;">Schedule</th>
+<!--              <th>End Time</th>-->
+              <th>Media</th>
+              <th>Rating</th>
+              <th>Status</th>
+              <th colspan="4"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(data, index) in data.list">
+              <td>{{data.mentoring.name}}</td>
+              <td>{{data.participant.team.name}}</td>
+              <td><span style="color: #8bc751;font-weight: 600">{{data.start_time | moment("dddd")}}</span><br>
+                <span style="color: #adadad">{{data.start_time | moment("Do MMM YYYY")}}</span><br>
+                <span style="color: #adadad"><b>{{data.start_time | moment("h:mm a")}} - {{data.end_time | moment("h:mm a")}}</b></span></td>
+<!--
+              <td><span style="color: #8bc751;font-weight: 600">{{data.end_time | moment("dddd")}}</span><br>
+                <span style="color: #adadad">{{data.end_time | moment("h:mm a")}}</span></td>
+-->
+              <td>
+
+                <b>{{extractMedia[index]}}</b> <br>  
+                  <div class="schedulem">{{extractMedia2[index]}}</div> 
+              </td>
+              <td>
+                <b>{{data.rating_from_participant}}</b> <img class="setar" v-if="data.rating_from_participant != null" src="/img/star_on.png">
+              </td>
+              <td>
+              <template v-if="data.participant.status != 'graduated'"> 
+                <span class="statustpm" v-show="data.status == 'approved'">{{data.status}}</span>
+                <span class="statusproposed" v-show="data.status == 'proposed'">{{data.status}}</span>
+                <span class="statusproposed" v-show="data.status == 'offered'">{{data.status}}</span>
+                <span class="statuscanceled" v-show="data.status == 'cancelled'">{{data.status}}</span>
+                <span class="statuscanceled" v-show="data.status == 'rejected'">
+                  {{data.status}}
+                </span>
+                <span v-show="data.status == 'rejected'">
+                  <br>{{data.note}}
+                </span>
+              </template> 
+              <template v-else>
+                  <span class="statusgraduated">{{data.participant.status}}</span>
+              </template>
+              </td> 
+<!--
+              <td>
+                <template v-if="data.status == 'approved'">
+                  <template v-if="data.tutor_summary.length > 0">
+                    <a @click="viewSummary(data.tutor_summary)" class="btn btn-default btn-sm"><i class="fa fa-tasks"></i> View Summary</a>
+                  </template>
+                  <template v-else>
+                    <a @click="addSummary(data.mentoring.tutor_summary_form.id, data.id)" class="btn btn-default btn-sm"><i class="fa fa-plus"></i> Add Summary</a>
+                  </template>
+                </template>
+              </td>
+-->
+          <template v-if="data.participant.status != 'graduated'">
+              <template v-if="data.status == 'approved'">
+                  <td>
+                  <template v-if="data.tutor_summary.length > 0">
+                    <a @click="viewSummary(data.tutor_summary)" class="btn btn-default btn-sm"><i class="fa fa-tasks"></i> View Summary</a>
+                  </template>
+                  <template v-else>
+                    <a @click="addSummary(data.mentoring.tutor_summary_form.id, data.id)" class="btn btn-default btn-sm"><i class="fa fa-plus"></i> Add Summary</a>
+                  </template>
+                  </td>
+                </template>
+              <template v-if="data.status == 'proposed'">
+                <td><a @click="approve(data.id)" class="btn btn-primary btn-sm"><i class="fa fa-check"></i> Approve</a></td>    
+                <td><a @click="reject(data.id)" class="btn btn-danger btn-sm"><i class="fa fa-close"></i> Reject</a></td>    
+                <td><a @click="offer(data.id, data.start_time, extractMedia[index], extractMedia2[index])" class="btn btn-warning btn-sm"><i class="fa fa-handshake-o"></i> Offer</a></td>
+              </template>
+         </template>
+        </tr>
+          </tbody>
+        </table>
+        <div v-else>
+          No Mentoring Session Yet...
+        </div>
+
+      </div>  
+    </div>  
+
+  </section>
+  
+  <offer :time="time" :datatype="type" :datafreetext="freetext" v-bind:tutorid="tutorId" v-bind:sessionid="sessionId" v-if="showForm" @close="showForm = false" @closemodal="closeModalRefresh"></offer>
+  <reject v-bind:tutorid="tutorId" v-bind:sessionid="sessionId" v-if="showRejectForm" @close="showRejectForm = false" @closemodal="closeModalRefresh"></reject>
+  
+  <summaryd v-bind:summary="summary" v-bind:tutorid="tutorId" v-bind:sessionid="sessionId" v-if="showSummary" @close="showSummary = false" @closeModalRefresh="closeModalRefresh"></summaryd>
+  <summaryf v-bind:formid="formId" v-bind:tutorid="tutorId" v-bind:sessionid="sessionId" v-if="showSummaryForm" @close="showSummaryForm = false" @closeModalRefresh="closeModalRefresh"></summaryf>
+
+</div>

@@ -1,0 +1,109 @@
+<div style="margin-top:65px"> 
+  <div class="container">
+    
+    <notifications group="unsignup" position="top center" />
+    <notifications group="passsignup" position="top center" />
+    <notifications group="nsignup" position="top center" />
+    <notifications group="psignup" position="top center" />
+    <notifications group="emsignup" position="top center" />
+    <notifications group="cofsignup" position="top center" />
+    <notifications group="bdsignup" position="top center" />
+    <notifications group="gsignup" position="top center" />
+    <notifications group="risignup" position="top center" />
+      
+    <error-flash v-bind:error="error" v-bind:success="success" v-bind:err_msg="err_msg"/>
+              
+    
+    <div style="margin-bottom:20px" class="errorssu" v-if="errors.length">
+      <b>Please correct the following error(s):</b>
+    <ul>
+      <li v-for="error in errors">{{ error }}</li>
+    </ul>
+    </div>
+
+    <div class="card">
+        <h1 class="title">Sign Up</h1>
+        <div class="input-container">
+          <input type="text" v-model="signup.username" required="required">
+          <label><i style="color:#96cc62" class="fa fa-user-circle"></i> Username</label>
+          <div class="bar"></div>
+        </div>
+
+
+        <div class="input-container">
+          <input type="password" v-model="signup.password " required="required">
+          <label><i style="color:#96cc62" class="fa fa-key"></i> Password</label>
+          <div class="bar"></div>
+        </div>
+
+        <div class="input-container">
+          <input type="password" v-model="signup.cpassword " required="required">
+          <label><i style="color:#96cc62" class="fa fa-key"></i> Confirm Password</label>
+          <div class="bar"></div>
+        </div>
+
+        <div class="input-container">
+            <label style="line-height: 5px;">Region</label>
+          <select style="margin-top: 20px;width: 100%;padding: 8px;border-color: #e0e0e0;" v-model="signup.region_id"> 
+            <option disabled value="">Select Region</option>
+            <option v-for="region in data" :value="region.id">{{region.name}}</option>
+          </select>
+
+          
+        </div>
+
+        <div class="input-container">
+          <input type="text" v-model="signup.name" required="required">
+          <label><i style="color:#96cc62" class="fa fa-user"></i> Name</label>
+          <div class="bar"></div>
+        </div>
+
+        <div class="input-container">
+          <input type="text" v-model="signup.email" required="required">
+          <label><i style="color:#96cc62" class="fa fa-envelope"></i> Email</label>
+          <div class="bar"></div>
+        </div>
+
+        <div class="input-container">
+          <input type="text" v-model="signup.phone" required="required">
+          <label><i style="color:#96cc62" class="fa fa-phone"></i> Phone</label>
+          <div class="bar"></div>
+        </div>
+        <div class="input-container">
+          <input type="text" v-model="signup.city_of_origin" required="required">
+          <label><i style="color:#96cc62" class="fa fa-building"></i> City of Origin</label>
+          <div class="bar"></div>
+        </div>
+        
+        <div class="input-container">
+          <label style="line-height: 0px;"><i style="color:#96cc62" class="fa fa-birthday-cake"></i> Birthdate</label>
+          <input style="margin-top:20px" type="date" v-model="signup.birthdate" required="required">
+          
+        </div>
+        <div class="input-container">
+          <label style="line-height: 0px"><i style="color:#96cc62" class="fa fa-transgender"></i> Gender</label>
+          
+          <select style="margin: 0 0 0 0;margin-top: 35px;width: 100%;padding: 8px;border-color: #e0e0e0;" class="input-container" v-model="signup.gender">
+            <option disabled value="">Select Gender</option>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+          </select>
+
+          
+        </div>
+
+        <div class="button-container">
+          <button @click="submit"><span>Sign Up</span></button> 
+        </div>
+    </div>    
+    
+     <div style="margin-top:20px" class="errorssu" v-if="errors.length">
+      <b>Please correct the following error(s):</b>
+        <ul>
+          <li v-for="error in errors">{{ error }}</li>
+        </ul>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,89 @@
+<div>
+  <loading v-show="loading"></loading>
+  <section class="content">
+    <notifications group="emsignup" position="top center" />
+
+    <error-flash v-bind:error="error" v-bind:success="success" v-bind:err_msg="err_msg"/>
+    
+    <div class="box">
+      <div class="box-header">
+        
+        <!--start breadcrumb-->    
+          <nav aria-label="breadcrumb" class="remahroti">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><router-link v-bind:to="'/talent/dashboard'">Dashboard</router-link></li>
+              <li class="breadcrumb-item"><router-link v-bind:to="'/talent/team/membership'">Tim</router-link></li>
+              <li class="breadcrumb-item"><a @click="$router.go(-1)" style="cursor: pointer">Kelola Tim</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Mencari Peserta</li>
+            </ol>
+          </nav>
+          <!--end breadcrumb-->      
+         
+      </div>
+      
+      
+      <div class="box-body container-fluid">
+        <div class="row container-fluid">
+            <label><i class="fa fa-search" style="color:grey"></i> Cari Peserta Baru dengan Email</label>  
+              <input v-model="search" class="form-control" style="width: 350px !important;" placeholder="Email Calon Peserta Baru, contoh: talent@mail.com"> 
+            <br>
+            <button :disabled="onsub" @click="submit()" style="margin-bottom: 20px" class="btn btn-info btn-sm">
+              Cari
+            </button>  
+        </div>
+          
+        <div class="col-md-6" id="talent info" v-if="data.total !=0" style="padding: 30px;padding: 30px;background: #f4f3ef;-webkit-box-shadow: 0px 0px 5px -1px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 5px -1px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 5px -1px rgba(0,0,0,0.75);border-radius: 5px">
+          <div>
+              <div class="row" style="padding: 5px">
+                  <div class="col-md-3"><b>Name  </b></div>
+                  <div class="col-md-4">{{data.name}}</div>
+              </div>
+              <div class="row" style="padding: 5px">
+                  <div class="col-md-3"><b>Email </b></div>
+                  <div class="col-md-4">{{data.email}}</div>
+              </div>
+              <div class="row" style="padding: 5px">
+                  <div class="col-md-3"><b>Phone </b></div>
+                  <div class="col-md-4">{{data.phone}}</div>
+              </div>
+              <div class="row" style="padding: 5px">
+                  <div class="col-md-3"><b>Birthdate </b></div>
+                  <div class="col-md-4">{{data.birth_date}}</div>
+              </div>
+              <div class="row" style="padding: 5px">
+                  <div class="col-md-3"><b>Gender </b></div>
+                  <div class="col-md-4">{{data.gender}}</div>
+              </div>
+              <div class="row" style="padding: 5px">
+                  <div class="col-md-3"><b>City of origin </b></div>
+                  <div class="col-md-4">{{data.city_of_origin}}</div>
+              </div>
+              <div class="row" style="padding: 5px">
+                  <div class="col-md-3"><b>Region </b></div>
+                  <div class="col-md-4">{{data.region.name}}</div>
+              </div>
+          </div>
+
+          
+          <button class="btn btn-warning btn-sm" @click="inviteTalent(data)" style="margin-top: 10px;float:right"> Invite to team</button>
+
+          
+        </div>  
+        <div v-else>
+          <onsub v-if="onsub"></onsub>
+          <i v-if="!onsub" class="fa fa-user-times"></i>
+        </div>
+        
+     </div>
+          
+    </div>
+    
+  </section>  
+  
+  <invite-form v-bind:data="dataTalent" v-bind:team_id="team_id" v-if="showForm" @close="showForm = false" @closemodal="closeModalRefresh()"></invite-form>
+  <profile v-bind:data="dataTalent" v-if="showProfile" @close="showProfile = false"></profile>
+  
+
+</div>  
