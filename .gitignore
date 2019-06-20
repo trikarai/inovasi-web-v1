@@ -79,3 +79,4 @@ typings/
 .settings
 .dist
 nbproject
+.vscode/settings.json
