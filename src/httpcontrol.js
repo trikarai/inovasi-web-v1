@@ -2,7 +2,7 @@ import * as CONFIG from '@/app.config.js'
 import alertControl from '@/alertcontrol'
 
 export default {
-  // The object to be passed as a header for authenticated requests
+  // The object to be passed as a header for authenticated requests ok aku ganteng maenya sih 
   getAuthHeader() {
     const tokenData = window.localStorage.getItem('access_token')
     const headers = {
@@ -200,3 +200,4 @@ export default {
     return data;
   }
 }
+
