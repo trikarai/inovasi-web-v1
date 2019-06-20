@@ -4,7 +4,7 @@ import Hello from '@/components/Hello';
 import index from '../components/index.vue';
 import PageNotFound from '@/components/404.vue';
 
-//Inovasi Dashboard
+//Inovasi Dashboard2
 import adminDashboard from '@/components/dashboard/admin/admin';
 import personnelDash from '@/components/dashboard/personnel/admin';
 import personnelDashboard from '@/components/dashboard/personnel/dashboard';
