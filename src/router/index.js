@@ -60,6 +60,7 @@ import TeamProgrammeParticipationWorkshopSession from '@/components/inovasi/team
 import TeamIdea from '@/components/inovasi/team/member/idea/showall'
 import TeamCustomerSegment from '@/components/inovasi/team/member/idea/customersegment/showall'
 import TeamPersona from '@/components/inovasi/team/member/idea/persona/showall'
+import TeamEmpathyMap from '@/components/inovasi/team/member/idea/valueproposition/empathymap'
 import TeamValueProposition from '@/components/inovasi/team/member/idea/valueproposition/showall'
 import TeamCompetitor from '@/components/inovasi/team/member/idea/valueproposition/competitor/showall'
 import TeamBusinessStructure from '@/components/inovasi/team/member/idea/valueproposition/businessstructure/showall'
@@ -544,6 +545,11 @@ const routes = [
           name: 'Tipe Pengguna',
           path: '/team/:teamId/idea/:ideaId/cs/:customersegmentId/persona',
           component: TeamPersona
+        },
+        {
+          name: 'Empathy Map',
+          path: '/team/:teamId/idea/:ideaId/cs/:customersegmentId/persona/:personaId',
+          component: TeamEmpathyMap
         },
         {
           name: 'Segmen Pelanggan',

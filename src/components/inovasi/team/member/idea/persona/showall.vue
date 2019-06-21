@@ -70,12 +70,12 @@
                     </template> 
 -->
                   <template v-if="role === 'Talent'">
-                    <router-link class="btn btn-default tambahan" v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + data.id + '/vp'"><i class="fa fa-search"></i></router-link>
+                    <router-link class="btn btn-default tambahan" v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + data.id"><i class="fa fa-search"></i></router-link>
 <!--                    <a class="btn btn-default tambahan" @click="updatePersona(data)"><i class="fa fa-pencil-square"></i></a>-->
                     <a class="btn btn-danger tambahan" @click="confirm('Delete', data.id)"><i class="fa fa-trash"></i></a>
                   </template> 
                   <template v-else>
-                    <router-link class="btn btn-default tambahan" v-bind:to="'/tutor/'+tutorId+'/participant/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + data.id + '/vp'"><i class="fa fa-search"></i></router-link>
+                    <router-link class="btn btn-default tambahan" v-bind:to="'/tutor/'+tutorId+'/participant/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + data.id"><i class="fa fa-search"></i></router-link>
                   </template> 
                   </li>
                 </ul>

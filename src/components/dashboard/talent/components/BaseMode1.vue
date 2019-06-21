@@ -357,8 +357,10 @@
               </a>
 
               <div class="judulbunder" style="margin-left: 30px;">
+                <template v-if="teamId != ''">
                 <button
-                  v-if="teamId != ''"
+                  
+                  :class="{isHidden: dataIdea.total > 0}"
                   id="popover4"
                   class="btn btn-sm btn-default"
                   data-placement="right"
@@ -366,6 +368,8 @@
                   data-original-title="Tuliskan Ide Kalian"
                 >Ide
                 </button>
+                    
+                </template>
                 <button v-else disabled class="btn btn-sm btn-default">Ide</button>
                 <template v-if="dataIdea.total > 0">
                   <br>
@@ -378,20 +382,22 @@
                     >{{idea.name}}</option>
                   </select>
                   <br>
-                  <router-link
-                    class="btn btn-sm btn-default"
-                    style="margin-top: 3px"
-                    v-bind:to="'/team/'+teamId+'/idea/'+ideaId+ '/cs'"
-                  >
-                    <i class="fa fa-eye"></i>
-                  </router-link>
-                  <router-link
-                    v-bind:to="'/team/'+teamId+'/idea'"
-                    class="btn btn-sm btn-primary"
-                    style="margin-top: 3px"
-                  >
-                    <i class="fa fa-plus"></i>
-                  </router-link>
+                  <template v-if="dataIdea.total > 1">
+                    <router-link
+                      class="btn btn-sm btn-default"
+                      style="margin-top: 3px"
+                      v-bind:to="'/team/'+teamId+'/idea/'+ideaId+ '/cs'"
+                    >
+                      <i class="fa fa-eye"></i>
+                    </router-link>
+                    <router-link
+                      v-bind:to="'/team/'+teamId+'/idea'"
+                      class="btn btn-sm btn-primary"
+                      style="margin-top: 3px"
+                    >
+                      <i class="fa fa-plus"></i>
+                    </router-link>
+                  </template>
                 </template>
                 <template v-else>
                   <br>
@@ -1520,5 +1526,8 @@ export default {
   font-size: 11px;
   padding: 2px;
   margin-left: 23px;
+}
+.isHidden {
+  visibility: hidden;
 }
 </style>  

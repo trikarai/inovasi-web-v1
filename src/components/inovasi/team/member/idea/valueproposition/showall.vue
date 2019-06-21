@@ -20,6 +20,7 @@
               <li class="breadcrumb-item"><router-link v-bind:to="'/talent/team/membership'">Tim</router-link></li>
               <li class="breadcrumb-item"><router-link v-bind:to="'/team/'+teamId+'/idea/'+ideaId+'/cs'">Ide</router-link></li>
               <li class="breadcrumb-item"><router-link v-bind:to="'/team/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona'">Tipe Pengguna</router-link></li>
+              <li class="breadcrumb-item"><router-link v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId">Empathy Map</router-link></li>
               <li class="breadcrumb-item active" aria-current="page">Segmen Pelanggan</li>
             </ol>
           </nav>
@@ -28,6 +29,7 @@
               <li class="breadcrumb-item"><router-link v-bind:to="'/personnel/dashboard'">Beranda</router-link></li>
               <li class="breadcrumb-item"><router-link v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs'">Ide</router-link></li>
               <li class="breadcrumb-item"><router-link v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona'">Tipe Pengguna</router-link></li>
+              <li class="breadcrumb-item"><router-link v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId">Empathy Map</router-link></li>
               <li class="breadcrumb-item active" aria-current="page">Segmen Pelanggan</li>
             </ol>
           </nav> 
@@ -42,33 +44,50 @@
                 
               <div class="list-group">    
                   <div class="list-group-item"> 
-                    <label style="margin-top: 12px">Nama Persona</label>
+                    <label style="margin-top: 12px">Nama Tipe Pengguna</label>
                  
-                    <div class="brdleft">{{dataParent.name}}
+                    <div class="brdleft">{{dataParent.name}}<br>
+                    <div class="linkli__url" style="color: #949494">{{dataParent.description}}</div>
                      <!--<a style="float:right" class="btn btn-default" @click=""><i class="fa fa-pencil-square"></i> </a>-->
                     </div>
-                  </div>
-                  <div class="list-group-item">
-                      <label>Note</label>
-                      <div class="linkli__url"> {{dataParent.description}}</div>
                   </div>
     <!--
                   <label class="label label-primary">Created Time</label>
                   <div class="linkli__url"> {{dataParent.created_time}}</div>
     -->
-                  <template v-for="aspect in dataParent.aspect">
-                    <div class="list-group-item">
-                        <label>{{aspect.field_template.name}}</label>
-                        <div class="linkli__url"><span v-html="aspect.value"></span></div>
+                  <div class="list-group-item">
+                    <template v-for="aspect in dataParent.aspect.slice(0,4)">
+                      
+                          <label>{{aspect.field_template.name}}</label>
+                          <div class="linkli__url"><span v-html="aspect.value"></span></div> 
+                    </template>
+                  </div>
+                  <div class="list-group-item">
+                    <template v-for="aspect in dataParent.aspect.slice(4,7)">                  
+                          <label>{{aspect.field_template.name}}</label>
+                          <div class="linkli__url"><span v-html="aspect.value"></span></div> 
+                    </template>
+                  </div>
+                  <div class="list-group-item" style="text-align: center;">
+                    <a data-toggle="collapse" href="#collapse1"><b>Empathy Map</b></a>
+                  </div>
+                  <div class="list-group-item" style="background: #f7f7f7;">
+                  <div id="collapse1" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <template v-for="aspect in dataParent.aspect.slice(7,11)">                 
+                          <label>{{aspect.field_template.name}}</label>
+                          <div class="linkli__url"><span v-html="aspect.value"></span></div> 
+                      </template>
                     </div>
-                  </template>
+                  </div>
+                  </div>
               </div>
             </div>
 
 
             <div class="col-md-6">
               <h3 class="tabcs"><b>Value Proposition</b></h3>
-            <div class="rightsection" v-if="data.total > 0">
+            <div class="rightsection" v-if="data.total > 0" style="margin-top: 15px !important;">
               <table class="table table-hover table-striped">
                 <thead>
                   <tr>
