@@ -216,7 +216,7 @@
                   <i class="fa fa-info-circle"></i> Klik disini apabila kamu ingin mempelajari tentang  BMC
                 </button>
                 <br>
-                <h4 style="padding: 20px">No Data Add from template</h4>
+                <h4 style="padding: 20px">Tidak ada data, Mohon untuk mengisi data BMC</h4>
                 <br>
                 <template
                   v-for="data in dataTemplate.list"
@@ -226,7 +226,7 @@
                     v-if="role === 'Talent'"
                     class="btn btn-default"
                     @click="addBS(data.id)"
-                  >Add {{data.name}}</a>
+                  ><i class="fa fa-plus"></i> {{data.name}}</a>
                   <hr>
                 </template>
               </div>
@@ -354,14 +354,14 @@
                   <i class="fa fa-info-circle"></i> Klik disini apabila kamu ingin mempelajari tentang  Lean Canvas
                 </button>
                 <br>
-                <h4 style="padding: 20px">No Data Add from template</h4>
+                <h4 style="padding: 20px">Tidak ada data, Mohon untuk mengisi data Lean Canvas</h4>
                 <hr>
                 <template v-for="data in dataTemplate.list" v-if="data.name === 'Lean Canvas'">
                   <a
                     v-if="role === 'Talent'"
                     class="btn btn-default"
                     @click="addBS(data.id)"
-                  >Add {{data.name}}</a>
+                  ><i class="fa fa-plus"></i> Tambah {{data.name}}</a>
                 </template>
               </div>
               <!--Lean Canvas End-->
@@ -557,14 +557,14 @@
                   <i class="fa fa-info-circle"></i> Klik disini apabila kamu ingin mempelajari tentang  Market Size
                 </button>
                 <br>
-                <h4 style="padding: 20px">No Data Add from template</h4>
+                <h4 style="padding: 20px">Tidak ada data, Mohon untuk mengisi data Market Size</h4>
                 <hr>
                 <template v-for="data in dataTemplate.list" v-if="data.name === 'Market Size'">
                   <a
                     v-if="role === 'Talent'"
                     class="btn btn-default"
                     @click="addBS(data.id)"
-                  >Add {{data.name}}</a>
+                  ><i class="fa fa-plus"></i> Tambah {{data.name}}</a>
                 </template>
               </div>
               <!--end ms -->
@@ -729,14 +729,14 @@
                     <!--<button @click="openCommentsVP(dataVP.id)" class="btn btn-default" type="button"><i class="fa fa-refresh"></i> Munculkan Komentar</button>-->
                   </div>
                   <div class="box-body" v-else>
-                    No Solution Yet
+                    Tidak ada data, Mohon untuk mengisi data Solution
                     <hr>
                     <template v-for="data in dataTemplate.list" v-if="data.name === 'Solution'">
                       <a
                         v-if="role === 'Talent'"
                         class="btn btn-default"
                         @click="addBS(data.id)"
-                      >Add {{data.name}}</a>
+                      ><i class="fa fa-plus"></i> Tambah {{data.name}}</a>
                     </template>
                   </div>
                 </div>
@@ -896,14 +896,14 @@
                   <i class="fa fa-info-circle"></i> Klik disini apabila kamu ingin mempelajari tentang  Market Analysis
                 </button>
                 <br>
-                <h4 style="padding: 20px">No Data Add from template</h4>
+                <h4 style="padding: 20px">Tidak ada data, Mohon untuk mengisi data Market Analysis</h4>
                 <hr>
                 <template v-for="data in dataTemplate.list" v-if="data.name === 'Market Analysis'">
                   <a
                     v-if="role === 'Talent'"
                     class="btn btn-default"
                     @click="addBS(data.id)"
-                  >Add {{data.name}}</a>
+                  ><i class="fa fa-plus"></i> Tambah {{data.name}}</a>
                 </template>
               </div>
               <div class v-if="openMA">
@@ -982,7 +982,7 @@
                   <i class="fa fa-info-circle"></i> Klik disini apabila kamu ingin mempelajari tentang  SWOT
                 </button>
                 <br>
-                <h4 style="padding: 20px">No Data Add from template</h4>
+                <h4 style="padding: 20px">Tidak ada data, Mohon untuk mengisi data SWOT</h4>
                 <hr>
                 <template v-for="data in dataTemplate.list" v-if="data.name === 'SWOT Analysis'">
                   <a
@@ -1990,7 +1990,7 @@ td {
   float: right;
 }
 #tblleancanvas td strong {
-    background: #e4e4e4;
+    background: #efefef;
     color: #505050;
     display: block;
     padding: 5px;
@@ -2011,7 +2011,7 @@ td {
   float: right;
 }
 #tblbmc td strong {
-    background: #e4e4e4;
+    background: #efefef;
     color: #505050;
     display: block;
     padding: 5px;
@@ -2035,7 +2035,7 @@ td {
 }
 
 .tblvp td b{
-    background: #e4e4e4;
+    background: #efefef;
     color: #505050;
     display: block;
     padding: 5px;
@@ -2055,7 +2055,7 @@ td {
   text-align: center;
 }
 .mscolor {
-  background: #e4e4e4;
+  background: #efefef;
   color: #505050;
 }
 </style>
