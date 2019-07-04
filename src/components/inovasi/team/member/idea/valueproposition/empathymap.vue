@@ -37,7 +37,8 @@
             <div style="padding-bottom: 30px;white-space: pre-line" class="col-md-12">
               <h3 class="tabcs"><b>Segmen Pelanggan</b>
                 <button v-if="role === 'Talent'" @click="editPersona(dataParent)" class="btn btn-default btn-sm"><i class="fa fa-edit"></i></button>
-                <router-link class="tmblvpkanan" style="float: right;cursor: pointer;"  v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/'"><i class="fa fa-chevron-right pnhkanan"></i></router-link> 
+                <router-link v-if="role === 'Talent'" class="tmblvpkanan" style="float: right;cursor: pointer;"  v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/'"><i class="fa fa-chevron-right pnhkanan"></i></router-link> 
+                <router-link v-else class="tmblvpkanan" style="float: right;cursor: pointer;"  v-bind:to="'/tutor/' + tutorId + '/participant/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/'"><i class="fa fa-chevron-right pnhkanan"></i></router-link> 
                 <span class="tombvpnext">Value Proposition</span>              
               </h3>
 
