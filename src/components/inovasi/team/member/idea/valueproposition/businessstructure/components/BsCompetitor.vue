@@ -253,7 +253,7 @@ table th{
   z-index: 100;
 } */
 .mscolor {
-  background: #e4e4e4;
+  background: #efefef;
   color: #505050;
 }
 </style>
