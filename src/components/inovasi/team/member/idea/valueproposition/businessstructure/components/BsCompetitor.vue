@@ -2,6 +2,10 @@
   <div>
           <error-flash v-bind:error="error" v-bind:success="success" v-bind:err_msg="err_msg"/>
     <div style="margin-bottom: 20px;">
+       <button class="btn btn-info" @click="learningC" style="    border-radius: 5px;padding: 2px 8px;margin-top: 20px;margin-left: 20px;">
+        <i class="fa fa-info-circle"></i> Klik disini apabila kamu ingin mempelajari tentang Kompetitor
+      </button>
+      
       <a
         style="margin:20px 0px 0px 0px"
         v-if="role === 'Talent'"
@@ -10,11 +14,6 @@
       >
         <span class="glyphicon glyphicon-plus-sign"></span> Tambah Kompetitor Baru
       </a>
-      
-      <button class="btn btn-info" @click="learningC" style="    border-radius: 5px;padding: 2px 8px;margin-top: 20px;margin-left: 20px;">
-        <i class="fa fa-info-circle"></i> Klik disini apabila kamu ingin mempelajari tentang Kompetitor
-      </button>
-      
     </div>
 
     

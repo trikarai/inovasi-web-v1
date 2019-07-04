@@ -12,12 +12,7 @@
           accept="image/*"
           v-on:change="fileChange($event.target.files)"
         >
-        <a @click="uploadFile" class="button btn-sm btn-danger">
-          <i class="fa fa-upload" style="margin-top:15px"></i>
-        </a>
-        <small>
-          <em>*make sure to upload image first before submit the form</em>
-        </small>
+        
       </div>
     </div>
     <div class="row" v-if="preview">
@@ -26,6 +21,12 @@
       </div>
       <div class="col-md-6">
         <img id="uploadPreview" style="width: 100px; height: 100px;"><br>
+        <a @click="uploadFile" class="button btn-sm btn-danger">
+          <i class="fa fa-upload" style="margin-top:15px"></i>
+        </a>
+        <small>
+          <em>*make sure to upload image first before submit the form</em>
+        </small>
         <template v-if="progressShow">
         <progress :value="progressCount" max="100"></progress> {{progressCount}} % </template>
       </div>

@@ -63,7 +63,7 @@
               <div class="row">
                   <h2 class="brdleft" style="margin-top: 10px">
                     <div class="row">        
-                        <div class="col-md-10">{{parentData.name}}</div>
+                        <div class="col-md-10" style="margin-top: 4px;">{{parentData.name}}</div>
                         <div class="col-md-2"><a v-if="role === 'Talent'" style="float:right" class="btn btn-default" @click="updateParent(parentData.id)"><i class="fa fa-pencil-square"></i> </a></div>
                     </div>
                   </h2>

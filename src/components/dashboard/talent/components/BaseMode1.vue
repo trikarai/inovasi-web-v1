@@ -12,16 +12,16 @@
               <a 
                 class="bunder"
                 href="javascript:void(0);"
-                id="popover1"
+                
                 data-trigger="focus"
                 data-toggle="popover1"
                 data-placement="bottom"
                 data-title="Lengkapi Profilmu"
                 data-html="true">
-                Profil
+                Langkah <b>1</b>
               </a>
               <div class="judulbunder" style="margin-left: 22px">
-                <!-- <button
+                <button
                   id="popover1"
                   class="btn btn-sm btn-default"
                   data-trigger="focus"
@@ -29,7 +29,7 @@
                   data-placement="right"
                   data-title="Lengkapi Profilmu"
                   data-html="true"
-                >Profil</button> -->
+                >Profil</button>
 
                 <div id="popper-content1" class="hide popper-content">
                   <p>Investor, Mentor, dan Inkubator sangat menganggap penting profil pendiri Startup, oleh karena itu isi secara lengkap dan akurat.</p>
@@ -95,24 +95,24 @@
               <a v-if="teamId != ''"
                   class="bunder"
                   href="javascript:void(0);"
-                  id="popover2"
+                  
                   data-placement="bottom"
                   data-trigger="focus"
                   data-original-title="Bergabung dalam Tim">
-               Tim
+               Langkah <b>2</b>
               </a>
               <div class="abunder" v-else>
-                Tim
+                Langkah <b>2</b>
               </div>
 
-              <div class="judulbunder" style="margin-left: 14px;">
-                <!-- <button
+              <div class="judulbunder" style="margin-left: 30px;">
+                <button
                   class="btn btn-sm btn-default"
                   id="popover2"
                   data-placement="right"
                   data-trigger="focus"
                   data-original-title="Bergabung dalam Tim"
-                >Tim</button> -->
+                >Tim</button>
 
                 <div id="popper-content2" class="hide popper-content">
                   <p> Anda dapat membuat tim sendiri dan mengundang teman untuk bergabung ataupun diundang oleh tim leader anda.</p>
@@ -357,9 +357,8 @@
               </a>
 
               <div class="judulbunder" style="margin-left: 30px;">
-                <template v-if="teamId != ''">
-                <button
-                  
+                <!-- <template v-if="teamId != ''">
+                <button   
                   :class="{isHidden: dataIdea.total > 0}"
                   id="popover4"
                   class="btn btn-sm btn-default"
@@ -367,9 +366,17 @@
                   data-trigger="focus"
                   data-original-title="Tuliskan Ide Kalian"
                 >Ide
+                </button>    
+                </template> -->
+                <button
+                  v-if="teamId != ''"
+                  id="popover4"
+                  class="btn btn-sm btn-default"
+                  data-placement="right"
+                  data-trigger="focus"
+                  data-original-title="Tuliskan Ide Kalian"
+                >Ide
                 </button>
-                    
-                </template>
                 <button v-else disabled class="btn btn-sm btn-default">Ide</button>
                 <template v-if="dataIdea.total > 0">
                   <br>
@@ -385,7 +392,7 @@
                   <template v-if="dataIdea.total > 1">
                     <router-link
                       class="btn btn-sm btn-default"
-                      style="margin-top: 3px"
+                      style="margin-top: 3px;font-size: 10px;"
                       v-bind:to="'/team/'+teamId+'/idea/'+ideaId+ '/cs'"
                     >
                       <i class="fa fa-eye"></i>
@@ -393,7 +400,7 @@
                     <router-link
                       v-bind:to="'/team/'+teamId+'/idea'"
                       class="btn btn-sm btn-primary"
-                      style="margin-top: 3px"
+                      style="margin-top: 3px;font-size: 10px;"
                     >
                       <i class="fa fa-plus"></i>
                     </router-link>
@@ -502,7 +509,7 @@
                   <br>
                   <router-link
                     class="btn btn-sm btn-default"
-                    style="margin-top: 3px"
+                    style="margin-top: 3px;font-size: 10px;"
                     v-bind:to="'/team/'+teamId+'/idea/'+ideaId+ '/cs/' + csId + '/persona'"
                   >
                     <i class="fa fa-eye"></i>
@@ -510,7 +517,7 @@
                   <router-link
                     v-bind:to="'/team/'+teamId+'/idea/' + ideaId + '/cs'"
                     class="btn btn-sm btn-primary"
-                    style="margin-top: 3px"
+                    style="margin-top: 3px;font-size: 10px;"
                   >
                     <i class="fa fa-plus"></i>
                   </router-link>
@@ -526,7 +533,7 @@
 
                 <div id="popper-content5" class="hide popper-content">
                   <p>
-                    Tentukan Tipe Pengguna yang ingin kalian layani dengan ide kalian. Semakin spesifik semakin baik.
+                    Tipe pengguna adalah jenis-jenis pengguna produk/jasa anda yang nantinya akan dikelompokan menjadi segmen pelanggan yang lebih spesifik
                     <br>
                     <b>Hint:</b> Untuk membantu kalian dalam memahami Tipe Pengguna, kami menyediakan materi untuk kalian baca.
                   </p>
@@ -591,12 +598,12 @@
             <template v-if="loadingPersona">
               <img src="/img/Ellipsis-1s-100px.svg">
             </template>
-            <div v-bind:class="{displaying : loadingPersona}">
-              <div class="abunder" v-if="dataPersona.total === 0">
+            <div v-bind:class="{displaying : loadingPersona}"> 
+              <div class="abunder" style="position: relative;left: 28px;" v-if="dataPersona.total === 0">
                 langkah
                 <b>6</b>
               </div>
-              <div class="bunder" v-else>
+              <div style="position: relative;left: 28px;" class="bunder" v-else>
                 langkah
                 <b>6</b>
               </div>
@@ -623,7 +630,7 @@
                   <br>
                   <router-link
                     class="btn btn-sm btn-default"
-                    style="margin-top: 3px"
+                    style="margin-top: 3px;font-size: 10px;"
                     v-bind:to="'/team/'+teamId+'/idea/'+ideaId+ '/cs/' + csId + '/persona/' + personaId + '/vp'"
                   >
                     <i class="fa fa-eye"></i>
@@ -631,7 +638,7 @@
                   <router-link
                     v-bind:to="'/team/'+teamId+'/idea/' + ideaId + '/cs/' + csId + '/persona'"
                     class="btn btn-sm btn-primary"
-                    style="margin-top: 3px"
+                    style="margin-top: 3px;font-size: 10px;"
                   >
                     <i class="fa fa-plus"></i>
                   </router-link>
@@ -976,6 +983,11 @@
                     style="width: 100%"
                   >Ajukan Mentoring</a>
                   <!-- <router-link
+                    v-bind:to="'/team/'+ this.teamId + '/programmeparticipation/'+ programmeparticipationId + '/mentoringsession/programme/'+programmeId+'/phase/'+ phaseId"
+                    class="btn btn-sm btn-warning"
+                    style="width: 100%;margin-top:10px;"
+                  >Jadwal Sesi Mentoring</router-link> -->
+                  <!-- <router-link
                     v-bind:to="{name: 'Mentoring Session', params: {teamId: teamId, programmeId: programmeId, programmeparticipationId: programmeparticipationId, phaseId: phaseId}}"
                     class="btn btn-sm btn-success"
                     style="width: 100%;margin-top:5px;">
@@ -1017,6 +1029,7 @@
                 <!-- start button -->
 
                 <button
+                  style="right: 12px;position: relative;"
                   :disabled="dataVP.total === 0"
                   id="popover10"
                   class="btn btn-sm btn-default"
@@ -1501,10 +1514,10 @@ export default {
 }
 .pilihCS {
   width: 125px;
-  padding: 4px;
   font-size: 12px;
   margin-top: 5px;
   margin-right: -55px;
+  color: #585858;
 }
 .buledund {
   background: #0c496b;

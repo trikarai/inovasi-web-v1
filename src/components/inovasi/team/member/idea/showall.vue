@@ -29,7 +29,7 @@
                         <span class="dttmnm hvr-ripple-out" >{{data.name}}</span>
                     </router-link>       
 -->
-                    {{data.name}}
+                    <span style="position: relative;top: 5px;">{{data.name}}</span>
                 </td>
                 <td>
                      <span style="color:#6f6f6f">{{data.description}}</span>

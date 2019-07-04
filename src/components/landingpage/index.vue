@@ -56,7 +56,7 @@
             <div class="row">
                 <div class="main-slider">
                     <div class="slide-text">
-                        <h1 class="latofont">Tentang Mikti Start</h1>
+                        <h1 class="latofont">Tentang MIKTI Start</h1>
                         <p class="latofont">MIKTI Start merupakan sebuah platform yang diinisiasi oleh Indonesia Digital Creative Industry Community (MIKTI) sebagai wadah bagi para Startup Founders Untuk dapat mengembangkan ide-ide inovasi mereka menjadi sebuah produk/servis yang siap untuk melanjutkan ke tahap berikut-nya yaitu pendanaan dan kemudian berkembang menjadi sebuah Startup yang solid</p>
                         <router-link to="/signup" class="btn btn-common">Daftar</router-link>
                     </div>

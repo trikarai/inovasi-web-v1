@@ -24,6 +24,9 @@
                 >Tipe Pengguna</router-link>
               </li>
               <li class="breadcrumb-item">
+                <router-link v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId">Empathy Map</router-link>
+              </li>
+              <li class="breadcrumb-item">
                 <router-link
                   v-bind:to="'/team/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona/'+personaId+'/vp'"
                 >Segmen Pelanggan</router-link>
@@ -47,6 +50,9 @@
                 >Tipe Pengguna</router-link>
               </li>
               <li class="breadcrumb-item">
+                <router-link v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId">Empathy Map</router-link>
+              </li>
+              <li class="breadcrumb-item">
                 <router-link
                   v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona/'+personaId+'/vp'"
                 >Segment Pelanggan</router-link>
@@ -56,7 +62,7 @@
           </nav>
           <!--end breadcrumb-->
 
-          <ul class="nav nav-tabs">
+          <ul class="nav nav-tabs" style="font-size: 12px;">
             <li class="active">
               <a data-toggle="tab" href="#vp">Value Proposition</a>
             </li>

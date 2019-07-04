@@ -16,14 +16,14 @@
 
             <div class="ui form">                
               <div class="field">  
-                <h2>Propose Mentoring Time</h2>
+                <h2>Pengajuan Waktu Mentoring</h2>
                 <div class="garis"></div>
                 <div>
                   <form>                      
                     
                     <div class="row">
                       <div class="col-md-4">
-                        <label>Propose Time</label>
+                        <label>Waktu Pengajuan</label>
                       </div>
                       <div class="col-md-6">
                         <VueCtkDateTimePicker :min-date="todayDate" v-model="propose.start_time" label="" minute-interval="30" format="YYYY-MM-DD HH:mm" formatted="Do MMMM YYYY , HH:mm a"/>
@@ -32,11 +32,11 @@
                     <br>
                    <div class="row">
                       <div class="col-md-4">
-                        <label>Type</label>
+                        <label>Tipe</label>
                       </div>
                       <div class="col-md-6">
                         <select class="form-control" v-model="type">
-                          <option value="" disabled>-Please Select Type-</option>
+                          <option value="" disabled>-memilih tipe-</option>
                           <option value="offline">Offline</option>
                           <option value="online">Online</option>
                         </select>
@@ -48,8 +48,8 @@
                         <label>Media</label>
                       </div>
                       <div class="col-md-6">
-                        <textarea maxlength="350" v-if="type == 'online'" style="width: 100%;height: 100px; border-color: #d2d6de;" class="kotak" v-model="freetext" placeholder="Please write you Online ID (Example: Skype ID : startup, Whatsapp Number : 08123456789, Etc.)"/>
-                        <textarea maxlength="350" v-if="type == 'offline'" style="width: 100%;height: 100px; border-color: #d2d6de;" class="kotak" v-model="freetext" placeholder="Please write place and address"/>
+                        <textarea maxlength="350" v-if="type == 'online'" style="width: 100%;height: 100px; border-color: #d2d6de;" class="kotak" v-model="freetext" placeholder="Tuliskan ID media sosial (Contoh: Skype ID : startup, Whatsapp Number : 08123456789, Etc.)"/>
+                        <textarea maxlength="350" v-if="type == 'offline'" style="width: 100%;height: 100px; border-color: #d2d6de;" class="kotak" v-model="freetext" placeholder="Tuliskan tempat dan alamat untuk pertemuan"/>
 <!--                        <p style="white-space: pre-line;">{{ propose.media }}</p>-->
                       </div>
                     </div>
@@ -160,6 +160,11 @@
     }
   }
 </script>
-<style lang="css">
+<style lang="css" scoped>
 @import '../modal.css';
+
+.datetimepicker {
+    bottom: 147px!important;
+    position: relative!important;
+}
 </style>

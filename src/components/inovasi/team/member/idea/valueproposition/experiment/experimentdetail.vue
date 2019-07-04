@@ -6,7 +6,7 @@
       <div class="box">
         <div class="box-body">
 
-          <table class="table">
+          <table class="table table-striped table-hover" style="word-break: break-word;width:600px;">
             <thead>
               <tr>
                 <th></th>

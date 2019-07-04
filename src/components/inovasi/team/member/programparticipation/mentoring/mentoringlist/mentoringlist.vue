@@ -49,7 +49,7 @@
                 </template> 
                   <template v-else>
                     <template v-if="dateDiffEnd[index] > 0">
-                      <router-link class="btn btn-default" v-bind:to="{name: 'Mentor List', params: {teamId: teamId, programmeparticipationId:programmeparticipationId, programmeId: programmeId, phaseId: phaseId, sessionId: data.id}}"> <span class="fa fa-calendar-o"></span> Ajukan Mentoring</router-link>
+                      <router-link class="btn btn-default" v-bind:to="{name: 'Daftar Mentor', params: {teamId: teamId, programmeparticipationId:programmeparticipationId, programmeId: programmeId, phaseId: phaseId, sessionId: data.id}}"> <span class="fa fa-calendar-o"></span> Ajukan Mentoring</router-link>
                     </template>  
                     <template v-else>
                       <span class="statuscancelled">Berakhir Sesi</span>

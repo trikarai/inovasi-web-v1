@@ -26,12 +26,15 @@
                               <label style="padding: 6px">Tipe Pengguna</label>
                           </div>
                           <div class="col-md-6" style="display: flex">
-                              <input style="width: 100%" class="kotak" type="text" v-model="data.name" maxlength="100"><button class="btn btn-info" @click="learningCS" style="height: 31px;margin-left: 5px;border-radius: 5px;"><i class="fa fa-question"></i></button>
+                              <input style="width: 100%" class="kotak" type="text" v-model="data.name" maxlength="100">
+                                <!-- <button class="btn btn-info" @click="learningCS" style="height: 31px;margin-left: 5px;border-radius: 5px;">
+                                  <i class="fa fa-question"></i>
+                                </button> -->
                           </div>
                         </div>
                         <div class="row">
                           <div class="col-md-4">
-                              <label style="padding: 6px">Deskripsi <a href="#" class="tultip" data-toggle="tooltip" data-placement="right" title="Customer segmentation is the practice of dividing a customer base into groups of individuals that are similar in specific ways relevant to marketing, such as age, gender, interests and spending habits."> <i style="margin-left: 20px" class="fa fa-info-circle"></i></a></label>
+                              <label style="padding: 6px">Deskripsi <a href="#" class="tultip" data-toggle="tooltip" data-placement="right" title="Tipe pengguna adalah jenis-jenis pengguna produk/jasa anda yang nantinya akan dikelompokan menjadi segmen pelanggan yang lebih spesifik"> <i style="margin-left: 20px" class="fa fa-info-circle"></i></a></label>
                           </div>
                           <div class="col-md-6">
                             <textarea style="width: 100%" class="kotak" rows="5" type="text" v-model="data.description"></textarea>

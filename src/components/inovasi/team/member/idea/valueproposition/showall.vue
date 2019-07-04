@@ -74,9 +74,10 @@
                   <div class="list-group-item" style="background: #f7f7f7;">
                   <div id="collapse1" class="panel-collapse collapse">
                     <div class="panel-body">
-                      <template v-for="aspect in dataParent.aspect.slice(7,11)">                 
+                      <template v-for="aspect in dataParent.aspect.slice(7,12)">                 
                           <label>{{aspect.field_template.name}}</label>
-                          <div class="linkli__url"><span v-html="aspect.value"></span></div> 
+                          <div v-if="aspect.value" class="linkli__url"><span v-html="aspect.value"></span></div>
+                          <div v-else><span class="takadadata">tidak ada data</span></div>
                       </template>
                     </div>
                   </div>
@@ -433,5 +434,13 @@
       font-size: 0.8em;
       color: #565656;
       word-break: break-all;
+    }
+    .takadadata {
+      background: #e4af4a;
+      color: #fff;
+      padding: 1px;
+      padding-left: 5px;
+      padding-right: 5px;
+      font-size: 10px;
     }
 </style>

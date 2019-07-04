@@ -9,8 +9,8 @@
             <div class="ui form">
               <div class="field">
                 <h2>
-                  <template v-if="edit">Edit {{template.experiment_template.name}}</template>
-                  <template v-else>Add {{data.name}}</template>
+                  <template v-if="edit">Ubah {{template.experiment_template.name}}</template>
+                  <template v-else>Tambah {{data.name}}</template>
                 </h2>
                 <div class="garis"></div>
                 <div>
@@ -18,15 +18,15 @@
                     <div>
                       <div class="row">
                         <div class="col-md-4">
-                          <label>Exp Name</label>
+                          <label>Nama Percobaan</label>
                         </div>
                         <div class="col-md-6">
                           <input class="kotak" type="text" v-model="obj.name">
                         </div>
                       </div>
-                      <div class="row">
+                      <div class="row" style="margin-bottom: 10px;">
                         <div class="col-md-4">
-                          <label>Date</label>
+                          <label>Tanggal</label>
                         </div>
                         <div class="col-md-6">
                           <!--<input type="date" v-model="obj.date">-->
@@ -40,15 +40,15 @@
                           <!--<datetime format="YYYY-MM-DD" width="245px" v-model="obj.date"></datetime>-->
                         </div>
                       </div>
-                      <hr>
+                      
                       <form id="dynamic-form" :name="1">
                         <input type="hidden" value="hidden">
                         <div v-for="field, index in reOrderField(data.fields).slice(0,5)">
                           <fields-comp v-bind:fields="field"></fields-comp>
-                          <hr>
+                        
                         </div>
                       </form>
-                      <hr>
+                      
                     </div>
                   </div>
 
@@ -56,7 +56,7 @@
                     <div>
                       <div class="row">
                         <div class="col-md-4">
-                          <label>Exp Name</label>
+                          <label>Nama Percobaan</label>
                         </div>
                         <div class="col-md-6">
                           <input class="kotak" type="text" v-model="obj.name">
@@ -64,7 +64,7 @@
                       </div>
                       <div class="row">
                         <div class="col-md-4">
-                          <label>Date</label>
+                          <label>Tanggal</label>
                         </div>
                         <div class="col-md-6">
                           <VueCtkDateTimePicker
@@ -76,14 +76,14 @@
                           />
                         </div>
                       </div>
-                      <hr>
+                      
                       <form id="dynamic-form" :name="1">
                         <div v-for="field, index in reOrderField(template.fields)">
                           <fields-compe v-bind:fields="field"></fields-compe>
-                          <hr>
+                          
                         </div>
                       </form>
-                      <hr>
+                      
                     </div>
                   </div>
 
