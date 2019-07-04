@@ -328,6 +328,11 @@ const routes = [
           component: TeamPersona
         },
         {
+          name: 'Participant Empathy Map',
+          path: '/tutor/:tutorId/participant/:teamId/idea/:ideaId/cs/:customersegmentId/persona/:personaId',
+          component: TeamEmpathyMap
+        },
+        {
           name: 'Participant Persona',
           path: '/tutor/:tutorId/participant/:teamId/idea/:ideaId/cs/:customersegmentId/persona/:personaId/vp',
           component: TeamValueProposition
