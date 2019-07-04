@@ -39,11 +39,125 @@
                 <button v-if="role === 'Talent'" @click="editPersona(dataParent)" class="btn btn-default btn-sm"><i class="fa fa-edit"></i></button>
                 <router-link v-if="role === 'Talent'" class="tmblvpkanan" style="float: right;cursor: pointer;"  v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/'"><i class="fa fa-chevron-right pnhkanan"></i></router-link> 
                 <router-link v-else class="tmblvpkanan" style="float: right;cursor: pointer;"  v-bind:to="'/tutor/' + tutorId + '/participant/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/'"><i class="fa fa-chevron-right pnhkanan"></i></router-link> 
-                <span class="tombvpnext">Value Proposition</span>              
+                <span class="tombvpnext">Empathy Map</span>              
               </h3>
 
               <div v-if="dataParent != 0">
-              <table class="table garistabel tabel-bordered table-striped tabelEM" style="border: 1px solid #e4e4e4;word-break: break-word;">
+
+                <div class="col-md-6">
+                  <table class="table garistabel tabel-bordered table-striped tabelEM" style="border: 1px solid #e4e4e4;word-break: break-word;">
+                    <tbody>
+                      <tr style="font-weight: bold">
+                        <td style="width:50%">Nama Persona</td>
+                      </tr>
+                      <tr>
+                        <td>{{dataParent.name}}</td>
+                      </tr>
+                      <tr style="font-weight: bold">
+                        <td style="width:50%">Catatan</td>
+                      </tr>
+                      <tr>
+                        <td v-if="dataParent.description">{{dataParent.description}}</td>
+                        <td v-else><span class="takadadata">tidak ada data</span></td>
+                      </tr>
+                      <tr style="font-weight: bold">
+                        <td>{{dataParent.aspect[0].field_template.name}}</td>
+                      </tr>
+                      <tr>
+                        <td v-if="dataParent.aspect[0].value" class="padkiriEV" v-html="dataParent.aspect[0].value"></td>
+                        <td v-else><span class="takadadata">tidak ada data</span></td>
+                      </tr>
+                      <tr style="font-weight: bold">
+                        <td>{{dataParent.aspect[1].field_template.name}}</td>
+                      </tr>
+                      <tr>
+                        <td v-if="dataParent.aspect[1].value" class="padkiriEV" v-html="dataParent.aspect[1].value"></td>
+                        <td v-else><span class="takadadata">tidak ada data</span></td>
+                      </tr>
+                      <tr style="font-weight: bold">
+                        <td>{{dataParent.aspect[2].field_template.name}}</td>
+                      </tr>
+                      <tr>
+                        <td v-if="dataParent.aspect[2].value" class="padkiriEV" v-html="dataParent.aspect[2].value"></td>
+                        <td v-else><span class="takadadata">tidak ada data</span></td>
+                      </tr>
+                      <tr style="font-weight: bold">
+                        <td>{{dataParent.aspect[3].field_template.name}}</td>
+                      </tr>
+                      <tr>
+                        <td v-if="dataParent.aspect[3].value" class="padkiriEV" v-html="dataParent.aspect[3].value"></td>
+                        <td v-else><span class="takadadata">tidak ada data</span></td>
+                      </tr>
+                                  
+                    </tbody>
+                  </table>
+                </div>
+                       
+                <div class="col-md-6">
+                  <table class="table garistabel tabel-bordered table-striped tabelEM" style="border: 1px solid #e4e4e4;word-break: break-word;">
+                    <tbody>
+                      <tr style="font-weight: bold">
+                        <td>{{dataParent.aspect[4].field_template.name}}</td>
+                      </tr>        
+                      <tr>
+                        <td v-if="dataParent.aspect[4].value" class="padkiriEV" v-html="dataParent.aspect[4].value"></td>
+                        <td v-else><span class="takadadata">tidak ada data</span></td>
+                      </tr>
+                      <tr style="font-weight: bold">
+                        <td>{{dataParent.aspect[5].field_template.name}}</td>
+                      </tr>
+                      <tr>
+                        <td v-if="dataParent.aspect[5].value" class="padkiriEV" v-html="dataParent.aspect[5].value"></td>
+                        <td v-else><span class="takadadata">tidak ada data</span></td>
+                      </tr>
+                      <tr style="font-weight: bold">
+                        <td>{{dataParent.aspect[6].field_template.name}}</td>
+                      </tr>
+                      <tr>
+                        <td v-if="dataParent.aspect[6].value" class="padkiriEV" v-html="dataParent.aspect[6].value"></td>
+                        <td v-else><span class="takadadata">tidak ada data</span></td>
+                      </tr>
+                      <tr style="font-weight: bold" v-if="dataParent.aspect.length > 8">
+                        <td>{{dataParent.aspect[7].field_template.name}}</td>
+                      </tr>
+                      <tr v-if="dataParent.aspect.length > 8">
+                        <td v-if="dataParent.aspect[7].value" class="padkiriEV" v-html="dataParent.aspect[7].value"></td>
+                        <td v-else><span class="takadadata">tidak ada data</span></td>
+                      </tr>
+                      <tr style="font-weight: bold" v-if="dataParent.aspect.length > 8">
+                        <td>{{dataParent.aspect[8].field_template.name}}</td>
+                      </tr>
+                      <tr v-if="dataParent.aspect.length > 8">
+                        <td v-if="dataParent.aspect[8].value" class="padkiriEV" v-html="dataParent.aspect[8].value"></td>
+                        <td v-else><span class="takadadata">tidak ada data</span></td>
+                      </tr>
+                      <tr style="font-weight: bold" v-if="dataParent.aspect.length > 8">
+                        <td>{{dataParent.aspect[9].field_template.name}}</td>
+                      </tr>
+                      <tr v-if="dataParent.aspect.length > 8">
+                        <td v-if="dataParent.aspect[9].value" class="padkiriEV" v-html="dataParent.aspect[9].value"></td>
+                        <td v-else><span class="takadadata">tidak ada data</span></td>
+                      </tr>
+                      <tr style="font-weight: bold" v-if="dataParent.aspect.length > 8">
+                        <td>{{dataParent.aspect[10].field_template.name}}</td>
+                      </tr>
+                      <tr v-if="dataParent.aspect.length > 8">
+                        <td v-if="dataParent.aspect[10].value" class="padkiriEV" v-html="dataParent.aspect[10].value"></td>
+                        <td v-else><span class="takadadata">tidak ada data</span></td>
+                      </tr>
+                      <tr style="font-weight: bold" v-if="dataParent.aspect.length > 8">
+                        <td>{{dataParent.aspect[11].field_template.name}}</td>
+                      </tr>
+                      <tr v-if="dataParent.aspect.length > 8">
+                        <td v-if="dataParent.aspect[11].value" class="padkiriEV" v-html="dataParent.aspect[11].value"></td>
+                        <td v-else><span class="takadadata">tidak ada data</span></td>
+                      </tr>
+                      
+                    </tbody>
+                  </table>
+                </div>
+             
+              <!-- <table class="table garistabel tabel-bordered table-striped tabelEM" style="border: 1px solid #e4e4e4;word-break: break-word;">
                 <tbody>
                   <tr style="font-weight: bold;width:100%">
                     <td style="width:50%">Nama Persona</td>
@@ -120,10 +234,11 @@
                     <td v-else><span class="takadadata">tidak ada data</span></td>
                   </tr>
                 </tbody>
-              </table>
+              </table> -->
+
               </div>
 
-              <div v-else>No data, please fill Customer Segment</div>
+              <div v-else>Tidak ada data, Mohon untuk mengisi data <b>Segmen Pelanggan</b></div>
 
               <!-- <div class="list-group">    
                   <div class="list-group-item"> 

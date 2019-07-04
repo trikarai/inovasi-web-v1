@@ -552,12 +552,12 @@ const routes = [
           component: TeamPersona
         },
         {
-          name: 'Empathy Map',
+          name: 'Segmen Pelanggan',
           path: '/team/:teamId/idea/:ideaId/cs/:customersegmentId/persona/:personaId',
           component: TeamEmpathyMap
         },
         {
-          name: 'Segmen Pelanggan',
+          name: 'Empathy Map',
           path: '/team/:teamId/idea/:ideaId/cs/:customersegmentId/persona/:personaId/vp',
           component: TeamValueProposition
         },

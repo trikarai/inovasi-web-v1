@@ -34,7 +34,7 @@
               <h2 class="brdleft" style="margin-top: 10px;padding-bottom: 18px;"><span style="position: relative;top: 3px;">{{parentData.name}}</span>
                     <a v-if="role === 'Talent'" style="float:right" class="btn btn-default" @click="updateParent(parentData.id)"><i class="fa fa-pencil-square"></i> </a>
               </h2>
-              <label>Description</label>
+              <label>Deskripsi</label>
               <div style="white-space: pre-line" class="linkli__url">{{parentData.description}}</div>
 <!--
               <label>Created Time</label>

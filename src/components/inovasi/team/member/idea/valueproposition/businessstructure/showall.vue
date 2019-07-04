@@ -24,12 +24,12 @@
                 >Tipe Pengguna</router-link>
               </li>
               <li class="breadcrumb-item">
-                <router-link v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId">Empathy Map</router-link>
+                <router-link v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId">Segmen Pelanggan</router-link>
               </li>
               <li class="breadcrumb-item">
                 <router-link
                   v-bind:to="'/team/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona/'+personaId+'/vp'"
-                >Segmen Pelanggan</router-link>
+                >Empathy Map</router-link>
               </li>
               <li class="breadcrumb-item active" aria-current="page">Analisa Bisnis</li>
             </ol>
@@ -50,12 +50,12 @@
                 >Tipe Pengguna</router-link>
               </li>
               <li class="breadcrumb-item">
-                <router-link v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId">Empathy Map</router-link>
+                <router-link v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId">Segment Pelanggan</router-link>
               </li>
               <li class="breadcrumb-item">
                 <router-link
                   v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona/'+personaId+'/vp'"
-                >Segment Pelanggan</router-link>
+                >Empathy Map</router-link>
               </li>
               <li class="breadcrumb-item active" aria-current="page">Business Structure</li>
             </ol>
