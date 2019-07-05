@@ -648,7 +648,8 @@
                               <i class="fa fa-edit"></i>
                             </a> -->
                             
-                            <p class="vpalign" v-html="dataSolution.fields[0].value"></p>
+                            <p v-if="dataSolution.fields[0].value" class="vpalign" v-html="dataSolution.fields[0].value"></p>
+                            <p v-else class="takadadata">tidak ada data</p>
                           </td>
                           <td>
                             <b>{{dataSolution.fields[2].field_template.name}}<a v-if="role === 'Talent'" @click="editBS(dataSolution)" class="posisieditvp"><i class="fa fa-edit"></i></a></b>
@@ -659,7 +660,8 @@
                               <i class="fa fa-edit"></i>
                             </a> -->
                             
-                            <p class="vpalign" v-html="dataSolution.fields[2].value"></p>
+                            <p v-if="dataSolution.fields[2].value" class="vpalign" v-html="dataSolution.fields[2].value"></p>
+                            <p v-else class="takadadata">tidak ada data</p>
                           </td>
                         </tr>
                         <tr>
@@ -672,7 +674,8 @@
                               <i class="fa fa-edit"></i>
                             </a> -->
                             
-                            <p class="vpalign" v-html="dataSolution.fields[1].value"></p>
+                            <p v-if="dataSolution.fields[1].value" class="vpalign" v-html="dataSolution.fields[1].value"></p>
+                            <p v-else class="takadadata">tidak ada data</p>
                           </td>
                         </tr>
                       </tbody>
@@ -758,19 +761,22 @@
                           <td>
                             <b><span v-html="personaAspect.aspect[6].field_template.name"></span></b>
                       
-                            <p class="vpalign" v-html="personaAspect.aspect[6].value"></p>
+                            <p v-if="personaAspect.aspect[6].value" class="vpalign" v-html="personaAspect.aspect[6].value"></p>
+                            <p v-else class="takadadata">tidak ada data</p>
                           </td>
                            <td rowspan="2" style="height: 515px; width: 188px;">
                             <b><span v-html="personaAspect.aspect[4].field_template.name"></span></b>
                            
-                            <p class="vpalign" v-html="personaAspect.aspect[4].value"></p>
+                            <p v-if="personaAspect.aspect[4].value" class="vpalign" v-html="personaAspect.aspect[4].value"></p>
+                            <p v-else class="takadadata">tidak ada data</p>
                           </td>
                         </tr>
                         <tr>
                           <td>
                             <b><span v-html="personaAspect.aspect[5].field_template.name"></span></b>
                             
-                            <p class="vpalign" v-html="personaAspect.aspect[5].value"></p>
+                            <p v-if="personaAspect.aspect[5].value" class="vpalign" v-html="personaAspect.aspect[5].value"></p>
+                            <p v-else class="takadadata">tidak ada data</p>
                           </td>
                           
                         </tr>
@@ -2060,5 +2066,14 @@ td {
 }
 .vpalign{
   text-align: left;
+}
+.takadadata {
+  background: #e4af4a;
+  color: #fff;
+  padding: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 10px;
+  display: inline-block;
 }
 </style>
