@@ -111,14 +111,14 @@
                                 <span class="statusp">Utama</span>
                             </div>
                             <a v-if="role === 'Talent'" class="btn btn-default" @click="updateVP(data.id)"><i class="fa fa-pencil"></i></a>
-                            <a v-if="role === 'Talent'" class="btn btn-warning" @click="confirm('Delete', data.id)"><i class="fa fa-trash"></i></a>
+                            <a v-if="role === 'Talent'" class="btn btn-danger" @click="confirm('Delete', data.id)"><i class="fa fa-trash"></i></a>
                           </template>
                           <template v-else>
                             <div style="padding:6px;" class="col-md-6">
                                 <a v-if="role === 'Talent'" class="btn btn-default midea" @click="activateVP(data.id)"><i class="fa fa-check"></i> Ubah jadi Utama</a>
                             </div>
                             <a v-if="role === 'Talent'" class="btn btn-default" @click="updateVP(data.id)"><i class="fa fa-pencil"></i></a>
-                            <a v-if="role === 'Talent'" class="btn btn-warning" @click="confirm('Delete', data.id)"><i class="fa fa-trash"></i></a>
+                            <a v-if="role === 'Talent'" class="btn btn-danger" @click="confirm('Delete', data.id)"><i class="fa fa-trash"></i></a>
                           </template>
                         </div>
                     </td>

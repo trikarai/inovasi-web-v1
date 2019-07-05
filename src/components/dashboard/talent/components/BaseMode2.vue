@@ -253,7 +253,7 @@
                             <div class="panel-group" :id="'accordion2'+index">
                               <div
                                 class="panel panel-default"
-                                v-for="aspect in cs.main_persona.aspect.slice(5,10)"
+                                v-for="aspect in cs.main_persona.aspect.slice(5,7)"
                               >
                                 <div class="panel-heading">
                                   <h4 class="panel-title">

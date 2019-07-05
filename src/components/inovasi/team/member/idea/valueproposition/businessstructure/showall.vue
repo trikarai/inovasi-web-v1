@@ -604,7 +604,7 @@
                     </a>
                   </h4>-->
 
-                  <div  class="">
+                  <div style="text-align: justify;">
                     <p>{{parentVP.description}}</p>
                   </div>
                 </div>
@@ -647,8 +647,8 @@
                               class="btn btn-default btn-sm">
                               <i class="fa fa-edit"></i>
                             </a> -->
-                            <br><br>
-                            <span v-html="dataSolution.fields[0].value"></span>
+                            
+                            <p class="vpalign" v-html="dataSolution.fields[0].value"></p>
                           </td>
                           <td>
                             <b>{{dataSolution.fields[2].field_template.name}}<a v-if="role === 'Talent'" @click="editBS(dataSolution)" class="posisieditvp"><i class="fa fa-edit"></i></a></b>
@@ -658,8 +658,8 @@
                               class="btn btn-default btn-sm">
                               <i class="fa fa-edit"></i>
                             </a> -->
-                            <br><br>
-                            <span v-html="dataSolution.fields[2].value"></span>
+                            
+                            <p class="vpalign" v-html="dataSolution.fields[2].value"></p>
                           </td>
                         </tr>
                         <tr>
@@ -671,8 +671,8 @@
                               class="btn btn-default btn-sm">
                               <i class="fa fa-edit"></i>
                             </a> -->
-                            <br>
-                            <span v-html="dataSolution.fields[1].value"></span>
+                            
+                            <p class="vpalign" v-html="dataSolution.fields[1].value"></p>
                           </td>
                         </tr>
                       </tbody>
@@ -740,7 +740,7 @@
                     </template>
                   </div>
                 </div>
-                <!--start pie  -->
+
                 <div class="col-md-6">
                   
 
@@ -757,20 +757,20 @@
                         <tr>
                           <td>
                             <b><span v-html="personaAspect.aspect[6].field_template.name"></span></b>
-                            <br><br>
-                            <span style="word-break:break-all" v-html="personaAspect.aspect[6].value"></span>
+                      
+                            <p class="vpalign" v-html="personaAspect.aspect[6].value"></p>
                           </td>
                            <td rowspan="2" style="height: 515px; width: 188px;">
                             <b><span v-html="personaAspect.aspect[4].field_template.name"></span></b>
-                            <br>
-                            <span v-html="personaAspect.aspect[4].value"></span>
+                           
+                            <p class="vpalign" v-html="personaAspect.aspect[4].value"></p>
                           </td>
                         </tr>
                         <tr>
                           <td>
                             <b><span v-html="personaAspect.aspect[5].field_template.name"></span></b>
-                            <br><br>
-                            <span v-html="personaAspect.aspect[5].value"></span>
+                            
+                            <p class="vpalign" v-html="personaAspect.aspect[5].value"></p>
                           </td>
                           
                         </tr>
@@ -2057,5 +2057,8 @@ td {
 .mscolor {
   background: #efefef;
   color: #505050;
+}
+.vpalign{
+  text-align: left;
 }
 </style>
