@@ -104,7 +104,7 @@
                 </ul>
               </section>
               <section class="rightsection" v-else>
-                <h5 class="nodata">No Data, Please create new </h5>
+                <h5 class="nodata">Tidak ada data, Mohon untuk mengisi data Tipe Pengguna </h5>
               </section>
               <a v-if="role === 'Talent'" class="btn btn-primary" @click="showFormCS()"><span class="glyphicon glyphicon-plus-sign"></span> Buat Tipe Pengguna Baru</a>
 

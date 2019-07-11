@@ -81,7 +81,7 @@
                 </ul>
               </section>
               <section class="rightsection" v-else>
-                <h5 class="nodata">No Data, Please Create New</h5>
+                <h5 class="nodata">Tidak ada data, Mohon untuk mengisi data Segmen Pelanggan</h5>
               </section>
               <a style="margin-top:10px" v-if="role === 'Talent'" class="btn btn-primary" @click="showFormPersona()"><span class="glyphicon glyphicon-plus-sign"></span> Buat Segmen Pelanggan Baru</a>
 

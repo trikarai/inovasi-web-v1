@@ -2039,6 +2039,9 @@ td {
   cursor: pointer;
   float: right;
 }
+.tblvp {
+  word-break: break-word;
+}
 
 .tblvp td b{
     background: #efefef;

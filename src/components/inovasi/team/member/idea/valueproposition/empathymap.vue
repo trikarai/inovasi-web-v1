@@ -343,7 +343,7 @@
               </table>
             </div>
               <div v-if="data.total === 0">
-                <h5 style="padding: 10px;background: #fff;display: inline-block">No Data, please create value proposition... </h5>
+                <h5 style="padding: 10px;background: #fff;display: inline-block">Tidak ada data, Mohon untuk mengisi data Value Proposition</h5>
               </div>              
                 <a v-if="role === 'Talent'" class="btn btn-primary" @click="showFormVP()"><span class="glyphicon glyphicon-plus-sign"></span> Buat Value Proposition Baru</a>
               

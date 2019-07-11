@@ -15,9 +15,9 @@
         <table class="table" v-if="data.list.length > 0 ">
           <thead>
             <tr>
-              <th>Region</th>
-              <th>Name</th>
-              <th>Description</th>
+              <th>Wilayah</th>
+              <th>Nama</th>
+              <th>Deskripsi</th>
               <th></th>
             </tr>
           </thead>
@@ -31,7 +31,7 @@
           </tbody>
         </table>
         <div v-else>
-            No programme found...
+            Belum ada program, Harap menunggu untuk beberapa saat ke depan
         </div>
         
         

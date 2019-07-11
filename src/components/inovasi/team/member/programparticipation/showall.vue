@@ -84,7 +84,7 @@
           </tbody>
         </table>
         <div v-else>
-            No programme registered, please register a programme ...
+            Tidak ada program yang terdaftar, Mohon untuk mendaftarkan program
         </div>
         
         
@@ -217,6 +217,13 @@
     }
     .statuse {
         background: #ff8300 !important;
+        color: #fff;
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-size: 10px;
+    }
+    .statusr {
+        background: #5190c7 !important;
         color: #fff;
         padding: 2px 9px;
         border-radius: 20px;

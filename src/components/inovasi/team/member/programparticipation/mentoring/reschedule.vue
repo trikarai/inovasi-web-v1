@@ -13,12 +13,12 @@
           <div class="modal-body">
             <div class="ui form">                
               <div class="field">
-                <h2>Reschedule</h2>
+                <h2>Jadwal Ulang</h2>
                 <div class="garis"></div>
                 <form>
                   <div class="row">
                       <div class="col-md-4">
-                        <label>Start Time</label>
+                        <label>Waktu Mulai</label>
                       </div>
                       <div class="col-md-6">
                         <VueCtkDateTimePicker v-model="data.start_time" label="" minute-interval="30" format="YYYY-MM-DD HH:mm" formatted="Do MMMM YYYY , HH:mm a"/>
@@ -28,11 +28,11 @@
                   <br>
                    <div class="row">
                       <div class="col-md-4">
-                        <label>Type</label>
+                        <label>Tipe</label>
                       </div>
                       <div class="col-md-6">
                         <select class="form-control" v-model="type">
-                          <option value="" disabled>-Please Select Type-</option>
+                          <option value="" disabled>- Mohon untuk memilih tipe -</option>
                           <option disabled value="offline">Offline</option>
                           <option disabled value="online">Online</option>
                         </select>

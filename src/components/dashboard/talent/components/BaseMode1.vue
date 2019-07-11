@@ -348,11 +348,11 @@
             </template>
             <div :class="{displaying : loadingIdea}">
               <div class="abunder" v-if="dataIdea.total === 0">
-                langkah
+                Langkah
                 <b>4</b>
               </div>
               <a class="bunder" v-else>
-                langkah
+                Langkah
                 <b>4</b>
               </a>
 
@@ -482,11 +482,11 @@
             </template>
             <div v-bind:class="{displaying : loadingCS}">
               <div class="abunder" v-if="dataCustomerSegments.total === 0">
-                langkah
+                Langkah
                 <b>5</b>
               </div>
               <div class="bunder" v-else>
-                langkah
+                Langkah
                 <b>5</b>
               </div>
 
@@ -600,11 +600,11 @@
             </template>
             <div v-bind:class="{displaying : loadingPersona}"> 
               <div class="abunder" style="position: relative;left: 28px;" v-if="dataPersona.total === 0">
-                langkah
+                Langkah
                 <b>6</b>
               </div>
               <div style="position: relative;left: 28px;" class="bunder" v-else>
-                langkah
+                Langkah
                 <b>6</b>
               </div>
 
@@ -719,11 +719,11 @@
             </template>
             <div :class="{displaying : loadingVP}">
               <div class="abunder" v-if="dataVP.total === 0">
-                langkah
+                Langkah
                 <b>7</b>
               </div>
               <div class="bunder" v-else>
-                langkah
+                Langkah
                 <b>7</b>
               </div>
 
@@ -867,11 +867,11 @@
           <div style="display: -webkit-inline-box;">
             <div>
               <div class="abunder" v-if="dataVP.total === 0">
-                langkah
+                Langkah
                 <b>8</b>
               </div>
               <div class="bbunder" v-else>
-                langkah
+                Langkah
                 <b>8</b>
               </div>
 
@@ -910,11 +910,11 @@
             </div>
             <div style="display: none">
               <div class="abunder" v-if="dataVP.total === 0">
-                langkah
+                Langkah
                 <b>9</b>
               </div>
               <div class="bbunder" v-else>
-                langkah
+                Langkah
                 <b>9</b>
               </div>
 
