@@ -77,5 +77,5 @@ typings/
 
 # manual ignore
 .settings
-.dist
+dist
 nbproject
