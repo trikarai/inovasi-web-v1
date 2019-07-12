@@ -615,8 +615,7 @@
                   </h4>
                    <p style="margin-top: 22px;">{{personaAspect.description}} </p>
                   
-                  <button v-if="rubah" class="btn btn-default btn-sm" @click="rubah = !rubah">Lihat Pain And Gain</button>
-                  <button v-if="!rubah" class="btn btn-default btn-sm" @click="rubah = !rubah">Lihat Segmen Pelanggan</button>
+                  
                 </div>
 
               </div>
@@ -635,7 +634,7 @@
                 <div class="col-md-6">
                   
 
-                  <div v-if="dataSolution">
+                  <div v-if="dataSolution" style="margin-top: 41px;">
                     <table class="table tblvp">
                       <tbody>
                         <tr>
@@ -746,12 +745,17 @@
 
                 <div class="col-md-6">
                   
+                  <div style="margin-bottom:10px">
+                    <button v-if="rubah" class="btn btn-default btn-sm" @click="rubah = !rubah"><i class="fa fa-refresh"></i> Lihat Pain And Gain</button>
+                    <button v-if="!rubah" class="btn btn-default btn-sm" @click="rubah = !rubah"><i class="fa fa-refresh"></i> Lihat Segmen Pelanggan</button>
+                  </div>
 
                    <div v-for="data in personaAspect.aspect.slice(0,3)" v-if="rubah">
                      <b>{{data.field_template.name}}</b><br><br>
                      <span style="word-break: break-all;" v-html="data.value"></span><br><hr>
                    </div>  
 
+                  
 
                   <div style="position: relative" v-if="!rubah">
 
