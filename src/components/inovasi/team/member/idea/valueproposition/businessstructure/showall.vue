@@ -24,9 +24,12 @@
                 >Tipe Pengguna</router-link>
               </li>
               <li class="breadcrumb-item">
+                <router-link v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId">Segmen Pelanggan</router-link>
+              </li>
+              <li class="breadcrumb-item">
                 <router-link
                   v-bind:to="'/team/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona/'+personaId+'/vp'"
-                >Segmen Pelanggan</router-link>
+                >Empathy Map</router-link>
               </li>
               <li class="breadcrumb-item active" aria-current="page">Analisa Bisnis</li>
             </ol>
@@ -47,16 +50,19 @@
                 >Tipe Pengguna</router-link>
               </li>
               <li class="breadcrumb-item">
+                <router-link v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId">Segment Pelanggan</router-link>
+              </li>
+              <li class="breadcrumb-item">
                 <router-link
                   v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona/'+personaId+'/vp'"
-                >Segment Pelanggan</router-link>
+                >Empathy Map</router-link>
               </li>
               <li class="breadcrumb-item active" aria-current="page">Business Structure</li>
             </ol>
           </nav>
           <!--end breadcrumb-->
 
-          <ul class="nav nav-tabs">
+          <ul class="nav nav-tabs" style="font-size: 12px;">
             <li class="active">
               <a data-toggle="tab" href="#vp">Value Proposition</a>
             </li>
@@ -210,7 +216,7 @@
                   <i class="fa fa-info-circle"></i> Klik disini apabila kamu ingin mempelajari tentang  BMC
                 </button>
                 <br>
-                <h4 style="padding: 20px">No Data Add from template</h4>
+                <h4 style="padding: 20px">Tidak ada data, Mohon untuk mengisi data BMC</h4>
                 <br>
                 <template
                   v-for="data in dataTemplate.list"
@@ -220,7 +226,7 @@
                     v-if="role === 'Talent'"
                     class="btn btn-default"
                     @click="addBS(data.id)"
-                  >Add {{data.name}}</a>
+                  ><i class="fa fa-plus"></i> {{data.name}}</a>
                   <hr>
                 </template>
               </div>
@@ -348,14 +354,14 @@
                   <i class="fa fa-info-circle"></i> Klik disini apabila kamu ingin mempelajari tentang  Lean Canvas
                 </button>
                 <br>
-                <h4 style="padding: 20px">No Data Add from template</h4>
+                <h4 style="padding: 20px">Tidak ada data, Mohon untuk mengisi data Lean Canvas</h4>
                 <hr>
                 <template v-for="data in dataTemplate.list" v-if="data.name === 'Lean Canvas'">
                   <a
                     v-if="role === 'Talent'"
                     class="btn btn-default"
                     @click="addBS(data.id)"
-                  >Add {{data.name}}</a>
+                  ><i class="fa fa-plus"></i> Tambah {{data.name}}</a>
                 </template>
               </div>
               <!--Lean Canvas End-->
@@ -551,14 +557,14 @@
                   <i class="fa fa-info-circle"></i> Klik disini apabila kamu ingin mempelajari tentang  Market Size
                 </button>
                 <br>
-                <h4 style="padding: 20px">No Data Add from template</h4>
+                <h4 style="padding: 20px">Tidak ada data, Mohon untuk mengisi data Market Size</h4>
                 <hr>
                 <template v-for="data in dataTemplate.list" v-if="data.name === 'Market Size'">
                   <a
                     v-if="role === 'Talent'"
                     class="btn btn-default"
                     @click="addBS(data.id)"
-                  >Add {{data.name}}</a>
+                  ><i class="fa fa-plus"></i> Tambah {{data.name}}</a>
                 </template>
               </div>
               <!--end ms -->
@@ -598,7 +604,7 @@
                     </a>
                   </h4>-->
 
-                  <div  class="">
+                  <div style="text-align: justify;">
                     <p>{{parentVP.description}}</p>
                   </div>
                 </div>
@@ -609,8 +615,7 @@
                   </h4>
                    <p style="margin-top: 22px;">{{personaAspect.description}} </p>
                   
-                  <button v-if="rubah" class="btn btn-default btn-sm" @click="rubah = !rubah">Lihat Pain And Gain</button>
-                  <button v-if="!rubah" class="btn btn-default btn-sm" @click="rubah = !rubah">Lihat Segmen Pelanggan</button>
+                  
                 </div>
 
               </div>
@@ -629,7 +634,7 @@
                 <div class="col-md-6">
                   
 
-                  <div v-if="dataSolution">
+                  <div v-if="dataSolution" style="margin-top: 41px;">
                     <table class="table tblvp">
                       <tbody>
                         <tr>
@@ -641,8 +646,9 @@
                               class="btn btn-default btn-sm">
                               <i class="fa fa-edit"></i>
                             </a> -->
-                            <br><br>
-                            <span v-html="dataSolution.fields[0].value"></span>
+                            
+                            <p v-if="dataSolution.fields[0].value" class="vpalign" v-html="dataSolution.fields[0].value"></p>
+                            <p v-else class="takadadata">tidak ada data</p>
                           </td>
                           <td>
                             <b>{{dataSolution.fields[2].field_template.name}}<a v-if="role === 'Talent'" @click="editBS(dataSolution)" class="posisieditvp"><i class="fa fa-edit"></i></a></b>
@@ -652,8 +658,9 @@
                               class="btn btn-default btn-sm">
                               <i class="fa fa-edit"></i>
                             </a> -->
-                            <br><br>
-                            <span v-html="dataSolution.fields[2].value"></span>
+                            
+                            <p v-if="dataSolution.fields[2].value" class="vpalign" v-html="dataSolution.fields[2].value"></p>
+                            <p v-else class="takadadata">tidak ada data</p>
                           </td>
                         </tr>
                         <tr>
@@ -665,8 +672,9 @@
                               class="btn btn-default btn-sm">
                               <i class="fa fa-edit"></i>
                             </a> -->
-                            <br>
-                            <span v-html="dataSolution.fields[1].value"></span>
+                            
+                            <p v-if="dataSolution.fields[1].value" class="vpalign" v-html="dataSolution.fields[1].value"></p>
+                            <p v-else class="takadadata">tidak ada data</p>
                           </td>
                         </tr>
                       </tbody>
@@ -723,26 +731,31 @@
                     <!--<button @click="openCommentsVP(dataVP.id)" class="btn btn-default" type="button"><i class="fa fa-refresh"></i> Munculkan Komentar</button>-->
                   </div>
                   <div class="box-body" v-else>
-                    No Solution Yet
+                    Tidak ada data, Mohon untuk mengisi data Solution
                     <hr>
                     <template v-for="data in dataTemplate.list" v-if="data.name === 'Solution'">
                       <a
                         v-if="role === 'Talent'"
                         class="btn btn-default"
                         @click="addBS(data.id)"
-                      >Add {{data.name}}</a>
+                      ><i class="fa fa-plus"></i> Tambah {{data.name}}</a>
                     </template>
                   </div>
                 </div>
-                <!--start pie  -->
+
                 <div class="col-md-6">
                   
+                  <div style="margin-bottom:10px">
+                    <button v-if="rubah" class="btn btn-default btn-sm" @click="rubah = !rubah"><i class="fa fa-refresh"></i> Lihat Pain And Gain</button>
+                    <button v-if="!rubah" class="btn btn-default btn-sm" @click="rubah = !rubah"><i class="fa fa-refresh"></i> Lihat Segmen Pelanggan</button>
+                  </div>
 
                    <div v-for="data in personaAspect.aspect.slice(0,3)" v-if="rubah">
                      <b>{{data.field_template.name}}</b><br><br>
                      <span style="word-break: break-all;" v-html="data.value"></span><br><hr>
                    </div>  
 
+                  
 
                   <div style="position: relative" v-if="!rubah">
 
@@ -751,20 +764,23 @@
                         <tr>
                           <td>
                             <b><span v-html="personaAspect.aspect[6].field_template.name"></span></b>
-                            <br><br>
-                            <span style="word-break:break-all" v-html="personaAspect.aspect[6].value"></span>
+                      
+                            <p v-if="personaAspect.aspect[6].value" class="vpalign" v-html="personaAspect.aspect[6].value"></p>
+                            <p v-else class="takadadata">tidak ada data</p>
                           </td>
                            <td rowspan="2" style="height: 515px; width: 188px;">
                             <b><span v-html="personaAspect.aspect[4].field_template.name"></span></b>
-                            <br>
-                            <span v-html="personaAspect.aspect[4].value"></span>
+                           
+                            <p v-if="personaAspect.aspect[4].value" class="vpalign" v-html="personaAspect.aspect[4].value"></p>
+                            <p v-else class="takadadata">tidak ada data</p>
                           </td>
                         </tr>
                         <tr>
                           <td>
                             <b><span v-html="personaAspect.aspect[5].field_template.name"></span></b>
-                            <br><br>
-                            <span v-html="personaAspect.aspect[5].value"></span>
+                            
+                            <p v-if="personaAspect.aspect[5].value" class="vpalign" v-html="personaAspect.aspect[5].value"></p>
+                            <p v-else class="takadadata">tidak ada data</p>
                           </td>
                           
                         </tr>
@@ -890,14 +906,14 @@
                   <i class="fa fa-info-circle"></i> Klik disini apabila kamu ingin mempelajari tentang  Market Analysis
                 </button>
                 <br>
-                <h4 style="padding: 20px">No Data Add from template</h4>
+                <h4 style="padding: 20px">Tidak ada data, Mohon untuk mengisi data Market Analysis</h4>
                 <hr>
                 <template v-for="data in dataTemplate.list" v-if="data.name === 'Market Analysis'">
                   <a
                     v-if="role === 'Talent'"
                     class="btn btn-default"
                     @click="addBS(data.id)"
-                  >Add {{data.name}}</a>
+                  ><i class="fa fa-plus"></i> Tambah {{data.name}}</a>
                 </template>
               </div>
               <div class v-if="openMA">
@@ -976,7 +992,7 @@
                   <i class="fa fa-info-circle"></i> Klik disini apabila kamu ingin mempelajari tentang  SWOT
                 </button>
                 <br>
-                <h4 style="padding: 20px">No Data Add from template</h4>
+                <h4 style="padding: 20px">Tidak ada data, Mohon untuk mengisi data SWOT</h4>
                 <hr>
                 <template v-for="data in dataTemplate.list" v-if="data.name === 'SWOT Analysis'">
                   <a
@@ -1984,7 +2000,7 @@ td {
   float: right;
 }
 #tblleancanvas td strong {
-    background: #e4e4e4;
+    background: #efefef;
     color: #505050;
     display: block;
     padding: 5px;
@@ -2005,7 +2021,7 @@ td {
   float: right;
 }
 #tblbmc td strong {
-    background: #e4e4e4;
+    background: #efefef;
     color: #505050;
     display: block;
     padding: 5px;
@@ -2027,9 +2043,12 @@ td {
   cursor: pointer;
   float: right;
 }
+.tblvp {
+  word-break: break-word;
+}
 
 .tblvp td b{
-    background: #e4e4e4;
+    background: #efefef;
     color: #505050;
     display: block;
     padding: 5px;
@@ -2049,7 +2068,19 @@ td {
   text-align: center;
 }
 .mscolor {
-  background: #e4e4e4;
+  background: #efefef;
   color: #505050;
+}
+.vpalign{
+  text-align: left;
+}
+.takadadata {
+  background: #e4af4a;
+  color: #fff;
+  padding: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 10px;
+  display: inline-block;
 }
 </style>

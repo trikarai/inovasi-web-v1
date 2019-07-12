@@ -18,7 +18,7 @@
               <div class="field">  
                 <h2>
                   <template v-if="edit">Edit </template>
-                  <template v-else>Add </template>Competitor</h2>
+                  <template v-else>Tambah </template>Competitor</h2>
                 <div class="garis"></div>
                 <div>
 

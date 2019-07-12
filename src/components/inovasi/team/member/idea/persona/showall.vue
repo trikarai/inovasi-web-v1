@@ -31,10 +31,10 @@
           
           <main class="pagebody">
             <div style="padding-bottom: 30px;" class="col-md-6" >
-              <h2 class="brdleft" style="margin-top: 10px;">{{parentData.name}}
+              <h2 class="brdleft" style="margin-top: 10px;padding-bottom: 18px;"><span style="position: relative;top: 3px;">{{parentData.name}}</span>
                     <a v-if="role === 'Talent'" style="float:right" class="btn btn-default" @click="updateParent(parentData.id)"><i class="fa fa-pencil-square"></i> </a>
               </h2>
-              <label>Description</label>
+              <label>Deskripsi</label>
               <div style="white-space: pre-line" class="linkli__url">{{parentData.description}}</div>
 <!--
               <label>Created Time</label>
@@ -70,18 +70,18 @@
                     </template> 
 -->
                   <template v-if="role === 'Talent'">
-                    <router-link class="btn btn-default tambahan" v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + data.id + '/vp'"><i class="fa fa-search"></i></router-link>
+                    <router-link class="btn btn-default tambahan" v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + data.id"><i class="fa fa-search"></i></router-link>
 <!--                    <a class="btn btn-default tambahan" @click="updatePersona(data)"><i class="fa fa-pencil-square"></i></a>-->
                     <a class="btn btn-danger tambahan" @click="confirm('Delete', data.id)"><i class="fa fa-trash"></i></a>
                   </template> 
                   <template v-else>
-                    <router-link class="btn btn-default tambahan" v-bind:to="'/tutor/'+tutorId+'/participant/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + data.id + '/vp'"><i class="fa fa-search"></i></router-link>
+                    <router-link class="btn btn-default tambahan" v-bind:to="'/tutor/'+tutorId+'/participant/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + data.id"><i class="fa fa-search"></i></router-link>
                   </template> 
                   </li>
                 </ul>
               </section>
               <section class="rightsection" v-else>
-                <h5 class="nodata">No Data, Please Create New</h5>
+                <h5 class="nodata">Tidak ada data, Mohon untuk mengisi data Segmen Pelanggan</h5>
               </section>
               <a style="margin-top:10px" v-if="role === 'Talent'" class="btn btn-primary" @click="showFormPersona()"><span class="glyphicon glyphicon-plus-sign"></span> Buat Segmen Pelanggan Baru</a>
 

@@ -22,10 +22,10 @@
                       <form>
                         <div class="row">
                               <div class="col-md-4">
-                                <label>Deskripsi <a href="#" class="tultip" data-toggle="tooltip" data-placement="right" title="Value Proposition adalah esensi dari nilai yang diberikan produk atau layanan Anda kepada pelanggan. Ini adalah janji manfaat yang Anda berikan. Value Proposition yang kuat mengartikulasikan manfaat produk Anda serta alasan mengapa orang harus membeli dari Anda dan bukan dari pesaing Anda."> <i style="margin-left: 20px" class="fa fa-info-circle"></i></a></label>
+                                <label>Deskripsi <a href="#" class="tultip" data-toggle="tooltip" data-placement="right" title="Value Proposition adalah sebuah pernyataan terkait value yang akan diperoleh oleh pelanggan dengan menggunakan produk/jasa anda. Isinya dapat berupa manfaat-manfaat yang akan diperoleh pelanggan. Selain menjelaskan manfaat, Value Proposition yang baik juga menjelaskan mengapa produk/jasa anda lebih baik dibandingkan dengan kompetitor."> <i style="margin-left: 20px" class="fa fa-info-circle"></i></a></label>
                               </div>
                               <div class="col-md-6">
-                                  <textarea style="border: 2px solid #eaeaea;height: 130px;width: 100%;" class="kotak" type="text" v-model="data.description" maxlength="250"></textarea>
+                                  <textarea style="border: 2px solid #eaeaea;height: 130px;width: 100%;" class="kotak" type="text" v-model="data.description" maxlength="750"></textarea>
                               </div>
                         </div>
                       </form>

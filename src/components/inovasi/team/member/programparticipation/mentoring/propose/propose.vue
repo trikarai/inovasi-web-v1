@@ -26,7 +26,7 @@
                       </div>
                       <div class="col-md-6">
                         <select  class="form-control" v-model="propose.mentoring_id" v-if="data.total > 0">
-                          <option disabled value="">-Select Mentoring Session-</option>
+                          <option disabled value="">-Pilih Sesi Mentoring-</option>
                           <option v-for="mentoring in data.list" :value="mentoring.id">{{mentoring.name}}</option>
                         </select>
                         <div v-else>
@@ -41,7 +41,7 @@
                       </div>
                       <div class="col-md-6">
                         <select class="form-control" v-model="propose.tutor_id" v-if="dataTutor.total > 0">
-                          <option disabled value="">-Select Tutor-</option>
+                          <option disabled value="">-Pilih Tutor-</option>
                           <option v-for="tutor in dataTutor.list" :value="tutor.id">{{tutor.personnel.name}}</option>
                         </select>
                         <div v-else>

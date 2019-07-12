@@ -11,35 +11,35 @@
           </div>
           <div class="modal-body">
             <div class="ui form">
-              <h2>Propose Mentoring</h2>
+              <h2>Mengajukan Mentoring</h2>
               <div class="garis"></div>
               <onsub v-show="onPP"></onsub>
               
               
               <div class="form-group" v-if="filteredPP.length > 0">
-                <label>Program Participation</label>
+                <label>Partisipasi Program</label>
                 <!--{{filteredPP}}-->
                 
                 <select class="form-control" id="pp" v-model="programmeparticipation" @change="changePP">
-                  <option disabled value="">Select Program</option>
+                  <option disabled value="">Pilih Program</option>
                   <option v-for="pp in filteredPP" :value="pp">{{pp.programme.programme_curriculum.name}}</option>
                 </select>
               </div> 
               <div v-else>
-                <div v-show="!onPP">You aren't registered to any active program yet , please register  <router-link v-bind:to="'/team/' + teamId + '/programmeparticipation/register'"><b>here</b></router-link></div>
+                <div v-show="!onPP">Kamu belum terdaftar program, daftar program terlebih dahulu  <router-link v-bind:to="'/team/' + teamId + '/programmeparticipation/register'"><b>here</b></router-link></div>
               </div>  
               
               <onsub v-show="onMS"></onsub>
               <template v-if="showMS">
               <div class="form-group" v-if="dataMS.total > 0">
-                <label>Mentoring Session</label>
+                <label>Sesi Mentoring</label>
                 <select class="form-control" id="ms" v-model="datams" @change="changeMS()">
-                  <option disabled value="">Select Session</option>
+                  <option disabled value="">Pilih Sesi</option>
                   <option v-for="ms in dataMS.list" :value="ms">{{ms.name}}</option>
                 </select>
               </div>
               <div v-else>
-                No Mentoring Session found from this programme.
+                Tidak ada sesi mentoring di program ini
               </div>
               </template>
               
@@ -48,19 +48,19 @@
                 <div v-show="!onSubmit" style="margin-top: 20px">
                   <template v-if="dateDiffEnd(end_date) != 0">
                         <template v-if="dateDiffStart(start_date) > 0">
-                          <span class="statuse">Session Unstarted </span>
+                          <span class="statuse">Sesi Belum Dimulai </span>
                         </template> 
                           <template v-else>
                             <template v-if="dateDiffEnd(end_date) > 0">
                             <router-link v-if="showButton" class="btn btn-default" v-bind:to="{name: 'Daftar Mentor', params: {teamId: teamId, programmeparticipationId:programmeparticipationId, programmeId: programmeId, phaseId: phaseId, sessionId: sessionId}}"> <span class="glyphicon glyphicon-play-circle"></span> Propose Mentoring</router-link>
                             </template>  
                             <template v-else>
-                              <span class="statuscancelled">Session Ended</span>
+                              <span class="statuscancelled">Sesi Berakhir</span>
                             </template>  
                         </template> 
                   </template> 
                   <template v-else>
-                    Please Choose Program then Session first
+                    Mohon untuk memilih program terlebih dahulu, setelah itu memilih Sesi.<br><br>
                   </template> 
                     
                     <button class="btn btn-danger" @click="$emit('close')">Cancel</button>
@@ -197,6 +197,13 @@
         padding: 2px 9px;
         border-radius: 20px;
         font-size: 10px;
+    }
+    .garis {
+        display: block;
+        width: 45px;
+        height: 5px;
+        background: #8bc751;
+        margin-bottom: 20px;
     }
   @import '../../modal.css';
 </style>

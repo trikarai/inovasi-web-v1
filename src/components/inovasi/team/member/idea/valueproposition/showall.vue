@@ -20,7 +20,8 @@
               <li class="breadcrumb-item"><router-link v-bind:to="'/talent/team/membership'">Tim</router-link></li>
               <li class="breadcrumb-item"><router-link v-bind:to="'/team/'+teamId+'/idea/'+ideaId+'/cs'">Ide</router-link></li>
               <li class="breadcrumb-item"><router-link v-bind:to="'/team/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona'">Tipe Pengguna</router-link></li>
-              <li class="breadcrumb-item active" aria-current="page">Segmen Pelanggan</li>
+              <li class="breadcrumb-item"><router-link v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId">Segmen Pelanggan</router-link></li>
+              <li class="breadcrumb-item active" aria-current="page">Empathy Map</li>
             </ol>
           </nav>
             <nav class="remahroti" aria-label="breadcrumb" v-else>
@@ -28,7 +29,8 @@
               <li class="breadcrumb-item"><router-link v-bind:to="'/personnel/dashboard'">Beranda</router-link></li>
               <li class="breadcrumb-item"><router-link v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs'">Ide</router-link></li>
               <li class="breadcrumb-item"><router-link v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona'">Tipe Pengguna</router-link></li>
-              <li class="breadcrumb-item active" aria-current="page">Segmen Pelanggan</li>
+              <li class="breadcrumb-item"><router-link v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId">Segmen Pelanggan</router-link></li>
+              <li class="breadcrumb-item active" aria-current="page">Empathy Map</li>
             </ol>
           </nav> 
           <!--end breadcrumb-->
@@ -42,33 +44,51 @@
                 
               <div class="list-group">    
                   <div class="list-group-item"> 
-                    <label style="margin-top: 12px">Nama Persona</label>
+                    <label style="margin-top: 12px">Nama Tipe Pengguna</label>
                  
-                    <div class="brdleft">{{dataParent.name}}
+                    <div class="brdleft">{{dataParent.name}}<br>
+                    <div class="linkli__url" style="color: #949494">{{dataParent.description}}</div>
                      <!--<a style="float:right" class="btn btn-default" @click=""><i class="fa fa-pencil-square"></i> </a>-->
                     </div>
-                  </div>
-                  <div class="list-group-item">
-                      <label>Note</label>
-                      <div class="linkli__url"> {{dataParent.description}}</div>
                   </div>
     <!--
                   <label class="label label-primary">Created Time</label>
                   <div class="linkli__url"> {{dataParent.created_time}}</div>
     -->
-                  <template v-for="aspect in dataParent.aspect">
-                    <div class="list-group-item">
-                        <label>{{aspect.field_template.name}}</label>
-                        <div class="linkli__url"><span v-html="aspect.value"></span></div>
+                  <div class="list-group-item">
+                    <template v-for="aspect in dataParent.aspect.slice(0,4)">
+                      
+                          <label>{{aspect.field_template.name}}</label>
+                          <div class="linkli__url"><span v-html="aspect.value"></span></div> 
+                    </template>
+                  </div>
+                  <div class="list-group-item">
+                    <template v-for="aspect in dataParent.aspect.slice(4,7)">                  
+                          <label>{{aspect.field_template.name}}</label>
+                          <div class="linkli__url"><span v-html="aspect.value"></span></div> 
+                    </template>
+                  </div>
+                  <div class="list-group-item" style="text-align: center;">
+                    <a data-toggle="collapse" href="#collapse1"><b>Empathy Map</b></a>
+                  </div>
+                  <div class="list-group-item" style="background: #f7f7f7;">
+                  <div id="collapse1" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <template v-for="aspect in dataParent.aspect.slice(7,12)">                 
+                          <label>{{aspect.field_template.name}}</label>
+                          <div v-if="aspect.value" class="linkli__url"><span v-html="aspect.value"></span></div>
+                          <div v-else><span class="takadadata">tidak ada data</span></div>
+                      </template>
                     </div>
-                  </template>
+                  </div>
+                  </div>
               </div>
             </div>
 
 
             <div class="col-md-6">
               <h3 class="tabcs"><b>Value Proposition</b></h3>
-            <div class="rightsection" v-if="data.total > 0">
+            <div class="rightsection" v-if="data.total > 0" style="margin-top: 15px !important;">
               <table class="table table-hover table-striped">
                 <thead>
                   <tr>
@@ -91,14 +111,14 @@
                                 <span class="statusp">Utama</span>
                             </div>
                             <a v-if="role === 'Talent'" class="btn btn-default" @click="updateVP(data.id)"><i class="fa fa-pencil"></i></a>
-                            <a v-if="role === 'Talent'" class="btn btn-warning" @click="confirm('Delete', data.id)"><i class="fa fa-trash"></i></a>
+                            <a v-if="role === 'Talent'" class="btn btn-danger" @click="confirm('Delete', data.id)"><i class="fa fa-trash"></i></a>
                           </template>
                           <template v-else>
                             <div style="padding:6px;" class="col-md-6">
                                 <a v-if="role === 'Talent'" class="btn btn-default midea" @click="activateVP(data.id)"><i class="fa fa-check"></i> Ubah jadi Utama</a>
                             </div>
                             <a v-if="role === 'Talent'" class="btn btn-default" @click="updateVP(data.id)"><i class="fa fa-pencil"></i></a>
-                            <a v-if="role === 'Talent'" class="btn btn-warning" @click="confirm('Delete', data.id)"><i class="fa fa-trash"></i></a>
+                            <a v-if="role === 'Talent'" class="btn btn-danger" @click="confirm('Delete', data.id)"><i class="fa fa-trash"></i></a>
                           </template>
                         </div>
                     </td>
@@ -142,7 +162,7 @@
               </table>
             </div>
               <div v-if="data.total === 0">
-                <h5 style="padding: 20px">No Data, please create value proposition... </h5>
+                <h5 style="padding: 20px">Tidak ada data, Mohon untuk mengisi Value Proposition </h5>
               </div>              
                 <a v-if="role === 'Talent'" class="btn btn-primary" @click="showFormVP()"><span class="glyphicon glyphicon-plus-sign"></span> Buat Value Proposition Baru</a>
               
@@ -414,5 +434,13 @@
       font-size: 0.8em;
       color: #565656;
       word-break: break-all;
+    }
+    .takadadata {
+      background: #e4af4a;
+      color: #fff;
+      padding: 1px;
+      padding-left: 5px;
+      padding-right: 5px;
+      font-size: 10px;
     }
 </style>

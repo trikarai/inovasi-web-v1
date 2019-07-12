@@ -7,7 +7,7 @@
 
       <error-flash v-bind:error="error" v-bind:success="success" v-bind:err_msg="err_msg"/>
 
-      <a class="btn btn-default" @click="showFormIdea()"><span class="glyphicon glyphicon-plus-sign"></span> Tambahkan Ide</a>
+      <a class="btn btn-default" @click="showFormIdea()"><span class="glyphicon glyphicon-plus-sign"></span> Tambah Ide Baru</a>
 
       <div class="box" v-show="!error">
         <div class="box-body">
@@ -29,7 +29,7 @@
                         <span class="dttmnm hvr-ripple-out" >{{data.name}}</span>
                     </router-link>       
 -->
-                    {{data.name}}
+                    <span style="position: relative;top: 5px;">{{data.name}}</span>
                 </td>
                 <td>
                      <span style="color:#6f6f6f">{{data.description}}</span>

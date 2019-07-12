@@ -10,8 +10,9 @@
               <error-flash v-bind:error="error" v-bind:success="success" v-bind:err_msg="err_msg"/>
                             
           <div class="modal-body">
-            
-            <table class="table">
+            <h2>Detail Tipe Pengguna</h2>
+            <div class="garis"></div>
+            <table class="table table-striped" style="word-break: break-word;">
               <thead>
                 <tr>
                   <th></th>
@@ -20,13 +21,14 @@
               </thead>
               <tbody  style="border-top-style: hidden;">
                 <tr v-for="data in aspect">
-                  <td><b>{{data.field_template.name}}</b></td>
+                  <td style="width: 35%;"><b>{{data.field_template.name}}</b></td>
                   <template v-if="data.value != null">
-                    <td>{{data.value}}</td>
+                    <td v-if="data.value"><span v-html="data.value"></span></td>
+                    <td v-else><span class="takadadata">tidak ada data</span></td>
                   </template>
                   <template v-else>
                     <td v-for="option in data.selected_options">
-                      {{option.option.name}}
+                        <span v-html="option.option.name"></span>
                     </td>
                   </template>
               
@@ -97,4 +99,13 @@
 </script>  
 <style lang="css">
 @import '../modal.css';
+
+.takadadata {
+  background: #e4af4a;
+  color: #fff;
+  padding: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 10px;
+}
 </style>

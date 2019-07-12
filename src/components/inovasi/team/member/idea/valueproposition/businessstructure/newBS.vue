@@ -12,7 +12,7 @@
           <div class="modal-body">
             <div class="ui form">                
               <div class="field"> 
-                  <h2>Add {{data.name}}</h2>
+                  <h2>Tambah {{data.name}}</h2>
                   
                   <div class="garis"></div>
                 <div>                    

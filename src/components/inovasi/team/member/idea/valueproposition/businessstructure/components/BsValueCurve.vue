@@ -2,11 +2,14 @@
   <div>
     <!-- {{data}} -->
 
-    <button class="btn btn-info" @click="learningVC" style="border-radius: 5px; padding: 2px 8px;">
+    <button v-if="!data" class="btn btn-info" @click="learningVC" style="border-radius: 5px; padding: 2px 8px;margin-top:10px;">
       <i class="fa fa-info-circle"></i> Klik disini apabila kamu ingin mempelajari tentang Value Curve
     </button>
 
     <template v-if="data">
+      <button class="btn btn-info" @click="learningVC" style="border-radius: 5px; padding: 2px 8px;">
+        <i class="fa fa-info-circle"></i> Klik disini apabila kamu ingin mempelajari tentang Value Curve
+      </button>
       <a @click="editBS(data)" style="margin: 10px" class="btn btn-default btn-sm">
         <i class="fa fa-edit"></i>
       </a>
@@ -34,10 +37,11 @@
           <template v-if="data.attachment">
             <td>
             <div v-for="attachment in data.attachment">
-              <!-- <img :src="'/inovasi/public/uploads' + attachment.file_meta.file_path"> -->
-              <img class="img-responsive img-rounded" width="550px"
+              <img :src="'/inovasi/public/uploads' + attachment.file_meta.file_path" class="img-responsive img-rounded" width="550px">
+              <!-- <img class="img-responsive img-rounded" width="550px"
                 :src="'http://start.mikti.id/inovasi/public/uploads' + attachment.file_meta.file_path"
-              >
+              > -->
+
             </div>
             </td>
           </template>
@@ -57,14 +61,14 @@
     </table>
 
     <template v-if="!data">
-      <template v-for="data in dataTemplate.list" v-if="data.name === 'Value_Curve'">
+      
         <a
           v-if="role === 'Talent'"
-          class="btn btn-default"
-          @click="addBS(data.id)"
-        >Add Value Curve</a>
+          class="btn btn-default btn-sm"
+          @click="addBS('4e208600-abab-41ac-8864-a950ff74e0fb')"
+        ><i class="fa fa-plus"></i> Tambah Value Curve</a>
         <hr>
-      </template>
+      
     </template>
 
     <!-- form -->

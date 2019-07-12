@@ -22,12 +22,15 @@
               <li class="breadcrumb-item">
                 <router-link
                   v-bind:to="'/team/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona'"
-                >Segmen Pelanggan</router-link>
+                >Tipe Pengguna</router-link>
+              </li>
+              <li class="breadcrumb-item">
+                <router-link v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId">Segmen Pelanggan</router-link>
               </li>
               <li class="breadcrumb-item">
                 <router-link
                   v-bind:to="'/team/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona/'+personaId+'/vp'"
-                >Persona</router-link>
+                >Empathy Map</router-link>
               </li>
               <li class="breadcrumb-item active" aria-current="page">Percobaan Bisnis</li>
             </ol>
@@ -45,12 +48,15 @@
               <li class="breadcrumb-item">
                 <router-link
                   v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona'"
-                >Segmen Pelanggan</router-link>
+                >Tipe Pengguna</router-link>
+              </li>
+              <li class="breadcrumb-item">
+                <router-link v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId">Segmen Pelanggan</router-link>
               </li>
               <li class="breadcrumb-item">
                 <router-link
                   v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona/'+personaId+'/vp'"
-                >Tipe Pengguna</router-link>
+                >Empathy Map</router-link>
               </li>
               <li class="breadcrumb-item active" aria-current="page">Percobaan Bisnis</li>
             </ol>
@@ -199,11 +205,11 @@
                       <tr>
                         <th
                           height="70px"
-                        >{{reOrderField(dataJavelin.list[0].fields)[0].field_template.name}}</th>
+                        >{{reOrderField(dataJavelin.list[0].fields)[0].field_template.name}} asd</th>
                         <td
                           width="200px"
                           v-for="javelin in reOrderDate(dataJavelin.list)"
-                        >{{reOrderField(javelin.fields)[0].value}}</td>
+                        ><span v-html="reOrderField(javelin.fields)[0].value"></span></td>
                       </tr>
                       <tr>
                         <th
@@ -212,7 +218,7 @@
                         <td
                           width="200px"
                           v-for="javelin in reOrderDate(dataJavelin.list)"
-                        >{{reOrderField(javelin.fields)[1].value}}</td>
+                        ><span v-html="reOrderField(javelin.fields)[1].value"></span></td>
                       </tr>
 
                       <tr v-if="reOrderField(dataJavelin.list[0].fields)[3]">
@@ -222,7 +228,7 @@
                         <td
                           width="200px"
                           v-for="javelin in reOrderDate(dataJavelin.list)"
-                        >{{reOrderField(javelin.fields)[3].value}}</td>
+                        ><span v-html="reOrderField(javelin.fields)[3].value"></span></td>
                       </tr>
 
                       <tr v-if="reOrderField(dataJavelin.list[0].fields)[4]">
@@ -233,7 +239,7 @@
                           <td
                             width="200px"
                             v-for="javelin in reOrderDate(dataJavelin.list)"
-                          >{{reOrderField(javelin.fields)[4].value}}</td>
+                          ><span v-html="reOrderField(javelin.fields)[4].value"></span></td>
                         </template>
                       </tr>
                       <tr v-if="reOrderField(dataJavelin.list[0].fields)[5]">
@@ -243,7 +249,7 @@
                         <td
                           width="200px"
                           v-for="javelin in reOrderDate(dataJavelin.list)"
-                        >{{reOrderField(javelin.fields)[5].value}}</td>
+                        ><span v-html="reOrderField(javelin.fields)[5].value"></span></td>
                       </tr>
 
                       <tr v-if="reOrderField(dataJavelin.list[0].fields)[4]">
@@ -265,7 +271,7 @@
                         <td
                           width="200px"
                           v-for="javelin in reOrderDate(dataJavelin.list)"
-                        >{{reOrderField(javelin.fields)[6].value}}</td>
+                        ><span v-html="reOrderField(javelin.fields)[6].value"></span></td>
                       </tr>
                       <tr v-if="reOrderField(dataJavelin.list[0].fields)[7]">
                         <th
@@ -299,7 +305,7 @@
                         <td
                           width="200px"
                           v-for="javelin in reOrderDate(dataJavelin.list)"
-                        >{{reOrderField(javelin.fields)[8].value}}</td>
+                        ><span v-html="reOrderField(javelin.fields)[8].value"></span></td>
                       </tr>
                       <tr v-if="reOrderField(dataJavelin.list[0].fields)[9]">
                         <th
@@ -308,7 +314,7 @@
                         <td
                           width="200px"
                           v-for="javelin in reOrderDate(dataJavelin.list)"
-                        >{{reOrderField(javelin.fields)[9].value}}</td>
+                        ><span v-html="reOrderField(javelin.fields)[9].value"></span></td>
                       </tr>
 
                       <!-- edit buttom row-->

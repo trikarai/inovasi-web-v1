@@ -149,16 +149,16 @@
               <h3>Daftar Segmen Pelanggan</h3>
               <div class="garis"></div>
               <div class="row">
-                <div class="col-md-3" style="width: 120px;">
-                  <b>Idea Name</b>
+                <div class="col-md-4" style="width: 150px;">
+                  <b>Nama Ide</b>
                 </div>
-                <div class="col-md-10">{{mainDashboard.name}}</div>
+                <div class="col-md-8">{{mainDashboard.name}}</div>
               </div>
               <div class="row">
-                <div class="col-md-3" style="width: 120px;">
+                <div class="col-md-4" style="width: 150px;">
                   <b>Elevator Pitch</b>
                 </div>
-                <div class="col-md-10">{{mainDashboard.description}}</div>
+                <div class="col-md-8" style="text-align: justify;">{{mainDashboard.description}}</div>
               </div>
             </div>
             <!--            <hr>-->
@@ -253,7 +253,7 @@
                             <div class="panel-group" :id="'accordion2'+index">
                               <div
                                 class="panel panel-default"
-                                v-for="aspect in cs.main_persona.aspect.slice(5,10)"
+                                v-for="aspect in cs.main_persona.aspect.slice(5,7)"
                               >
                                 <div class="panel-heading">
                                   <h4 class="panel-title">

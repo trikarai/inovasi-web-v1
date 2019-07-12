@@ -77,6 +77,6 @@ typings/
 
 # manual ignore
 .settings
-.dist
+dist
 nbproject
 .vscode/settings.json

@@ -63,7 +63,7 @@
               <div class="row">
                   <h2 class="brdleft" style="margin-top: 10px">
                     <div class="row">        
-                        <div class="col-md-10">{{parentData.name}}</div>
+                        <div class="col-md-10" style="margin-top: 4px;">{{parentData.name}}</div>
                         <div class="col-md-2"><a v-if="role === 'Talent'" style="float:right" class="btn btn-default" @click="updateParent(parentData.id)"><i class="fa fa-pencil-square"></i> </a></div>
                     </div>
                   </h2>
@@ -104,7 +104,7 @@
                 </ul>
               </section>
               <section class="rightsection" v-else>
-                <h5 class="nodata">No Data, Please create new </h5>
+                <h5 class="nodata">Tidak ada data, Mohon untuk mengisi data Tipe Pengguna </h5>
               </section>
               <a v-if="role === 'Talent'" class="btn btn-primary" @click="showFormCS()"><span class="glyphicon glyphicon-plus-sign"></span> Buat Tipe Pengguna Baru</a>
 
