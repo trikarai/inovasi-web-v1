@@ -107,13 +107,25 @@
 
               <div style="overflow-x: auto;" v-if="dataBMC">
                 <!--info BMC                -->
-                <button
+                <div class="col-md-5 matpem">
+                  <div class="list-group-item" style="text-align: center;border-radius: 0px;">
+                    <a data-toggle="collapse" href="#collapsebmc"><b>Materi Pembelajaran</b></a>
+                  </div>
+                  <div class="">
+                  <div id="collapsebmc" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTF4XHI7ZdmXUz2TIjAjxRqzYDX3LwhNQXY3vS2S1LEcVLKsVt9ZPm-gFYBxjIhkN2AROWF_EA0GsPq/embed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" height="315" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+                <!-- <button
                   class="btn btn-info"
                   @click="learningBMC"
                   style="border-radius: 5px; padding: 2px 8px;"
                 >
                   <i class="fa fa-info-circle"></i> Klik disini apabila kamu ingin mempelajari tentang  BMC
-                </button>
+                </button> -->
                 <template v-if="role === 'Talent'">
                   <a
                     @click="confirm('Delete',dataBMC.id)"
@@ -208,16 +220,19 @@
                 </button>
               </div>
               <div class="box-body" v-else>
-                <button
+                <!-- <button
                   class="btn btn-info"
                   @click="learningBMC"
                   style="border-radius: 5px; padding: 2px 8px;"
                 >
                   <i class="fa fa-info-circle"></i> Klik disini apabila kamu ingin mempelajari tentang  BMC
-                </button>
+                </button> -->
+                 <div class="col-md-5">
+                  <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTF4XHI7ZdmXUz2TIjAjxRqzYDX3LwhNQXY3vS2S1LEcVLKsVt9ZPm-gFYBxjIhkN2AROWF_EA0GsPq/embed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" height="329" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+                
                 <br>
                 <h4 style="padding: 20px">Tidak ada data, Mohon untuk mengisi data BMC</h4>
-                <br>
+                <hr>
                 <template
                   v-for="data in dataTemplate.list"
                   v-if="data.name === 'Business Model Canvas'"
@@ -226,9 +241,10 @@
                     v-if="role === 'Talent'"
                     class="btn btn-default"
                     @click="addBS(data.id)"
-                  ><i class="fa fa-plus"></i> {{data.name}}</a>
-                  <hr>
+                  ><i class="fa fa-plus"></i> Tambah {{data.name}}</a>
+                  
                 </template>
+                 </div>
               </div>
               <!--BMC Canvas End-->
 
@@ -242,13 +258,26 @@
             <div id="lean" class="tab-pane fade">
               <div style="overflow-x: auto;" v-if="dataLean">
                 <!--info lean canvas-->
-                <button
+                <div class="col-md-5 matpem">
+                  <div class="list-group-item" style="text-align: center;border-radius: 0px;">
+                    <a data-toggle="collapse" href="#collapselc"><b>Materi Pembelajaran</b></a>
+                  </div>
+                  <div class="">
+                  <div id="collapselc" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTnLPhIDwl0cV63FpF-sukmGgaf44pFEP_71R2bYU3aG380jMVDSuiCnt6Xrsn4qY6yVleeVwdz50Oy/embed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" height="315" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+                <!-- <button
                   class="btn btn-info"
                   @click="learningLC"
                   style="border-radius: 5px; padding: 2px 8px;"
                 >
                   <i class="fa fa-info-circle"></i> Klik disini apabila kamu ingin mempelajari tentang  Lean Canvas
-                </button>
+                </button> -->
+
                 <template v-if="role === 'Talent'">
                   <a
                     @click="confirm('Delete',dataLean.id)"
@@ -346,13 +375,16 @@
                 </button>
               </div>
               <div class="box-body" v-else>
-                <button
+                <!-- <button
                   class="btn btn-info"
                   @click="learningLC"
                   style="border-radius: 5px; padding: 2px 8px;"
                 >
                   <i class="fa fa-info-circle"></i> Klik disini apabila kamu ingin mempelajari tentang  Lean Canvas
-                </button>
+                </button> -->
+                <div class="col-md-5">
+                  <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTnLPhIDwl0cV63FpF-sukmGgaf44pFEP_71R2bYU3aG380jMVDSuiCnt6Xrsn4qY6yVleeVwdz50Oy/embed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" height="329" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+                
                 <br>
                 <h4 style="padding: 20px">Tidak ada data, Mohon untuk mengisi data Lean Canvas</h4>
                 <hr>
@@ -363,6 +395,7 @@
                     @click="addBS(data.id)"
                   ><i class="fa fa-plus"></i> Tambah {{data.name}}</a>
                 </template>
+                </div>
               </div>
               <!--Lean Canvas End-->
               <div class v-if="openLean">
@@ -375,13 +408,25 @@
             <div id="ms" class="tab-pane fade">
               <div v-if="dataMS">
                 <!--info ms-->
-                <button
+                <div class="col-md-5 matpem">
+                  <div class="list-group-item" style="text-align: center;border-radius: 0px;">
+                    <a data-toggle="collapse" href="#collapsems"><b>Materi Pembelajaran</b></a>
+                  </div>
+                  <div class="">
+                  <div id="collapsems" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vT1uM0IwG3m8ruVxrhliL4BFL9p_Hq4EP4NEmxXkp8wkhvDwMkWMlfz10WRuuCuady5Lmc2_FH4Kn4-/embed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" height="315" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+                <!-- <button
                   class="btn btn-info"
                   @click="learningMS"
                   style="border-radius: 5px; padding: 2px 8px;"
                 >
                   <i class="fa fa-info-circle"></i> Klik disini apabila kamu ingin mempelajari tentang  Market Size
-                </button>
+                </button> -->
                 <template v-if="role === 'Talent'">
                   <a @click="editBS(dataMS)" style="margin: 10px" class="btn btn-default btn-sm">
                     <i class="fa fa-edit"></i>
@@ -549,13 +594,16 @@
                 </button>
               </div>
               <div class="box-body" v-else>
-                <button
+                <!-- <button
                   class="btn btn-info"
                   @click="learningMS"
                   style="border-radius: 5px; padding: 2px 8px;"
                 >
                   <i class="fa fa-info-circle"></i> Klik disini apabila kamu ingin mempelajari tentang  Market Size
-                </button>
+                </button> -->
+                 <div class="col-md-5">
+                  <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vT1uM0IwG3m8ruVxrhliL4BFL9p_Hq4EP4NEmxXkp8wkhvDwMkWMlfz10WRuuCuady5Lmc2_FH4Kn4-/embed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" height="329" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+                
                 <br>
                 <h4 style="padding: 20px">Tidak ada data, Mohon untuk mengisi data Market Size</h4>
                 <hr>
@@ -566,6 +614,7 @@
                     @click="addBS(data.id)"
                   ><i class="fa fa-plus"></i> Tambah {{data.name}}</a>
                 </template>
+                 </div>
               </div>
               <!--end ms -->
               <div class v-if="openMS">
@@ -579,7 +628,7 @@
               <!--{{personaAspect}}-->
               <!--{{dataSolution}}-->
               <!--info VP-->
-              <div style="padding: 10px">
+              <!-- <div style="padding: 10px">
                 <button
                   class="btn btn-info"
                   @click="learningVP"
@@ -587,8 +636,9 @@
                 >
                   <i class="fa fa-info-circle"></i> Klik disini apabila kamu ingin mempelajari tentang  Value Propostion
                 </button>
-              </div>
+              </div> -->
 
+            <div style="margin-top:10px">
               <div class="row" style="margin-bottom:20px;">
                 <div class="col-md-6">
                   <h4>
@@ -610,14 +660,31 @@
                 </div>
 
                 <div class="col-md-6">
-                   <h4 style="">
+                   <h4 style="margin-top:16px">
                     <b>Segmen Pelanggan</b>
                   </h4>
-                   <p style="margin-top: 22px;">{{personaAspect.description}} </p>
+                   <p style="margin-top: 14px;">{{personaAspect.description}} </p>
                   
                   
                 </div>
 
+              </div>
+              <div class="row" v-if="dataSolution != 0">
+                <div class="col-md-6">
+                  <div class="list-group-item" style="text-align: center;border-radius: 0px;">
+                    <a data-toggle="collapse" href="#collapsevp"><b>Materi Pembelajaran</b></a>
+                  </div>
+                  <div class="">
+                  <div id="collapsevp" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQCFxPqY-Lg9MBaMqyBOEzynORu2Ud2c_jsD_HAMtvQoPG1R1sSeB9_3H4IU2XpJv1-kY8_vkrhFC23/embed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" height="393" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  
+                </div>              
               </div>
               <div class="row">
                 <!-- <div class="row">
@@ -731,7 +798,8 @@
                     <!--<button @click="openCommentsVP(dataVP.id)" class="btn btn-default" type="button"><i class="fa fa-refresh"></i> Munculkan Komentar</button>-->
                   </div>
                   <div class="box-body" v-else>
-                    Tidak ada data, Mohon untuk mengisi data Solution
+                    <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQCFxPqY-Lg9MBaMqyBOEzynORu2Ud2c_jsD_HAMtvQoPG1R1sSeB9_3H4IU2XpJv1-kY8_vkrhFC23/embed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" height="393" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+                    <div style="padding:20px">Tidak ada data, Mohon untuk mengisi data Solution</div>
                     <hr>
                     <template v-for="data in dataTemplate.list" v-if="data.name === 'Solution'">
                       <a
@@ -852,18 +920,31 @@
                 </div>
               </div>
             </div>
+            </div>
 
             <div id="ma" class="tab-pane fade">
               <div v-if="dataMA">
                 <!--Info MA-->
+                <div class="col-md-5 matpem">
+                  <div class="list-group-item" style="text-align: center;border-radius: 0px;">
+                    <a data-toggle="collapse" href="#collapsema"><b>Materi Pembelajaran</b></a>
+                  </div>
+                  <div class="">
+                  <div id="collapsema" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQBjnu4gNLQIATJOXXmCcrn_1z76mjSaE1IbMdTUQr98yNLspOtX0rcq5Kh3Y5HViqSsUmlXZ6NAl-I/embed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" height="315" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+                    </div>
+                  </div>
+                  </div>
+                </div>
                 <!-- {{dataMA}} -->
-                <button
+                <!-- <button
                   class="btn btn-info"
                   @click="learningMA"
                   style="border-radius: 5px; padding: 2px 8px;"
                 >
                   <i class="fa fa-info-circle"></i> Klik disini apabila kamu ingin mempelajari tentang  Market Analysis
-                </button>
+                </button> -->
                 <template v-if="role === 'Talent'">
                   <a @click="editBS(dataMA)" style="margin: 10px" class="btn btn-default btn-sm">
                     <i class="fa fa-edit"></i>
@@ -898,13 +979,16 @@
                 </button>
               </div>
               <div class="box-body" v-else>
-                <button
+                <!-- <button
                   class="btn btn-info"
                   @click="learningMA"
                   style="border-radius: 5px; padding: 2px 8px;"
                 >
                   <i class="fa fa-info-circle"></i> Klik disini apabila kamu ingin mempelajari tentang  Market Analysis
-                </button>
+                </button> -->
+                <div class="col-md-5">
+                  <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQBjnu4gNLQIATJOXXmCcrn_1z76mjSaE1IbMdTUQr98yNLspOtX0rcq5Kh3Y5HViqSsUmlXZ6NAl-I/embed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" height="329" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+                
                 <br>
                 <h4 style="padding: 20px">Tidak ada data, Mohon untuk mengisi data Market Analysis</h4>
                 <hr>
@@ -915,6 +999,7 @@
                     @click="addBS(data.id)"
                   ><i class="fa fa-plus"></i> Tambah {{data.name}}</a>
                 </template>
+                </div>
               </div>
               <div class v-if="openMA">
                 <div class>
@@ -926,13 +1011,25 @@
             <div id="swot" class="tab-pane fade">
               <div v-if="dataSWOT">
                 <!--info SWOT-->
-                <button
+                <div class="col-md-5 matpem">
+                  <div class="list-group-item" style="text-align: center;border-radius: 0px;">
+                    <a data-toggle="collapse" href="#collapseswot"><b>Materi Pembelajaran</b></a>
+                  </div>
+                  <div class="">
+                  <div id="collapseswot" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRGGEzMHad24qkb3KZ6xOu4v2JzxC5qIy5f1u_DX4MpdJ40M9LFaK8AkLEXP6DfG6b5SVTFeXpSAXpu/embed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" height="315" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+                <!-- <button
                   class="btn btn-info"
                   @click="learningSWOT"
                   style="border-radius: 5px; padding: 2px 8px;"
                 >
                   <i class="fa fa-info-circle"></i> Klik disini apabila kamu ingin mempelajari tentang  SWOT
-                </button>
+                </button> -->
                 <template v-if="role === 'Talent'">
                    <a @click="editBS(dataSWOT)" style="margin: 10px" class="btn btn-default btn-sm">
                     <i class="fa fa-edit"></i>
@@ -984,13 +1081,16 @@
                 </button>
               </div>
               <div class="box-body" v-else>
-                <button
+                <!-- <button
                   class="btn btn-info"
                   @click="learningSWOT"
                   style="border-radius: 5px; padding: 2px 8px;"
                 >
                   <i class="fa fa-info-circle"></i> Klik disini apabila kamu ingin mempelajari tentang  SWOT
-                </button>
+                </button> -->
+                <div class="col-md-5">
+                  <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRGGEzMHad24qkb3KZ6xOu4v2JzxC5qIy5f1u_DX4MpdJ40M9LFaK8AkLEXP6DfG6b5SVTFeXpSAXpu/embed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" height="329" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+                
                 <br>
                 <h4 style="padding: 20px">Tidak ada data, Mohon untuk mengisi data SWOT</h4>
                 <hr>
@@ -1001,6 +1101,7 @@
                     @click="addBS(data.id)"
                   ><i class="fa fa-plus"></i> Tambah {{data.name}}</a>
                 </template>
+                </div>
               </div>
               <div v-if="openSWOT">
                 <div>
@@ -2082,5 +2183,11 @@ td {
   padding-right: 5px;
   font-size: 10px;
   display: inline-block;
+}
+.matpem {
+  margin-top: 4px;
+  padding-left: 0px;
+  padding-right: 16px;
+  margin-bottom: 4px;
 }
 </style>

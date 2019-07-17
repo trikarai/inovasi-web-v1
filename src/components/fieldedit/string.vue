@@ -47,7 +47,7 @@ export default {
 <style scoped>
 .kotak {
   border: 2px solid #eaeaea;
-  width: 330px ;
+  width: 100% ;
 }
 @import "~vue-wysiwyg/dist/vueWysiwyg.css";
 </style>

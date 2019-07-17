@@ -44,7 +44,7 @@
                 
               <div class="list-group">    
                   <div class="list-group-item"> 
-                    <label style="margin-top: 12px">Nama Tipe Pengguna</label>
+                    <label style="margin-top: 12px">Nama Persona</label>
                  
                     <div class="brdleft">{{dataParent.name}}<br>
                     <div class="linkli__url" style="color: #949494">{{dataParent.description}}</div>
@@ -89,6 +89,16 @@
             <div class="col-md-6">
               <h3 class="tabcs"><b>Value Proposition</b></h3>
             <div class="rightsection" v-if="data.total > 0" style="margin-top: 15px !important;">
+                <div class="list-group-item" style="text-align: center;border-radius: 0px;">
+                  <a data-toggle="collapse" href="#collapse2"><b>Materi Pembelajaran</b></a>
+                </div>
+                <div class="">
+                <div id="collapse2" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTgfSSIyNLtdUcUw7gESlbRIiBfOKu4xJkBAWqKgVkVgoKTSw1xpNl3LMRmOhNY1A--4OJ1IIDGWhkz/embed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" height="300" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+                  </div>
+                </div>
+                </div>
               <table class="table table-hover table-striped">
                 <thead>
                   <tr>
@@ -162,6 +172,7 @@
               </table>
             </div>
               <div v-if="data.total === 0">
+                <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTgfSSIyNLtdUcUw7gESlbRIiBfOKu4xJkBAWqKgVkVgoKTSw1xpNl3LMRmOhNY1A--4OJ1IIDGWhkz/embed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" height="300" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
                 <h5 style="padding: 20px">Tidak ada data, Mohon untuk mengisi Value Proposition </h5>
               </div>              
                 <a v-if="role === 'Talent'" class="btn btn-primary" @click="showFormVP()"><span class="glyphicon glyphicon-plus-sign"></span> Buat Value Proposition Baru</a>

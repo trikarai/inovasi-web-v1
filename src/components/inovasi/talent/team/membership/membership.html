@@ -51,7 +51,7 @@
              <td>{{data.team.name}}</td>
              <td>{{data.team.creator.name}}</td>
              <td>{{data.team.creator.region.name}}</td>
-             <td style="text-align: center;color: #8bc751">{{data.position}}</td>
+             <td style="text-align: center;color: #8bc751;font-weight: 900">{{data.position}}</td>
              <td>
                <span v-if="data.status == 'active'" class="statusp">{{data.status}}</span>
                <span v-if="data.status == 'resigned'" class="statuse">{{data.status}}</span>
@@ -128,7 +128,7 @@
        </table>
         
         <div style="padding: 20px;" v-else>
-          don't have a team ? Create one
+          Kamu belum membuat TIM, mohon untuk membuat TIM terlebih dahulu
         </div>  
  
      </div>

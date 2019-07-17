@@ -3,13 +3,14 @@
   <transition name="modal">
     
     
-    <div class="modal-mask">
+    <div class="modal-mask" style="width:776px;" id="style-2">
       <div class="modal-wrapper">
         <div class="modal-container">
               
               <error-flash v-bind:error="error" v-bind:success="success" v-bind:err_msg="err_msg"/>
                             
           <div class="modal-body">
+            <i class="fa fa-close clsbtnmdl" @click="$emit('close')"></i> 
             <div class="ui form">                
                 <div class="field">  
                   <h2 v-if="!edit">Tambah Value Proposition</h2>
@@ -105,4 +106,34 @@
 </script>  
 <style lang="css">
 @import '../modal.css';
+
+#style-2::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+#style-2::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+#style-2::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
+}
+.clsbtnmdl {
+    float: right;
+    cursor: pointer;
+    background: #bdbdbd;
+    padding: 4px;
+    border-radius: 50%;
+    padding-left: 6px;
+    padding-right: 6px;
+    color: #fff;
+}
 </style>
