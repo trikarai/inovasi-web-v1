@@ -217,13 +217,13 @@
                     <div class="warnstep">
                       <i class="fa fa-warning"></i> Langkah ini terlewat
                     </div>
-                    <span style="position: relative;bottom: 29px;">
-                     Program
+                    <span style="position: relative;bottom: 18px;">
+                     Langkah 3
                     </span>
                   </template>
                   <template v-else>
                     <div>
-                      Program
+                      Langkah 3
                     </div>
                   </template>
                 </div>

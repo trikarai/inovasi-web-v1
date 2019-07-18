@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Hello from '@/components/Hello';
-import index from '../components/index.vue';
+// import index from '../components/index.vue';
 import PageNotFound from '@/components/404.vue';
 
 //Inovasi Dashboard2
@@ -18,7 +17,7 @@ import Activation from '@/components/inovasi/guest/signup/activation'
 import ResendActivation from '@/components/inovasi/guest/signup/resend-activation'
 import ResetPassword from '@/components/inovasi/guest/signup/reset/reset'
 import ChangePassword from '@/components/inovasi/guest/signup/reset/changePassword'
-import SignUpTest from '@/components/inovasi/guest/signup/test'
+// import SignUpTest from '@/components/inovasi/guest/signup/test'
 import DiloSignUp from '@/components/inovasi/guest/dilosignup/signup'
 import LoginAdministrator from '@/components/inovasi/guest/admin/login'
 import LoginPersonnel from '@/components/inovasi/guest/personnel/login'
@@ -105,7 +104,7 @@ import TutorProgrammeParticipantExperimentDetail from '@/components/inovasi/team
 import ParticipantTeam from '@/components/inovasi/personnel/team/membership'
 import ParticipantTeamProfile from '@/components/inovasi/personnel/team/profile'
 
-import LearningMaterial from '@/components/inovasi/team/learning/index'
+// import LearningMaterial from '@/components/inovasi/team/learning/index'
 import Learning from '@/components/inovasi/team/learning/learning'
 
 import LandingPage from '@/components/landingpage/index'
