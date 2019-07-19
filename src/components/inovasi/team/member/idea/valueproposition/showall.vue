@@ -18,19 +18,21 @@
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><router-link v-bind:to="'/talent/dashboard'">Beranda</router-link></li>
               <li class="breadcrumb-item"><router-link v-bind:to="'/talent/team/membership'">Tim</router-link></li>
-              <li class="breadcrumb-item"><router-link v-bind:to="'/team/'+teamId+'/idea/'+ideaId+'/cs'">Ide</router-link></li>
-              <li class="breadcrumb-item"><router-link v-bind:to="'/team/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona'">Tipe Pengguna</router-link></li>
-              <li class="breadcrumb-item"><router-link v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId">Segmen Pelanggan</router-link></li>
-              <li class="breadcrumb-item active" aria-current="page">Empathy Map</li>
+              <li class="breadcrumb-item"><router-link v-bind:to="'/team/'+teamId+'/idea/'">Ide</router-link></li>
+              <li class="breadcrumb-item"><router-link v-bind:to="'/team/'+teamId+'/idea/'+ideaId+'/cs/'">Tipe Pengguna</router-link></li>
+              <li class="breadcrumb-item"><router-link v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/'">Segmen Pelanggan</router-link></li>
+              <li class="breadcrumb-item"><router-link v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId">Empathy Map</router-link></li>
+              <li class="breadcrumb-item active" aria-current="page">Value Proposition</li>
             </ol>
           </nav>
             <nav class="remahroti" aria-label="breadcrumb" v-else>
               <ol class="breadcrumb">
               <li class="breadcrumb-item"><router-link v-bind:to="'/personnel/dashboard'">Beranda</router-link></li>
-              <li class="breadcrumb-item"><router-link v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs'">Ide</router-link></li>
-              <li class="breadcrumb-item"><router-link v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona'">Tipe Pengguna</router-link></li>
-              <li class="breadcrumb-item"><router-link v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId">Segmen Pelanggan</router-link></li>
-              <li class="breadcrumb-item active" aria-current="page">Empathy Map</li>
+              <li class="breadcrumb-item"><router-link v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'">Ide</router-link></li>
+              <li class="breadcrumb-item"><router-link v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs/'">Tipe Pengguna</router-link></li>
+              <li class="breadcrumb-item"><router-link v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/'">Segmen Pelanggan</router-link></li>
+              <li class="breadcrumb-item"><router-link v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId">Empathy Map</router-link></li>
+              <li class="breadcrumb-item active" aria-current="page">Value Proposition</li>
             </ol>
           </nav> 
           <!--end breadcrumb-->
@@ -58,13 +60,13 @@
                   <div class="list-group-item">
                     <template v-for="aspect in dataParent.aspect.slice(0,4)">
                       
-                          <label>{{aspect.field_template.name}}</label>
+                          <label style="margin-top:20px;">{{aspect.field_template.name}}</label>
                           <div class="linkli__url"><span v-html="aspect.value"></span></div> 
                     </template>
                   </div>
                   <div class="list-group-item">
                     <template v-for="aspect in dataParent.aspect.slice(4,7)">                  
-                          <label>{{aspect.field_template.name}}</label>
+                          <label style="margin-top:20px;">{{aspect.field_template.name}}</label>
                           <div class="linkli__url"><span v-html="aspect.value"></span></div> 
                     </template>
                   </div>
@@ -75,7 +77,7 @@
                   <div id="collapse1" class="panel-collapse collapse">
                     <div class="panel-body">
                       <template v-for="aspect in dataParent.aspect.slice(7,12)">                 
-                          <label>{{aspect.field_template.name}}</label>
+                          <label style="margin-top:20px;">{{aspect.field_template.name}}</label>
                           <div v-if="aspect.value" class="linkli__url"><span v-html="aspect.value"></span></div>
                           <div v-else><span class="takadadata">tidak ada data</span></div>
                       </template>

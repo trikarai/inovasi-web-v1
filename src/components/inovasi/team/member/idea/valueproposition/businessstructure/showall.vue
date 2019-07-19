@@ -5,7 +5,7 @@
     <section class="content">
       <error-flash v-bind:error="error" v-bind:success="success" v-bind:err_msg="err_msg"/>
       <div class="box">
-        <div class="box-body">
+        <div class="box-body" id="tebelvipi">
           <!--start breadcrumb-->
           <nav class="remahroti" aria-label="breadcrumb" v-if="role == 'Talent'">
             <ol class="breadcrumb">
@@ -16,20 +16,25 @@
                 <router-link v-bind:to="'/talent/team/membership'">Tim</router-link>
               </li>
               <li class="breadcrumb-item">
-                <router-link v-bind:to="'/team/'+teamId+'/idea/'+ideaId+'/cs'">Ide</router-link>
+                <router-link v-bind:to="'/team/'+teamId+'/idea/'">Ide</router-link>
               </li>
               <li class="breadcrumb-item">
                 <router-link
-                  v-bind:to="'/team/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona'"
+                  v-bind:to="'/team/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId"
                 >Tipe Pengguna</router-link>
               </li>
               <li class="breadcrumb-item">
-                <router-link v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId">Segmen Pelanggan</router-link>
+                <router-link v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/'">Segmen Pelanggan</router-link>
+              </li>
+              <li class="breadcrumb-item">
+                <router-link
+                  v-bind:to="'/team/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona/'+personaId"
+                >Empathy Map</router-link>
               </li>
               <li class="breadcrumb-item">
                 <router-link
                   v-bind:to="'/team/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona/'+personaId+'/vp'"
-                >Empathy Map</router-link>
+                >Value Proposition</router-link>
               </li>
               <li class="breadcrumb-item active" aria-current="page">Analisa Bisnis</li>
             </ol>
@@ -41,23 +46,28 @@
               </li>
               <li class="breadcrumb-item">
                 <router-link
-                  v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs'"
+                  v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'"
                 >Idea</router-link>
               </li>
               <li class="breadcrumb-item">
                 <router-link
-                  v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona'"
+                  v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId"
                 >Tipe Pengguna</router-link>
               </li>
               <li class="breadcrumb-item">
-                <router-link v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId">Segment Pelanggan</router-link>
+                <router-link v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/'">Segmen Pelanggan</router-link>
               </li>
               <li class="breadcrumb-item">
                 <router-link
-                  v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona/'+personaId+'/vp'"
+                  v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona/'+personaId"
                 >Empathy Map</router-link>
               </li>
-              <li class="breadcrumb-item active" aria-current="page">Business Structure</li>
+              <li class="breadcrumb-item">
+                <router-link
+                  v-bind:to="'/team/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona/'+personaId+'/vp'"
+                >Value Proposition</router-link>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">Analisa Bisnis</li>
             </ol>
           </nav>
           <!--end breadcrumb-->
@@ -91,7 +101,7 @@
           </ul>
 
           <div class="tab-content">
-            <div id="vc" class="tab-pane fade">
+            <div id="vc" class="tab-pane fade" style="padding:10px;">
                 <onsub v-if="onLoadValueCurve"></onsub>
                   <bs-valuecurve
                     v-bind:data="dataVC"
@@ -102,14 +112,14 @@
                     @getData="getValueCurveData()"
                   ></bs-valuecurve>
             </div>
-            <div id="bmc" class="tab-pane fade">
+            <div id="bmc" class="tab-pane fade" style="padding:10px;">
               <!--BMC Canvas-->
 
               <div style="overflow-x: auto;" v-if="dataBMC">
                 <!--info BMC                -->
                 <div class="col-md-5 matpem">
                   <div class="list-group-item" style="text-align: center;border-radius: 0px;">
-                    <a data-toggle="collapse" href="#collapsebmc"><b>Materi Pembelajaran</b></a>
+                    <a data-toggle="collapse" href="#collapsebmc"><b>Pelajari Materi Business Model Canvas</b></a>
                   </div>
                   <div class="">
                   <div id="collapsebmc" class="panel-collapse collapse">
@@ -215,7 +225,7 @@
                   </tbody>
                 </table>
 
-                <button @click="openCommentsBMC(dataBMC.id)" class="btn btn-default" type="button">
+                <button @click="openCommentsBMC(dataBMC.id)" class="btn btn-primary" type="button">
                   <i class="fa fa-refresh"></i> Munculkan Komentar
                 </button>
               </div>
@@ -255,12 +265,12 @@
               </div>
             </div>
 
-            <div id="lean" class="tab-pane fade">
+            <div id="lean" class="tab-pane fade" style="padding:10px;">
               <div style="overflow-x: auto;" v-if="dataLean">
                 <!--info lean canvas-->
                 <div class="col-md-5 matpem">
                   <div class="list-group-item" style="text-align: center;border-radius: 0px;">
-                    <a data-toggle="collapse" href="#collapselc"><b>Materi Pembelajaran</b></a>
+                    <a data-toggle="collapse" href="#collapselc"><b>Pelajari Materi Lean Canvas</b></a>
                   </div>
                   <div class="">
                   <div id="collapselc" class="panel-collapse collapse">
@@ -368,7 +378,7 @@
 
                 <button
                   @click="openCommentsLean(dataLean.id)"
-                  class="btn btn-default"
+                  class="btn btn-primary"
                   type="button"
                 >
                   <i class="fa fa-refresh"></i> Munculkan Komentar
@@ -405,12 +415,12 @@
               </div>
             </div>
 
-            <div id="ms" class="tab-pane fade">
+            <div id="ms" class="tab-pane fade" style="padding:10px;">
               <div v-if="dataMS">
                 <!--info ms-->
                 <div class="col-md-5 matpem">
                   <div class="list-group-item" style="text-align: center;border-radius: 0px;">
-                    <a data-toggle="collapse" href="#collapsems"><b>Materi Pembelajaran</b></a>
+                    <a data-toggle="collapse" href="#collapsems"><b>Pelajari Materi Market Size</b></a>
                   </div>
                   <div class="">
                   <div id="collapsems" class="panel-collapse collapse">
@@ -589,7 +599,7 @@
                   </tbody>
                 </table>
 
-                <button @click="openCommentsMS(dataMS.id)" class="btn btn-default" type="button">
+                <button @click="openCommentsMS(dataMS.id)" class="btn btn-primary" type="button">
                   <i class="fa fa-refresh"></i> Munculkan Komentar
                 </button>
               </div>
@@ -624,7 +634,7 @@
               </div>
             </div>
 
-            <div id="vp" class="tab-pane fade in active">
+            <div id="vp" style="padding:10px;" class="tab-pane fade in active">
               <!--{{personaAspect}}-->
               <!--{{dataSolution}}-->
               <!--info VP-->
@@ -639,8 +649,26 @@
               </div> -->
 
             <div style="margin-top:10px">
+              <div style="margin-bottom:10px;" class="row" v-if="dataSolution != 0">
+                <div class="col-md-6">
+                  <div class="list-group-item" style="text-align: center;border-radius: 0px;">
+                    <a data-toggle="collapse" href="#collapsevp"><b>Pelajari Materi Value Proposition</b></a>
+                  </div>
+                  <div class="">
+                  <div id="collapsevp" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQCFxPqY-Lg9MBaMqyBOEzynORu2Ud2c_jsD_HAMtvQoPG1R1sSeB9_3H4IU2XpJv1-kY8_vkrhFC23/embed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" height="393" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  
+                </div>              
+              </div>
               <div class="row" style="margin-bottom:20px;">
                 <div class="col-md-6">
+                  <div class="list-group-item" style="min-height:162px;">
                   <h4>
                     <b>Value Proposition</b>
                     <a v-if="role === 'Talent'" class="btn btn-sm btn-default" @click="updateVP()">
@@ -657,35 +685,20 @@
                   <div style="text-align: justify;">
                     <p>{{parentVP.description}}</p>
                   </div>
+                  </div>
                 </div>
 
-                <div class="col-md-6">
-                   <h4 style="margin-top:16px">
-                    <b>Segmen Pelanggan</b>
-                  </h4>
-                   <p style="margin-top: 14px;">{{personaAspect.description}} </p>
-                  
-                  
+                <div class="col-md-6" v-show="dataSolution != 0">
+                  <div class="list-group-item" style="min-height:162px;">
+                    <h4 style="margin-top:16px">
+                     <b>Segmen Pelanggan</b>
+                    </h4>
+                     <p style="margin-top: 14px;">{{personaAspect.description}} </p>
+                  </div>                    
                 </div>
 
               </div>
-              <div class="row" v-if="dataSolution != 0">
-                <div class="col-md-6">
-                  <div class="list-group-item" style="text-align: center;border-radius: 0px;">
-                    <a data-toggle="collapse" href="#collapsevp"><b>Materi Pembelajaran</b></a>
-                  </div>
-                  <div class="">
-                  <div id="collapsevp" class="panel-collapse collapse">
-                    <div class="panel-body">
-                      <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQCFxPqY-Lg9MBaMqyBOEzynORu2Ud2c_jsD_HAMtvQoPG1R1sSeB9_3H4IU2XpJv1-kY8_vkrhFC23/embed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" height="393" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-                    </div>
-                  </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  
-                </div>              
-              </div>
+              
               <div class="row">
                 <!-- <div class="row">
                   <!-- <div style="padding-left: 30px" class="col-md-6">
@@ -767,7 +780,7 @@
                     -->
                     <button
                       @click="openCommentsVP(dataSolution.id)"
-                      class="btn btn-default"
+                      class="btn btn-primary"
                       type="button"
                     >
                       <i class="fa fa-refresh"></i> Munculkan Komentar
@@ -811,9 +824,9 @@
                   </div>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-6" v-show="dataSolution != 0">
                   
-                  <div style="margin-bottom:10px">
+                  <div style="margin-bottom:10px;">
                     <button v-if="rubah" class="btn btn-default btn-sm" @click="rubah = !rubah"><i class="fa fa-refresh"></i> Lihat Pain And Gain</button>
                     <button v-if="!rubah" class="btn btn-default btn-sm" @click="rubah = !rubah"><i class="fa fa-refresh"></i> Lihat Segmen Pelanggan</button>
                   </div>
@@ -922,12 +935,12 @@
             </div>
             </div>
 
-            <div id="ma" class="tab-pane fade">
+            <div id="ma" class="tab-pane fade" style="padding:10px;">
               <div v-if="dataMA">
                 <!--Info MA-->
                 <div class="col-md-5 matpem">
                   <div class="list-group-item" style="text-align: center;border-radius: 0px;">
-                    <a data-toggle="collapse" href="#collapsema"><b>Materi Pembelajaran</b></a>
+                    <a data-toggle="collapse" href="#collapsema"><b>Pelajari Materi Market Analysis</b></a>
                   </div>
                   <div class="">
                   <div id="collapsema" class="panel-collapse collapse">
@@ -974,7 +987,7 @@
                   </tbody>
                 </table>
 
-                <button @click="openCommentsMA(dataMA.id)" class="btn btn-default" type="button">
+                <button @click="openCommentsMA(dataMA.id)" class="btn btn-primary" type="button">
                   <i class="fa fa-refresh"></i> Munculkan Komentar
                 </button>
               </div>
@@ -1008,12 +1021,12 @@
               </div>
             </div>
 
-            <div id="swot" class="tab-pane fade">
+            <div id="swot" class="tab-pane fade" style="padding:10px;">
               <div v-if="dataSWOT">
                 <!--info SWOT-->
                 <div class="col-md-5 matpem">
                   <div class="list-group-item" style="text-align: center;border-radius: 0px;">
-                    <a data-toggle="collapse" href="#collapseswot"><b>Materi Pembelajaran</b></a>
+                    <a data-toggle="collapse" href="#collapseswot"><b>Pelajari Materi SWOT</b></a>
                   </div>
                   <div class="">
                   <div id="collapseswot" class="panel-collapse collapse">
@@ -1074,7 +1087,7 @@
                 </table>
                 <button
                   @click="openCommentsSWOT(dataSWOT.id)"
-                  class="btn btn-default"
+                  class="btn btn-primary"
                   type="button"
                 >
                   <i class="fa fa-refresh"></i> Munculkan Komentar
@@ -1110,7 +1123,7 @@
               </div>
             </div>
 
-            <div id="competitor" class="tab-pane fade">
+            <div id="competitor" class="tab-pane fade" style="padding:10px;">
               <onsub v-if="onLoadCompetitor"></onsub>
               <bs-competitor v-bind:data="dataCompetitor" v-bind:role="role" v-show="!onLoadCompetitor" @closeModalRefresh="closeModalRefreshCompetitor()" @getData="getCompetitorData()"></bs-competitor>
             </div>
@@ -2189,5 +2202,33 @@ td {
   padding-left: 0px;
   padding-right: 16px;
   margin-bottom: 4px;
+}
+/* tab custom */
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+  border: 3px solid #ddd !important;
+  position: relative !important;
+  top: 2px !important;
+  border-bottom-color: transparent !important;
+  background: #f9f9f9;
+  z-index: 99;
+}
+.nav-tabs>li>a {
+    position: relative;
+    top: 3px;
+}
+.nav-tabs {
+    border-bottom: 3px solid #ddd !important;
+    z-index: 999;
+    position: relative;
+    top: 3px;
+}
+.tab-content {
+  background: #f9f9f9;
+  border:3px solid #ddd;
+  border-top-color: transparent;
+}
+/* tab custom */
+#tebelvipi td {
+  background: #fff;
 }
 </style>

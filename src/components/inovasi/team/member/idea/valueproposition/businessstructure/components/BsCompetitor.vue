@@ -23,7 +23,7 @@
     <div class="row">
       <div v-if="data.total != 0" class="col-md-5" style="margin-top:0px;">
               <div class="list-group-item" style="text-align: center;border-radius: 0px;">
-                <a data-toggle="collapse" href="#collapsekomp"><b>Materi Pembelajaran</b></a>
+                <a data-toggle="collapse" href="#collapsekomp"><b>Pelajari Materi Competitor</b></a>
               </div>
               <div class="">
               <div id="collapsekomp" class="panel-collapse collapse">

@@ -18,7 +18,7 @@
       <div class="row" style="margin-top:4px;">
         <div class="col-md-5">
           <div class="list-group-item" style="text-align: center;border-radius: 0px;">
-             <a data-toggle="collapse" href="#collapsevc"><b>Materi Pembelajaran</b></a>
+             <a data-toggle="collapse" href="#collapsevc"><b>Pelajari Materi Value Curve</b></a>
           </div>
           <div class="">
           <div id="collapsevc" class="panel-collapse collapse">

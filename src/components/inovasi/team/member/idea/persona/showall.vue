@@ -16,15 +16,17 @@
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><router-link v-bind:to="'/talent/dashboard'">Beranda</router-link></li>
               <li class="breadcrumb-item"><router-link v-bind:to="'/talent/team/membership'">Tim</router-link></li>
-              <li class="breadcrumb-item"><router-link v-bind:to="'/team/'+teamId+'/idea/'+ideaId+'/cs'">Ide</router-link></li>
-              <li class="breadcrumb-item active" aria-current="page">Tipe Pengguna</li>
+              <li class="breadcrumb-item"><router-link v-bind:to="'/team/'+teamId+'/idea/'">Ide</router-link></li>
+              <li class="breadcrumb-item"><router-link v-bind:to="'/team/'+teamId+'/idea/'+ideaId+'/cs/'">Tipe Pengguna</router-link></li>
+              <li class="breadcrumb-item active" aria-current="page">Segmen Pelanggan</li>
             </ol>
           </nav>
-        <nav class="remahroti" aria-label="breadcrumb" v-else>
+            <nav class="remahroti" aria-label="breadcrumb" v-else>
               <ol class="breadcrumb">
               <li class="breadcrumb-item"><router-link v-bind:to="'/personnel/dashboard'">Beranda</router-link></li>
-              <li class="breadcrumb-item"><router-link v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs'">Ide</router-link></li>
-              <li class="breadcrumb-item active" aria-current="page">Tipe Pengguna</li>
+              <li class="breadcrumb-item"><router-link v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'">Ide</router-link></li>
+              <li class="breadcrumb-item"><router-link v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs/'">Tipe Pengguna</router-link></li>
+              <li class="breadcrumb-item active" aria-current="page">Segmen Pelanggan</li>
             </ol>
           </nav> 
           <!--end breadcrumb-->

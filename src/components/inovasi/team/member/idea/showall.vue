@@ -12,6 +12,21 @@
       <div class="box" v-show="!error">
         <div class="box-body">
 
+          <nav class="remahroti" aria-label="breadcrumb" v-if="role == 'Talent'">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><router-link v-bind:to="'/talent/dashboard'">Beranda</router-link></li>
+              <li class="breadcrumb-item"><router-link v-bind:to="'/talent/team/membership'">Tim</router-link></li>
+              <li class="breadcrumb-item active" aria-current="page">Ide</li>
+            </ol>
+          </nav>
+          <!--end breadcrumb-->
+          <nav class="remahroti" aria-label="breadcrumb" v-else>
+              <ol class="breadcrumb">
+              <li class="breadcrumb-item"><router-link v-bind:to="'/personnel/dashboard'">Beranda</router-link></li>
+              <li class="breadcrumb-item active" aria-current="page">Ide</li>
+                </ol>
+          </nav>
+
           <table class="table table-hover" v-if="data.list.length > 0 ">
             <thead>
               <tr>
@@ -131,6 +146,7 @@
         teamId: '',
         ideaId: '',
         ideaData: '',
+        role: '',
         showCS : false,
         categories: [],
         selectedCategory: '',
@@ -161,6 +177,11 @@
     },
     created: function () {
       this.getData()
+      this.role = localStorage.getItem('role')
+        if(this.role !== 'Talent'){
+          this.url = '/tutor/' + this.tutorId
+        }
+        this.getParent(this.teamId, this.ideaId)
     },
     methods: {
       getData: function () {

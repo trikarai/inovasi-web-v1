@@ -18,28 +18,30 @@
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><router-link v-bind:to="'/talent/dashboard'">Beranda</router-link></li>
               <li class="breadcrumb-item"><router-link v-bind:to="'/talent/team/membership'">Tim</router-link></li>
-              <li class="breadcrumb-item"><router-link v-bind:to="'/team/'+teamId+'/idea/'+ideaId+'/cs'">Ide</router-link></li>
-              <li class="breadcrumb-item"><router-link v-bind:to="'/team/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona'">Tipe Pengguna</router-link></li>
-              <li class="breadcrumb-item active" aria-current="page">Segmen Pelanggan</li>
+              <li class="breadcrumb-item"><router-link v-bind:to="'/team/'+teamId+'/idea/'">Ide</router-link></li>
+              <li class="breadcrumb-item"><router-link v-bind:to="'/team/'+teamId+'/idea/'+ideaId+'/cs/'">Tipe Pengguna</router-link></li>
+              <li class="breadcrumb-item"><router-link v-bind:to="'/team/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona'">Segmen Pelanggan</router-link></li>
+              <li class="breadcrumb-item active" aria-current="page">Empathy Map</li>
             </ol>
           </nav>
             <nav class="remahroti" aria-label="breadcrumb" v-else>
               <ol class="breadcrumb">
               <li class="breadcrumb-item"><router-link v-bind:to="'/personnel/dashboard'">Beranda</router-link></li>
-              <li class="breadcrumb-item"><router-link v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs'">Ide</router-link></li>
-              <li class="breadcrumb-item"><router-link v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona'">Tipe Pengguna</router-link></li>
-              <li class="breadcrumb-item active" aria-current="page">Segmen Pelanggan</li>
+              <li class="breadcrumb-item"><router-link v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'">Ide</router-link></li>
+              <li class="breadcrumb-item"><router-link v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs/'">Tipe Pengguna</router-link></li>
+              <li class="breadcrumb-item"><router-link v-bind:to="'/team/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona'">Segmen Pelanggan </router-link></li>
+              <li class="breadcrumb-item active" aria-current="page">Empathy Map</li>
             </ol>
           </nav> 
           <!--end breadcrumb-->
           
           <main class="pagebody">
             <div style="padding-bottom: 30px;white-space: pre-line" class="col-md-12">
-              <h3 class="tabcs"><b>Segmen Pelanggan</b>
+              <h3 class="tabcs" style="margin-left: 13px;"><span>Segmen Pelanggan</span>
                 <button v-if="role === 'Talent'" @click="editPersona(dataParent)" class="btn btn-default btn-sm"><i class="fa fa-edit"></i></button>
                 <router-link v-if="role === 'Talent'" class="tmblvpkanan" style="float: right;cursor: pointer;"  v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/'"><i class="fa fa-chevron-right pnhkanan"></i></router-link> 
                 <router-link v-else class="tmblvpkanan" style="float: right;cursor: pointer;"  v-bind:to="'/tutor/' + tutorId + '/participant/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/'"><i class="fa fa-chevron-right pnhkanan"></i></router-link> 
-                <span class="tombvpnext">Empathy Map</span>              
+                <span class="tombvpnext">Value Proposition</span>              
               </h3>
 
               <div v-if="dataParent != 0">
@@ -93,7 +95,8 @@
                   </table>
                 </div>
                        
-                <div class="col-md-6">
+                <div class="col-md-6" style="position: relative;bottom: 56px;">
+                  <h3 class="tabcs"><span>Empathy Map</span></h3>
                   <table class="table garistabel tabel-bordered table-striped tabelEM" style="border: 1px solid #e4e4e4;word-break: break-word;">
                     <tbody>
                       <tr style="font-weight: bold">

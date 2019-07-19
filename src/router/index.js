@@ -499,19 +499,21 @@ const routes = [
         },
         //Team Dashboard as Member
         {
+          //using name, dependen
           name: 'Partisipasi Program',
           props: true,
           path: '/team/:teamId/programmeparticipation',
           component: TeamProgrammeParticipation
         },
         {
-          //dependen
+          //using name, dependen
           name: 'Daftar Program',
           props: true,
           path: '/team/:teamId/programmeparticipation/register',
           component: TeamProgrammeParticipationRegister
         },
         {
+          //using name, dependen
           name: 'Sesi Mentoring',
           props: true,
           path: '/team/:teamId/programmeparticipation/:programmeparticipationId/mentoringsession/programme/:programmeId/phase/:phaseId/',
@@ -524,39 +526,41 @@ const routes = [
           component: TeamProgrammeParticipationMentoringSessionList
         },
         {
+          //using name, dependen
           name: 'Daftar Mentor',
           props: true,
           path: '/team/:teamId/programmeparticipation/:programmeparticipationId/mentoringsession/programme/:programmeId/phase/:phaseId/session/:sessionId/tutor',
           component: TeamProgrammeParticipationMentoringTutorList
         },
         {
+          //using name, dependen
           name: 'Sesi Workshop',
           props: true,
           path: '/team/:teamId/programme/:programmeId/phase/:phaseId/workshop/:programmeparticipationId',
           component: TeamProgrammeParticipationWorkshopSession
         },
         {
-          name: 'Daftar Ide',
+          name: 'Ide',
           path: '/team/:teamId/idea',
           component: TeamIdea
         },
         {
-          name: 'Ide',
+          name: 'Tipe Pengguna',
           path: '/team/:teamId/idea/:ideaId/cs',
           component: TeamCustomerSegment
         },
         {
-          name: 'Tipe Pengguna',
+          name: 'Segmen Pelanggan',
           path: '/team/:teamId/idea/:ideaId/cs/:customersegmentId/persona',
           component: TeamPersona
         },
         {
-          name: 'Segmen Pelanggan',
+          name: 'Empathy Map',
           path: '/team/:teamId/idea/:ideaId/cs/:customersegmentId/persona/:personaId',
           component: TeamEmpathyMap
         },
         {
-          name: 'Empathy Map',
+          name: 'Value Proposition',
           path: '/team/:teamId/idea/:ideaId/cs/:customersegmentId/persona/:personaId/vp',
           component: TeamValueProposition
         },

@@ -11,26 +11,31 @@
           <nav class="remahroti" aria-label="breadcrumb" v-if="role == 'Talent'">
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
-                <router-link v-bind:to="'/talent/dashboard'">Dashboard</router-link>
+                <router-link v-bind:to="'/talent/dashboard'">Beranda</router-link>
               </li>
               <li class="breadcrumb-item">
                 <router-link v-bind:to="'/talent/team/membership'">Tim</router-link>
               </li>
               <li class="breadcrumb-item">
-                <router-link v-bind:to="'/team/'+teamId+'/idea/'+ideaId+'/cs'">Ide</router-link>
+                <router-link v-bind:to="'/team/'+teamId+'/idea/'">Ide</router-link>
               </li>
               <li class="breadcrumb-item">
                 <router-link
-                  v-bind:to="'/team/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona'"
+                  v-bind:to="'/team/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId"
                 >Tipe Pengguna</router-link>
               </li>
               <li class="breadcrumb-item">
-                <router-link v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId">Segmen Pelanggan</router-link>
+                <router-link v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/'">Segmen Pelanggan</router-link>
+              </li>
+              <li class="breadcrumb-item">
+                <router-link
+                  v-bind:to="'/team/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona/'+personaId"
+                >Empathy Map</router-link>
               </li>
               <li class="breadcrumb-item">
                 <router-link
                   v-bind:to="'/team/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona/'+personaId+'/vp'"
-                >Empathy Map</router-link>
+                >Value Proposition</router-link>
               </li>
               <li class="breadcrumb-item active" aria-current="page">Percobaan Bisnis</li>
             </ol>
@@ -38,25 +43,30 @@
           <nav class="remahroti" aria-label="breadcrumb" v-else>
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
-                <router-link v-bind:to="'/personnel/dashboard'">Dashboard</router-link>
+                <router-link v-bind:to="'/personnel/dashboard'">Beranda</router-link>
               </li>
               <li class="breadcrumb-item">
                 <router-link
-                  v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs'"
-                >Ide</router-link>
+                  v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'"
+                >Idea</router-link>
               </li>
               <li class="breadcrumb-item">
                 <router-link
-                  v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona'"
+                  v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId"
                 >Tipe Pengguna</router-link>
               </li>
               <li class="breadcrumb-item">
-                <router-link v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId">Segmen Pelanggan</router-link>
+                <router-link v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/'">Segmen Pelanggan</router-link>
               </li>
               <li class="breadcrumb-item">
                 <router-link
-                  v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona/'+personaId+'/vp'"
+                  v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona/'+personaId"
                 >Empathy Map</router-link>
+              </li>
+              <li class="breadcrumb-item">
+                <router-link
+                  v-bind:to="'/team/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona/'+personaId+'/vp'"
+                >Value Proposition</router-link>
               </li>
               <li class="breadcrumb-item active" aria-current="page">Percobaan Bisnis</li>
             </ol>
@@ -114,14 +124,13 @@
 
             <!--<li :class="{ 'active': index === 0 }" v-for="(data, index) in dataTemplate.list"><a data-toggle="tab" :href="'#'+index" @click="getExpData(data.id)">{{data.name}}</a></li>-->
           </ul>
-
           <div class="tab-content">
-            <div id="main" class="tab-pane fade in">
+            <div id="main" class="tab-pane fade in" style="padding:10px;">
               <div class="box-body">Please Select Experiment Tab</div>
             </div>
-            <div id="javelinboard" class="tab-pane fade in active">
+            <div id="javelinboard" class="tab-pane fade in active" style="padding:10px;">
               <div class="box-body">
-                <button v-if="dataJavelin.total == 0" style="margin: 20px" class="btn btn-default btn-sm" @click="loadSummary()">
+                <button v-if="dataJavelin.total == 0" style="margin: 20px;margin-bottom: 0px;" class="btn btn-default btn-sm" @click="loadSummary()">
                   <i class="fa fa-refresh"></i>
                   Klik untuk memanggil Data Javelin Board
                 </button>
@@ -130,7 +139,7 @@
                 </div>
 
                 <div v-if="summary" class="container">
-                  <div>
+                  <!-- <div>
                     <b>Segmen Pelanggan</b> : {{parentCS.name}}
                     <br><br>
                     <div class="row">
@@ -151,7 +160,7 @@
                       </div>
                     </div>
                     <br>
-                  </div>
+                  </div> -->
                   <br>
                   <br>
                   <!-- {{dataJavelin}} -->
@@ -343,7 +352,7 @@
             <!--end summary-->
 
             <!-- <div v-if="dataTemplate.total != 0"> -->
-            <div v-for="(data, index) in dataTemplate.list" :id="index" class="tab-pane fade in">
+            <div v-for="(data, index) in dataTemplate.list" :id="index" class="tab-pane fade in" style="padding:10px;">
               <!--<div v-for="(data, index) in dataTemplate.list" :id="index" :class="{'tab-pane fade in' : true,'active': index === 0}" >-->
               <!--{{dataExp}}-->
               <button
@@ -1055,4 +1064,29 @@ export default {
 };
 </script>
 <style scoped>
+/* tab custom */
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+  border: 3px solid #ddd !important;
+  position: relative !important;
+  top: 2px !important;
+  border-bottom-color: transparent !important;
+  background: #f9f9f9;
+  z-index: 99;
+}
+.nav-tabs>li>a {
+    position: relative;
+    top: 3px;
+}
+.nav-tabs {
+    border-bottom: 3px solid #ddd !important;
+    z-index: 999;
+    position: relative;
+    top: 3px;
+}
+.tab-content {
+  background: #f9f9f9;
+  border:3px solid #ddd;
+  border-top-color: transparent;
+}
+/* tab custom */
 </style>
