@@ -55,7 +55,7 @@
                 >Tipe Pengguna</router-link>
               </li>
               <li class="breadcrumb-item">
-                <router-link v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/'">Segmen Pelanggan</router-link>
+                <router-link v-bind:to="'/tutor/'+tutorId+'/participant/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/'">Segmen Pelanggan</router-link>
               </li>
               <li class="breadcrumb-item">
                 <router-link
@@ -64,7 +64,7 @@
               </li>
               <li class="breadcrumb-item">
                 <router-link
-                  v-bind:to="'/team/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona/'+personaId+'/vp'"
+                  v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona/'+personaId+'/vp'"
                 >Value Proposition</router-link>
               </li>
               <li class="breadcrumb-item active" aria-current="page">Analisa Bisnis</li>

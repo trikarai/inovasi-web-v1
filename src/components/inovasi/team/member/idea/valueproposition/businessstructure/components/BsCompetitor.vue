@@ -37,7 +37,7 @@
 
     <div class="row" style="overflow-x:auto;">
     <div style="padding-left:15px;padding-right:15px">
-    <table style="white-space: pre-line;margin-top:20px;" class="table table-hover table-bordered" v-if="data.total > 0">
+    <table style="white-space: pre-line;margin-top:20px;" id="tebelkompe" class="table table-bordered" v-if="data.total > 0">
       <!-- <thead>
         <tr>
           <th>Name</th>
@@ -288,5 +288,8 @@ table th{
 .mscolor {
   background: #efefef;
   color: #505050;
+}
+#tebelkompe td {
+  background: #fff;
 }
 </style>

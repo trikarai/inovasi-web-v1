@@ -19,7 +19,6 @@ import Pagination from 'vue-pagination-2';
 
 import wysiwyg from "vue-wysiwyg";
 
-
 //import axios from 'axios'
 //import VueAxios from 'vue-axios'
  
@@ -33,6 +32,30 @@ Vue.component('app-header',header)
 Vue.component('app-footer',footer)
 Vue.component('VueCtkDateTimePicker', VueCtkDateTimePicker);
 Vue.component('pagination', Pagination);
+Vue.filter('readMore', function (text) {
+    // return text.substring(0, length) + suffix;
+    const max = 200;
+    if (text == null) {
+        return ''
+    }
+    else if (text.length >= max) {
+        return text.substring(0, max) + '...'
+    } else {
+        return text
+    }
+});
+Vue.filter('readMoreTh', function (text) {
+    // return text.substring(0, length) + suffix;
+    const dmax = 15;
+    if (text == null) {
+        return ''
+    }
+    else if (text.length >= dmax) {
+        return text.substring(0, dmax) + '...'
+    } else {
+        return text
+    }
+});
 Vue.use(wysiwyg, {
     hideModules: {"bold": true, "italic": true, "underline": true, "image": true, "code": true, "table": true, "unorderedList": true, "link": true, "headings": true, "removeFormat": true, "separator": true, "justifyLeft": true, "justifyCenter": true, "justifyRight": true}
 }); 
