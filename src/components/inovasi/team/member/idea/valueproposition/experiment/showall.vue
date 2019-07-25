@@ -6,7 +6,7 @@
       <error-flash v-bind:error="error" v-bind:success="success" v-bind:err_msg="err_msg"/>
 
       <div class="box">
-        <div class="box-body">
+        <div class="box-body" style="width: fit-content;min-width: 100%;">
           <!--start breadcrumb-->
           <nav class="remahroti" aria-label="breadcrumb" v-if="role == 'Talent'">
             <ol class="breadcrumb">
@@ -124,7 +124,7 @@
 
             <!--<li :class="{ 'active': index === 0 }" v-for="(data, index) in dataTemplate.list"><a data-toggle="tab" :href="'#'+index" @click="getExpData(data.id)">{{data.name}}</a></li>-->
           </ul>
-          <div class="tab-content">
+          <div class="tab-content" style="width: fit-content;min-width: 100%;">
             <div id="main" class="tab-pane fade in" style="padding:10px;">
               <div class="box-body">Please Select Experiment Tab</div>
             </div>
@@ -138,7 +138,7 @@
                   <onsub></onsub>Harap Menunggu, membutuhkan waktu untuk memanggil data
                 </div>
 
-                <div v-if="summary" class="container">
+                <div v-if="summary" class="">
                   <!-- <div>
                     <b>Segmen Pelanggan</b> : {{parentCS.name}}
                     <br><br>
@@ -167,7 +167,7 @@
                   <div class="row" style="margin-bottom:20px;">
                     <div class="col-sm-4">
                       <label>Tipe Eksperimen</label>
-                      <select class="form-control" v-model="exptype">
+                      <select class="form-control" style="width:250px !important" v-model="exptype">
                         <option value="0">Semua</option>
                         <option value="1">Concierge</option>
                         <option value="2">Interview</option>
@@ -381,14 +381,14 @@
                     <thead>
                       <tr>
                         <th>Nama Eksperimen</th>
-                        <th>Tanggal</th>
+                        <th style="width:150px">Tanggal</th>
                         <th colspan="3"></th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr v-for="data in dataExp.list">
                         <td>{{data.name}}</td>
-                        <td>{{data.date | moment("dddd, D MMMM YY")}}</td>
+                        <td><span style="color:#0085a4;font-weight:900;">{{data.date | moment("dddd")}}</span><br>{{data.date | moment("D MMMM YY")}}</td>
                         <!--<td><a class="btn btn-info btn-sm" @click="expDetail(data)"><i class="fa fa-asterisk"></i> Detail</a></td>-->
                         <td>
                           <router-link
