@@ -39,6 +39,9 @@
     mounted: function (){},
     update: function (){},
     methods: {
+      bagiSeratus: function(recap){
+        return (recap / 100);
+      },
       getPhase: function (){
         auth.getData(this, '/programme/'+this.$route.params.programmeId+'/phase')
       },
