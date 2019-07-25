@@ -11,26 +11,31 @@
           <nav class="remahroti" aria-label="breadcrumb" v-if="role == 'Talent'">
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
-                <router-link v-bind:to="'/talent/dashboard'">Dashboard</router-link>
+                <router-link v-bind:to="'/talent/dashboard'">Beranda</router-link>
               </li>
               <li class="breadcrumb-item">
                 <router-link v-bind:to="'/talent/team/membership'">Tim</router-link>
               </li>
               <li class="breadcrumb-item">
-                <router-link v-bind:to="'/team/'+teamId+'/idea/'+ideaId+'/cs'">Ide</router-link>
+                <router-link v-bind:to="'/team/'+teamId+'/idea/'">Ide</router-link>
               </li>
               <li class="breadcrumb-item">
                 <router-link
-                  v-bind:to="'/team/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona'"
+                  v-bind:to="'/team/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId"
                 >Tipe Pengguna</router-link>
               </li>
               <li class="breadcrumb-item">
-                <router-link v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId">Segmen Pelanggan</router-link>
+                <router-link v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/'">Segmen Pelanggan</router-link>
+              </li>
+              <li class="breadcrumb-item">
+                <router-link
+                  v-bind:to="'/team/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona/'+personaId"
+                >Empathy Map</router-link>
               </li>
               <li class="breadcrumb-item">
                 <router-link
                   v-bind:to="'/team/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona/'+personaId+'/vp'"
-                >Empathy Map</router-link>
+                >Value Proposition</router-link>
               </li>
               <li class="breadcrumb-item active" aria-current="page">Percobaan Bisnis</li>
             </ol>
@@ -38,25 +43,30 @@
           <nav class="remahroti" aria-label="breadcrumb" v-else>
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
-                <router-link v-bind:to="'/personnel/dashboard'">Dashboard</router-link>
+                <router-link v-bind:to="'/personnel/dashboard'">Beranda</router-link>
               </li>
               <li class="breadcrumb-item">
                 <router-link
-                  v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs'"
-                >Ide</router-link>
+                  v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'"
+                >Idea</router-link>
               </li>
               <li class="breadcrumb-item">
                 <router-link
-                  v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona'"
+                  v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs/'"
                 >Tipe Pengguna</router-link>
               </li>
               <li class="breadcrumb-item">
-                <router-link v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId">Segmen Pelanggan</router-link>
+                <router-link v-bind:to="'/tutor/'+tutorId+'/participant/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/'">Segmen Pelanggan</router-link>
+              </li>
+              <li class="breadcrumb-item">
+                <router-link
+                  v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona/'+personaId"
+                >Empathy Map</router-link>
               </li>
               <li class="breadcrumb-item">
                 <router-link
                   v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona/'+personaId+'/vp'"
-                >Empathy Map</router-link>
+                >Value Proposition</router-link>
               </li>
               <li class="breadcrumb-item active" aria-current="page">Percobaan Bisnis</li>
             </ol>
@@ -114,23 +124,22 @@
 
             <!--<li :class="{ 'active': index === 0 }" v-for="(data, index) in dataTemplate.list"><a data-toggle="tab" :href="'#'+index" @click="getExpData(data.id)">{{data.name}}</a></li>-->
           </ul>
-
           <div class="tab-content">
-            <div id="main" class="tab-pane fade in">
+            <div id="main" class="tab-pane fade in" style="padding:10px;">
               <div class="box-body">Please Select Experiment Tab</div>
             </div>
-            <div id="javelinboard" class="tab-pane fade in active">
+            <div id="javelinboard" class="tab-pane fade in active" style="padding:10px;">
               <div class="box-body">
-                <button v-if="dataJavelin.total == 0" style="margin: 20px" class="btn btn-default btn-sm" @click="loadSummary()">
+                <button v-if="dataJavelin.total == 0" style="margin: 20px;margin-bottom: 20px;" class="btn btn-default btn-sm" @click="loadSummary()">
                   <i class="fa fa-refresh"></i>
                   Klik untuk memanggil Data Javelin Board
                 </button>
                 <div v-if="onSubmit">
-                  <onsub></onsub>Please Wait, it's make some time to load the data
+                  <onsub></onsub>Harap Menunggu, membutuhkan waktu untuk memanggil data
                 </div>
 
                 <div v-if="summary" class="container">
-                  <div>
+                  <!-- <div>
                     <b>Segmen Pelanggan</b> : {{parentCS.name}}
                     <br><br>
                     <div class="row">
@@ -151,9 +160,8 @@
                       </div>
                     </div>
                     <br>
-                  </div>
-                  <br>
-                  <br>
+                  </div> -->
+                  
                   <!-- {{dataJavelin}} -->
 
                   <div class="row" style="margin-bottom:20px;">
@@ -174,107 +182,109 @@
                       class="alert alert-danger"
                       role="alert"
                     >Data Integrity Failure : Please Update/Delete Experiment</div>
-                  </div>
+                  </div><br>
 
                   
 
-                  <table class="table-striped table-hover" v-if="dataJavelin.total != 0">
+                  <table id="javeboard" class="table-striped table-hover tabel-bordered" v-if="dataJavelin.total != 0">
                     <tbody>
                       <tr>
-                        <th height="70px" width="200px"></th>
-                        <th width="200px" v-for="javelin in reOrderDate(dataJavelin.list)">
+                        <th style="padding-left:20px;padding-right:20px;" height="70px" width="200px"></th>
+                        <th style="background:#0085a4;text-align:center;padding-left:20px;padding-right:20px;" width="200px" v-for="javelin in reOrderDate(dataJavelin.list)">
                           <router-link
                             v-if="role === 'Talent'"
                             v-bind:to="{path:'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + valuepropositionId + '/experiment/' + javelin.id, query: {aspect: javelin}}"
                             class="btn btn-info"
-                          >{{javelin.name}}</router-link>
+                            data-toggle="tooltip" data-placement="top" :title="javelin.name"
+                          ><i class="fa fa-search"></i> {{javelin.name | readMoreTh}}</router-link>
                           <router-link
                             v-if="role !== 'Talent'"
                             v-bind:to="{path:'/tutor/'+tutorId+'/participant/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + valuepropositionId + '/experiment/' + javelin.id, query: {aspect: javelin}}"
                             class="btn btn-info"
-                          >{{javelin.name}}</router-link>
+                            data-toggle="tooltip" data-placement="top" :title="javelin.name"
+                          ><i class="fa fa-search"></i> {{javelin.name | readMoreTh}}</router-link>
                         </th>
                       </tr>
                       <tr>
-                        <th>Tanggal</th>
+                        <th class="jbth">Tanggal</th>
                         <td
                           height="70px"
                           v-for="javelin in reOrderDate(dataJavelin.list)"
-                        >{{javelin.date | moment("dddd, MMMM Do YYYY")}}</td>
+                        ><span style="color:#0085a4;font-weight:900;">{{javelin.date | moment("dddd")}}</span><br>{{javelin.date | moment("MMMM")}}<br>{{javelin.date | moment("Do YYYY")}}</td>
                       </tr>
                       <tr>
-                        <th
+                        <th style="padding-left:20px;padding-right:20px;" class="jbth"
                           height="70px"
-                        >{{reOrderField(dataJavelin.list[0].fields)[0].field_template.name}} asd</th>
+                        >{{reOrderField(dataJavelin.list[0].fields)[0].field_template.name}}</th>
                         <td
                           width="200px"
                           v-for="javelin in reOrderDate(dataJavelin.list)"
-                        ><span v-html="reOrderField(javelin.fields)[0].value"></span></td>
+                        ><span v-html="$options.filters.readMore(reOrderField(javelin.fields)[0].value)"></span></td>
                       </tr>
                       <tr>
-                        <th
+                        <th style="padding-left:20px;padding-right:20px;" class="jbth"
                           height="70px"
                         >{{reOrderField(dataJavelin.list[0].fields)[1].field_template.name}}</th>
                         <td
                           width="200px"
                           v-for="javelin in reOrderDate(dataJavelin.list)"
-                        ><span v-html="reOrderField(javelin.fields)[1].value"></span></td>
+                        ><span v-html="$options.filters.readMore(reOrderField(javelin.fields)[1].value)"></span></td>
                       </tr>
 
                       <tr v-if="reOrderField(dataJavelin.list[0].fields)[3]">
-                        <th
+                        <th style="padding-left:20px;padding-right:20px;" class="jbth"
                           height="70px"
                         >{{reOrderField(dataJavelin.list[0].fields)[3].field_template.name}}</th>
                         <td
                           width="200px"
                           v-for="javelin in reOrderDate(dataJavelin.list)"
-                        ><span v-html="reOrderField(javelin.fields)[3].value"></span></td>
+                        ><span v-html="$options.filters.readMore(reOrderField(javelin.fields)[3].value)"></span></td>
                       </tr>
 
                       <tr v-if="reOrderField(dataJavelin.list[0].fields)[4]">
-                        <th
+                        <th style="padding-left:20px;padding-right:20px;" class="jbth"
                           height="70px"
                         >{{reOrderField(dataJavelin.list[0].fields)[4].field_template.name}}</th>
                         <template>
                           <td
                             width="200px"
                             v-for="javelin in reOrderDate(dataJavelin.list)"
-                          ><span v-html="reOrderField(javelin.fields)[4].value"></span></td>
+                          ><span v-html="$options.filters.readMore(reOrderField(javelin.fields)[4].value)"></span></td>
                         </template>
                       </tr>
                       <tr v-if="reOrderField(dataJavelin.list[0].fields)[5]">
-                        <th
+                        <th style="padding-left:20px;padding-right:20px;" class="jbth"
                           height="70px"
                         >{{reOrderField(dataJavelin.list[0].fields)[5].field_template.name}}</th>
                         <td
                           width="200px"
                           v-for="javelin in reOrderDate(dataJavelin.list)"
-                        ><span v-html="reOrderField(javelin.fields)[5].value"></span></td>
+                        ><span v-html="$options.filters.readMore(reOrderField(javelin.fields)[5].value)"></span></td>
                       </tr>
 
-                      <tr v-if="reOrderField(dataJavelin.list[0].fields)[4]">
-                        <th height="40px">Ratio</th>
+                      <!-- <tr v-if="reOrderField(dataJavelin.list[0].fields)[4]">
+                        <th class="jbth" height="40px">Ratio</th>
                         <td
                           width="200px"
                           v-for="javelin in reOrderDate(dataJavelin.list)"
                         >
-                        {{ratio(reOrderField(javelin.fields)[5].value, gcd(reOrderField(javelin.fields)[5].value, reOrderField(javelin.fields)[4].value))}} : {{ratio(reOrderField(javelin.fields)[4].value, gcd(reOrderField(javelin.fields)[5].value, reOrderField(javelin.fields)[4].value))}}
+                        {{ratio(reOrderField(javelin.fields)[5].value, gcd(reOrderField(javelin.fields)[5].value, reOrderField(javelin.fields)[4].value))}} : {{ratio(reOrderField(javelin.fields)[4].value, gcd(reOrderField(javelin.fields)[5].value, reOrderField(javelin.fields)[4].value))}} -->
                         <!-- GCD : {{gcd(reOrderField(javelin.fields)[5].value, reOrderField(javelin.fields)[4].value)}} -->
-                        <br>
+                        <!-- <br>
                         </td>
-                      </tr>
+                      </tr> -->
 
                       <tr v-if="reOrderField(dataJavelin.list[0].fields)[6]">
-                        <th
+                        <th style="padding-left:20px;padding-right:20px;" class="jbth"
                           height="70px"
                         >{{reOrderField(dataJavelin.list[0].fields)[6].field_template.name}}</th>
                         <td
                           width="200px"
                           v-for="javelin in reOrderDate(dataJavelin.list)"
-                        ><span v-html="reOrderField(javelin.fields)[6].value"></span></td>
+                        ><span v-html="$options.filters.readMore(reOrderField(javelin.fields)[6].value)"></span></td>
                       </tr>
                       <tr v-if="reOrderField(dataJavelin.list[0].fields)[7]">
-                        <th
+                        <th style="padding-left:20px;padding-right:20px;" class="jbth"
                           height="70px"
                         >{{reOrderField(dataJavelin.list[0].fields)[7].field_template.name}}</th>
 
@@ -299,28 +309,28 @@
                         </td>
                       </tr>
                       <tr v-if="reOrderField(dataJavelin.list[0].fields)[8]">
-                        <th
+                        <th style="padding-left:20px;padding-right:20px;" class="jbth"
                           height="70px"
                         >{{reOrderField(dataJavelin.list[0].fields)[8].field_template.name}}</th>
                         <td
                           width="200px"
                           v-for="javelin in reOrderDate(dataJavelin.list)"
-                        ><span v-html="reOrderField(javelin.fields)[8].value"></span></td>
+                        ><span v-html="$options.filters.readMore(reOrderField(javelin.fields)[8].value)"></span></td>
                       </tr>
                       <tr v-if="reOrderField(dataJavelin.list[0].fields)[9]">
-                        <th
+                        <th style="padding-left:20px;padding-right:20px;" class="jbth"
                           height="70px"
                         >{{reOrderField(dataJavelin.list[0].fields)[9].field_template.name}}</th>
                         <td
                           width="200px"
                           v-for="javelin in reOrderDate(dataJavelin.list)"
-                        ><span v-html="reOrderField(javelin.fields)[9].value"></span></td>
+                        ><span v-html="$options.filters.readMore(reOrderField(javelin.fields)[9].value)"></span></td>
                       </tr>
 
                       <!-- edit buttom row-->
                       <tr v-if="role === 'Talent'">
                         <th></th>
-                        <td width="200px" v-for="javelin in reOrderDate(dataJavelin.list)">
+                        <td style="text-align:center;" width="200px" v-for="javelin in reOrderDate(dataJavelin.list)">
                           <button class="btn btn-warning btn-sm" @click="editExp(javelin)">
                             <i class="fa fa-pencil"></i> Edit
                           </button>
@@ -328,14 +338,15 @@
                       </tr>
                     </tbody>
                   </table>
-                  <div v-else>
+                  <div class="takadadata" v-else>
                     <i class="fa fa-exclamation-triangle"></i>
-                    No Experiment Found
+                    Tidak ada data experimen
                   </div>
                 </div>
-                <div v-else>
+                <div style="margin-top:20px;"v-else>
+                  
                   <i class="fa fa-exclamation-triangle"></i>
-                  Summary Data Not Loaded
+                  Data Summary tidak terpanggil
                 </div>
               </div>
               <!-- {{dataJavelin}} -->
@@ -343,7 +354,7 @@
             <!--end summary-->
 
             <!-- <div v-if="dataTemplate.total != 0"> -->
-            <div v-for="(data, index) in dataTemplate.list" :id="index" class="tab-pane fade in">
+            <div v-for="(data, index) in dataTemplate.list" :id="index" class="tab-pane fade in" style="padding:10px;">
               <!--<div v-for="(data, index) in dataTemplate.list" :id="index" :class="{'tab-pane fade in' : true,'active': index === 0}" >-->
               <!--{{dataExp}}-->
               <button
@@ -552,8 +563,8 @@ export default {
     }
     this.showTemplateExp();
     this.getCustomerSegmentParent();
-    this.getLeanCanvas();
-    this.getSolutionCanvas();
+    // this.getLeanCanvas();
+    // this.getSolutionCanvas();
   },
   computed: {
     integrityCheck: function() {
@@ -1055,4 +1066,57 @@ export default {
 };
 </script>
 <style scoped>
+/* tab custom */
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+  border: 3px solid #ddd !important;
+  position: relative !important;
+  top: 2px !important;
+  border-bottom-color: transparent !important;
+  background: #f9f9f9;
+  z-index: 99;
+}
+.nav-tabs>li>a {
+    position: relative;
+    top: 3px;
+}
+.nav-tabs {
+    border-bottom: 3px solid #ddd !important;
+    z-index: 999;
+    position: relative;
+    top: 3px;
+}
+.tab-content {
+  background: #f9f9f9;
+  border:3px solid #ddd;
+  border-top-color: transparent;
+}
+/* tab custom */
+#javeboard td {
+  background: #fff !important;
+  padding:10px;
+}
+#javeboard tr {
+  border-bottom: 2px solid #e4e4e4;
+}
+#javeboard .jbth {
+  text-align: center;
+  background: #efefef;
+}
+.takadadata {
+    background: #e4af4a;
+    color: #fff;
+    padding: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 12px;
+    display: inline-block;
+}
+.textless {
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  /* display: -webkit-box;               */
+  /* The number of lines to be displayed */ 
+  -webkit-line-clamp: 4;  
+  -webkit-box-orient: vertical; 
+}
 </style>

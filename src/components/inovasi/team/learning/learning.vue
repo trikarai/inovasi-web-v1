@@ -120,6 +120,11 @@
            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTgfSSIyNLtdUcUw7gESlbRIiBfOKu4xJkBAWqKgVkVgoKTSw1xpNl3LMRmOhNY1A--4OJ1IIDGWhkz/embed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" height="440" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
         </div>
     </div>
+    <div class="box" v-else-if="type=='TipePengguna'">
+        <div class="box-body">
+           <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQHwsl_eo2rbhy4QUIOR6zeR55heLXFhEKav9LNxhTTj-3eLTL4pfIunTmcDvSIUN2HR0joxk-LNYJA/embed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" height="440" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+        </div>
+    </div>
     <div class="box" v-else>
         <div class="box-body">
           No Learning Material Yet

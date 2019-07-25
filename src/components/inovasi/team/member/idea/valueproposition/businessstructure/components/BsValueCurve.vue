@@ -2,24 +2,46 @@
   <div>
     <!-- {{data}} -->
 
-    <button v-if="!data" class="btn btn-info" @click="learningVC" style="border-radius: 5px; padding: 2px 8px;margin-top:10px;">
+    <!-- <button v-if="!data" class="btn btn-info" @click="learningVC" style="border-radius: 5px; padding: 2px 8px;margin-top:10px;">
       <i class="fa fa-info-circle"></i> Klik disini apabila kamu ingin mempelajari tentang Value Curve
-    </button>
+    </button> -->
+    <div class="row" v-if="!data">
+    <div class="col-md-5" style="margin-top:10px;">   
+      <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vS5mpRFKZjTfJnx7tU-iQ9HPtFSi2bJWDHRSfg0usNKGgSaqV2UAnmcjIBRsp1TtDqri9hFMBvcpGdf/embed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" height="315" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>             
+    </div>
+    </div>
 
     <template v-if="data">
-      <button class="btn btn-info" @click="learningVC" style="border-radius: 5px; padding: 2px 8px;">
+      <!-- <button class="btn btn-info" @click="learningVC" style="border-radius: 5px; padding: 2px 8px;">
         <i class="fa fa-info-circle"></i> Klik disini apabila kamu ingin mempelajari tentang Value Curve
-      </button>
-      <a @click="editBS(data)" style="margin: 10px" class="btn btn-default btn-sm">
-        <i class="fa fa-edit"></i>
-      </a>
-      <a
-        @click="confirm('Delete', data.id)"
-        style="mardeleteBS(gin: 10px"
-        class="btn btn-danger btn-sm"
-      >
-        <i class="fa fa-trash"></i>
-      </a>  
+      </button> -->
+      <div class="row" style="margin-top:4px;">
+        <div class="col-md-5">
+          <div class="list-group-item" style="text-align: center;border-radius: 0px;">
+             <a data-toggle="collapse" href="#collapsevc"><b>Pelajari Materi Value Curve</b></a>
+          </div>
+          <div class="">
+          <div id="collapsevc" class="panel-collapse collapse">
+            <div class="panel-body">
+              <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vS5mpRFKZjTfJnx7tU-iQ9HPtFSi2bJWDHRSfg0usNKGgSaqV2UAnmcjIBRsp1TtDqri9hFMBvcpGdf/embed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" height="315" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+            </div>
+          </div>
+          </div>
+        </div>
+      
+        <div class="col-md-7" v-if="role === 'Talent'">
+          <a @click="editBS(data)" style="margin: 10px" class="btn btn-default btn-sm">
+            <i class="fa fa-edit"></i>
+          </a>
+          <a
+            @click="confirm('Delete', data.id)"
+            style="mardeleteBS(gin: 10px"
+            class="btn btn-danger btn-sm"
+          >
+            <i class="fa fa-trash"></i>
+          </a>  
+        </div>
+      </div>
     </template>
 
     <table class="table">
@@ -61,13 +83,14 @@
     </table>
 
     <template v-if="!data">
-      
+        <h4 style="padding:10px">Tidak ada data, Mohon untuk upload data Value Curve berupa image(*.jpg , *.png)</h4>
+        <hr>
         <a
           v-if="role === 'Talent'"
           class="btn btn-default btn-sm"
           @click="addBS('4e208600-abab-41ac-8864-a950ff74e0fb')"
         ><i class="fa fa-plus"></i> Tambah Value Curve</a>
-        <hr>
+        
       
     </template>
 
@@ -124,6 +147,7 @@ export default {
       template: "",
       toconfirm: false,
       confirmId: "",
+      role:  "",
       act: "",
     };
   },
@@ -131,6 +155,9 @@ export default {
     "form-bs": FormBS,
     "form-ebs": EditBS,
     ondelete: OnDelete,
+  },
+  created: function() {
+    this.role = localStorage.getItem("role");
   },
   methods: {
     learningVC: function() {

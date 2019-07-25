@@ -1,27 +1,43 @@
 <template>
   <div>
           <error-flash v-bind:error="error" v-bind:success="success" v-bind:err_msg="err_msg"/>
-    <div style="margin-bottom: 20px;">
-       <button class="btn btn-info" @click="learningC" style="    border-radius: 5px;padding: 2px 8px;margin-top: 20px;margin-left: 20px;">
+    <div style="margin-bottom: 4px;">
+       <!-- <button class="btn btn-info" @click="learningC" style="    border-radius: 5px;padding: 2px 8px;margin-top: 20px;margin-left: 20px;">
         <i class="fa fa-info-circle"></i> Klik disini apabila kamu ingin mempelajari tentang Kompetitor
-      </button>
-      
-      <a
+      </button> -->
+        
+      <!-- <a
         style="margin:20px 0px 0px 0px"
         v-if="role === 'Talent'"
         class="btn btn-default"
         @click="showFormCompetitor()"
       >
         <span class="glyphicon glyphicon-plus-sign"></span> Tambah Kompetitor Baru
-      </a>
+      </a> -->
     </div>
 
     
 
     <!------------------------------>
     <div data-simplebar>
-    <div style="overflow-x:auto;">
-    <table style="white-space: pre-line" class="table table-hover table-bordered" v-if="data.total > 0">
+    <div class="row">
+      <div v-if="data.total != 0" class="col-md-5" style="margin-top:0px;">
+              <div class="list-group-item" style="text-align: center;border-radius: 0px;">
+                <a data-toggle="collapse" href="#collapsekomp"><b>Pelajari Materi Competitor</b></a>
+              </div>
+              <div class="">
+              <div id="collapsekomp" class="panel-collapse collapse">
+                <div class="panel-body">
+                  <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTRnH5vYkIY8bmiH_Ru4x9rYWTybMHt753wA_oilipY-Sigbv39ijX71eaRSFlqMVAgb6swgAX0q6I6/embed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" height="315" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+                </div>
+              </div>
+              </div>
+        </div>
+    </div>
+
+    <div class="row" style="overflow-x:auto;">
+    <div style="padding-left:15px;padding-right:15px">
+    <table style="white-space: pre-line;margin-top:20px;" id="tebelkompe" class="table table-bordered" v-if="data.total > 0">
       <!-- <thead>
         <tr>
           <th>Name</th>
@@ -97,10 +113,27 @@
         </tr>
       </tbody>
     </table>
-    <div style="padding:10px" v-else>No Competitor Data Yet, please create new...</div>
+    <div style="padding:10px;margin-top:30px;" v-else>
+      <div class="col-md-5">
+          <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRGGEzMHad24qkb3KZ6xOu4v2JzxC5qIy5f1u_DX4MpdJ40M9LFaK8AkLEXP6DfG6b5SVTFeXpSAXpu/embed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" height="329" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+                
+      <h4>Tidak ada data, Mohon untuk mengisi data Kompetitor</h4>
+    <hr>
+    
+      </div>
     </div>
     </div>
-
+   
+    </div>
+   
+    </div>
+ <a
+        v-if="role === 'Talent'"
+        class="btn btn-default"
+        @click="showFormCompetitor()"
+      >
+        <span class="glyphicon glyphicon-plus-sign"></span> Tambah Competitor Baru
+      </a>
     <!-- <div
             style="padding:10px"
             v-else
@@ -255,5 +288,8 @@ table th{
 .mscolor {
   background: #efefef;
   color: #505050;
+}
+#tebelkompe td {
+  background: #fff;
 }
 </style>

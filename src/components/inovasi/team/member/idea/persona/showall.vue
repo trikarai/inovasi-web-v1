@@ -16,15 +16,17 @@
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><router-link v-bind:to="'/talent/dashboard'">Beranda</router-link></li>
               <li class="breadcrumb-item"><router-link v-bind:to="'/talent/team/membership'">Tim</router-link></li>
-              <li class="breadcrumb-item"><router-link v-bind:to="'/team/'+teamId+'/idea/'+ideaId+'/cs'">Ide</router-link></li>
-              <li class="breadcrumb-item active" aria-current="page">Tipe Pengguna</li>
+              <li class="breadcrumb-item"><router-link v-bind:to="'/team/'+teamId+'/idea/'">Ide</router-link></li>
+              <li class="breadcrumb-item"><router-link v-bind:to="'/team/'+teamId+'/idea/'+ideaId+'/cs/'">Tipe Pengguna</router-link></li>
+              <li class="breadcrumb-item active" aria-current="page">Segmen Pelanggan</li>
             </ol>
           </nav>
-        <nav class="remahroti" aria-label="breadcrumb" v-else>
+            <nav class="remahroti" aria-label="breadcrumb" v-else>
               <ol class="breadcrumb">
               <li class="breadcrumb-item"><router-link v-bind:to="'/personnel/dashboard'">Beranda</router-link></li>
-              <li class="breadcrumb-item"><router-link v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs'">Ide</router-link></li>
-              <li class="breadcrumb-item active" aria-current="page">Tipe Pengguna</li>
+              <li class="breadcrumb-item"><router-link v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'">Ide</router-link></li>
+              <li class="breadcrumb-item"><router-link v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs/'">Tipe Pengguna</router-link></li>
+              <li class="breadcrumb-item active" aria-current="page">Segmen Pelanggan</li>
             </ol>
           </nav> 
           <!--end breadcrumb-->
@@ -47,7 +49,17 @@
 
             <div class="col-md-6" style="white-space: pre-line">
               <h4 class="tabcs">Daftar Segmen Pelanggan</h4>
-              <section class="rightsection" v-if="data.list.length > 0">  
+              <section class="rightsection" v-if="data.list.length > 0">
+                  <div class="list-group-item" style="text-align: center;border-radius: 0px;">
+                    <a data-toggle="collapse" href="#collapse1"><b>Materi Pembelajaran</b></a>
+                  </div>
+                  <div class="">
+                  <div id="collapse1" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSlX_A1AmQL28oxY5K4-l9zk-LJgl5q5QxpWS9_YB623Iy3Xo5W79X6rZOiKEl4loDZ-uOCtZN63Jaj/embed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" height="300" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+                    </div>
+                  </div>
+                  </div>
                 <ul style="-webkit-padding-start: 0px !important;">
                   <li v-for="data in data.list" class="linkli">
                     <a class="flexleft">
@@ -80,10 +92,12 @@
                   </li>
                 </ul>
               </section>
-              <section class="rightsection" v-else>
+              <section class="rightsection" v-else>               
+                <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSlX_A1AmQL28oxY5K4-l9zk-LJgl5q5QxpWS9_YB623Iy3Xo5W79X6rZOiKEl4loDZ-uOCtZN63Jaj/embed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" height="300" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
                 <h5 class="nodata">Tidak ada data, Mohon untuk mengisi data Segmen Pelanggan</h5>
               </section>
-              <a style="margin-top:10px" v-if="role === 'Talent'" class="btn btn-primary" @click="showFormPersona()"><span class="glyphicon glyphicon-plus-sign"></span> Buat Segmen Pelanggan Baru</a>
+  
+                <a style="margin-top:10px" v-if="role === 'Talent'" class="btn btn-primary" @click="showFormPersona()"><span class="glyphicon glyphicon-plus-sign"></span> Buat Segmen Pelanggan Baru</a>
 
             </div>      
 

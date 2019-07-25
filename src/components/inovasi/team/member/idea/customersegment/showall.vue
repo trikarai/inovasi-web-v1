@@ -47,16 +47,18 @@
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><router-link v-bind:to="'/talent/dashboard'">Beranda</router-link></li>
               <li class="breadcrumb-item"><router-link v-bind:to="'/talent/team/membership'">Tim</router-link></li>
-              <li class="breadcrumb-item active" aria-current="page">Ide</li>
+              <li class="breadcrumb-item"><router-link v-bind:to="'/team/'+teamId+'/idea/'">Ide</router-link></li>
+              <li class="breadcrumb-item active" aria-current="page">Tipe Pengguna</li>
             </ol>
           </nav>
-          <!--end breadcrumb-->
           <nav class="remahroti" aria-label="breadcrumb" v-else>
               <ol class="breadcrumb">
               <li class="breadcrumb-item"><router-link v-bind:to="'/personnel/dashboard'">Beranda</router-link></li>
-              <li class="breadcrumb-item active" aria-current="page">Ide</li>
-                </ol>
-          </nav>          
+              <li class="breadcrumb-item"><router-link v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'">Ide</router-link></li>
+              <li class="breadcrumb-item active" aria-current="page">Tipe Pengguna</li>
+            </ol>
+          </nav> 
+          <!--end breadcrumb-->       
           
           <main class="pagebody">
             <div style="padding-bottom: 30px;"class="col-md-6" >
@@ -83,7 +85,17 @@
 
             <div class="col-md-6">
               <h4 class="tabcs">Daftar Tipe Pengguna</h4>
-              <section class="rightsection" v-if="data.list.length > 0">  
+              <section class="rightsection" v-if="data.list.length > 0"> 
+                <div class="list-group-item" style="text-align: center;border-radius: 0px;">
+                    <a data-toggle="collapse" href="#collapsetp"><b>Materi Pembelajaran</b></a>
+                  </div>
+                  <div class="">
+                  <div id="collapsetp" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQHwsl_eo2rbhy4QUIOR6zeR55heLXFhEKav9LNxhTTj-3eLTL4pfIunTmcDvSIUN2HR0joxk-LNYJA/embed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" height="300" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+                    </div>
+                  </div>
+                  </div> 
                 <ul style="-webkit-padding-start: 0px !important;">
                   <li v-for="data in data.list" style="line-height: 16px" class="linkli">
                     <a class="flexleft">
@@ -104,6 +116,7 @@
                 </ul>
               </section>
               <section class="rightsection" v-else>
+                <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQHwsl_eo2rbhy4QUIOR6zeR55heLXFhEKav9LNxhTTj-3eLTL4pfIunTmcDvSIUN2HR0joxk-LNYJA/embed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" height="300" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
                 <h5 class="nodata">Tidak ada data, Mohon untuk mengisi data Tipe Pengguna </h5>
               </section>
               <a v-if="role === 'Talent'" class="btn btn-primary" @click="showFormCS()"><span class="glyphicon glyphicon-plus-sign"></span> Buat Tipe Pengguna Baru</a>

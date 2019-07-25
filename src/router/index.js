@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Hello from '@/components/Hello';
-import index from '../components/index.vue';
+// import index from '../components/index.vue';
 import PageNotFound from '@/components/404.vue';
 
 //Inovasi Dashboard2
@@ -18,7 +17,7 @@ import Activation from '@/components/inovasi/guest/signup/activation'
 import ResendActivation from '@/components/inovasi/guest/signup/resend-activation'
 import ResetPassword from '@/components/inovasi/guest/signup/reset/reset'
 import ChangePassword from '@/components/inovasi/guest/signup/reset/changePassword'
-import SignUpTest from '@/components/inovasi/guest/signup/test'
+// import SignUpTest from '@/components/inovasi/guest/signup/test'
 import DiloSignUp from '@/components/inovasi/guest/dilosignup/signup'
 import LoginAdministrator from '@/components/inovasi/guest/admin/login'
 import LoginPersonnel from '@/components/inovasi/guest/personnel/login'
@@ -105,7 +104,7 @@ import TutorProgrammeParticipantExperimentDetail from '@/components/inovasi/team
 import ParticipantTeam from '@/components/inovasi/personnel/team/membership'
 import ParticipantTeamProfile from '@/components/inovasi/personnel/team/profile'
 
-import LearningMaterial from '@/components/inovasi/team/learning/index'
+// import LearningMaterial from '@/components/inovasi/team/learning/index'
 import Learning from '@/components/inovasi/team/learning/learning'
 
 import LandingPage from '@/components/landingpage/index'
@@ -318,7 +317,7 @@ const routes = [
           component: TutorProgrammeParticipantIdea
         },
         {
-          name: 'Participant Idea',
+          name: 'Participant Persona',
           path: '/tutor/:tutorId/participant/:teamId/idea/:ideaId/cs',
           component: TutorProgrammeParticipantCS
         },
@@ -333,7 +332,7 @@ const routes = [
           component: TeamEmpathyMap
         },
         {
-          name: 'Participant Persona',
+          name: 'Participant Value Proposition',
           path: '/tutor/:tutorId/participant/:teamId/idea/:ideaId/cs/:customersegmentId/persona/:personaId/vp',
           component: TeamValueProposition
         },
@@ -500,19 +499,21 @@ const routes = [
         },
         //Team Dashboard as Member
         {
+          //using name, dependen
           name: 'Partisipasi Program',
           props: true,
           path: '/team/:teamId/programmeparticipation',
           component: TeamProgrammeParticipation
         },
         {
-          //dependen
+          //using name, dependen
           name: 'Daftar Program',
           props: true,
           path: '/team/:teamId/programmeparticipation/register',
           component: TeamProgrammeParticipationRegister
         },
         {
+          //using name, dependen
           name: 'Sesi Mentoring',
           props: true,
           path: '/team/:teamId/programmeparticipation/:programmeparticipationId/mentoringsession/programme/:programmeId/phase/:phaseId/',
@@ -525,39 +526,41 @@ const routes = [
           component: TeamProgrammeParticipationMentoringSessionList
         },
         {
+          //using name, dependen
           name: 'Daftar Mentor',
           props: true,
           path: '/team/:teamId/programmeparticipation/:programmeparticipationId/mentoringsession/programme/:programmeId/phase/:phaseId/session/:sessionId/tutor',
           component: TeamProgrammeParticipationMentoringTutorList
         },
         {
+          //using name, dependen
           name: 'Sesi Workshop',
           props: true,
           path: '/team/:teamId/programme/:programmeId/phase/:phaseId/workshop/:programmeparticipationId',
           component: TeamProgrammeParticipationWorkshopSession
         },
         {
-          name: 'Daftar Ide',
+          name: 'Ide',
           path: '/team/:teamId/idea',
           component: TeamIdea
         },
         {
-          name: 'Ide',
+          name: 'Tipe Pengguna',
           path: '/team/:teamId/idea/:ideaId/cs',
           component: TeamCustomerSegment
         },
         {
-          name: 'Tipe Pengguna',
+          name: 'Segmen Pelanggan',
           path: '/team/:teamId/idea/:ideaId/cs/:customersegmentId/persona',
           component: TeamPersona
         },
         {
-          name: 'Segmen Pelanggan',
+          name: 'Empathy Map',
           path: '/team/:teamId/idea/:ideaId/cs/:customersegmentId/persona/:personaId',
           component: TeamEmpathyMap
         },
         {
-          name: 'Empathy Map',
+          name: 'Value Proposition',
           path: '/team/:teamId/idea/:ideaId/cs/:customersegmentId/persona/:personaId/vp',
           component: TeamValueProposition
         },
