@@ -25,13 +25,39 @@
               <li class="breadcrumb-item active" aria-current="page">Value Proposition</li>
             </ol>
           </nav>
-            <nav class="remahroti" aria-label="breadcrumb" v-else>
+            <!-- <nav class="remahroti" aria-label="breadcrumb" v-else>
               <ol class="breadcrumb">
               <li class="breadcrumb-item"><router-link v-bind:to="'/personnel/dashboard'">Beranda</router-link></li>
               <li class="breadcrumb-item"><router-link v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'">Ide</router-link></li>
               <li class="breadcrumb-item"><router-link v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs/'">Tipe Pengguna</router-link></li>
               <li class="breadcrumb-item"><router-link v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/'">Segmen Pelanggan</router-link></li>
               <li class="breadcrumb-item"><router-link v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId">Empathy Map</router-link></li>
+              <li class="breadcrumb-item active" aria-current="page">Value Proposition</li>
+            </ol>
+          </nav> -->
+          <nav class="remahroti" aria-label="breadcrumb" v-else>
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <router-link v-bind:to="'/personnel/dashboard'">Beranda</router-link>
+              </li>
+              <li class="breadcrumb-item">
+                <router-link
+                  v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'"
+                >Idea</router-link>
+              </li>
+              <li class="breadcrumb-item">
+                <router-link
+                  v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs/'"
+                >Tipe Pengguna</router-link>
+              </li>
+              <li class="breadcrumb-item">
+                <router-link v-bind:to="'/tutor/'+tutorId+'/participant/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/'">Segmen Pelanggan</router-link>
+              </li>
+              <li class="breadcrumb-item">
+                <router-link
+                  v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId+'/persona/'+personaId"
+                >Empathy Map</router-link>
+              </li>
               <li class="breadcrumb-item active" aria-current="page">Value Proposition</li>
             </ol>
           </nav> 

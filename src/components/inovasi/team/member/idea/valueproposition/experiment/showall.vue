@@ -52,7 +52,7 @@
               </li>
               <li class="breadcrumb-item">
                 <router-link
-                  v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId"
+                  v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs/'"
                 >Tipe Pengguna</router-link>
               </li>
               <li class="breadcrumb-item">
@@ -189,7 +189,7 @@
                   <table id="javeboard" class="table-striped table-hover tabel-bordered" v-if="dataJavelin.total != 0">
                     <tbody>
                       <tr>
-                        <th height="70px" width="200px"></th>
+                        <th style="padding-left:20px;padding-right:20px;" height="70px" width="200px"></th>
                         <th style="background:#0085a4;text-align:center;padding-left:20px;padding-right:20px;" width="200px" v-for="javelin in reOrderDate(dataJavelin.list)">
                           <router-link
                             v-if="role === 'Talent'"
@@ -213,7 +213,7 @@
                         ><span style="color:#0085a4;font-weight:900;">{{javelin.date | moment("dddd")}}</span><br>{{javelin.date | moment("MMMM")}}<br>{{javelin.date | moment("Do YYYY")}}</td>
                       </tr>
                       <tr>
-                        <th class="jbth"
+                        <th style="padding-left:20px;padding-right:20px;" class="jbth"
                           height="70px"
                         >{{reOrderField(dataJavelin.list[0].fields)[0].field_template.name}}</th>
                         <td
@@ -222,7 +222,7 @@
                         ><span v-html="$options.filters.readMore(reOrderField(javelin.fields)[0].value)"></span></td>
                       </tr>
                       <tr>
-                        <th class="jbth"
+                        <th style="padding-left:20px;padding-right:20px;" class="jbth"
                           height="70px"
                         >{{reOrderField(dataJavelin.list[0].fields)[1].field_template.name}}</th>
                         <td
@@ -232,7 +232,7 @@
                       </tr>
 
                       <tr v-if="reOrderField(dataJavelin.list[0].fields)[3]">
-                        <th class="jbth"
+                        <th style="padding-left:20px;padding-right:20px;" class="jbth"
                           height="70px"
                         >{{reOrderField(dataJavelin.list[0].fields)[3].field_template.name}}</th>
                         <td
@@ -242,7 +242,7 @@
                       </tr>
 
                       <tr v-if="reOrderField(dataJavelin.list[0].fields)[4]">
-                        <th class="jbth"
+                        <th style="padding-left:20px;padding-right:20px;" class="jbth"
                           height="70px"
                         >{{reOrderField(dataJavelin.list[0].fields)[4].field_template.name}}</th>
                         <template>
@@ -253,7 +253,7 @@
                         </template>
                       </tr>
                       <tr v-if="reOrderField(dataJavelin.list[0].fields)[5]">
-                        <th class="jbth"
+                        <th style="padding-left:20px;padding-right:20px;" class="jbth"
                           height="70px"
                         >{{reOrderField(dataJavelin.list[0].fields)[5].field_template.name}}</th>
                         <td
@@ -275,7 +275,7 @@
                       </tr> -->
 
                       <tr v-if="reOrderField(dataJavelin.list[0].fields)[6]">
-                        <th class="jbth"
+                        <th style="padding-left:20px;padding-right:20px;" class="jbth"
                           height="70px"
                         >{{reOrderField(dataJavelin.list[0].fields)[6].field_template.name}}</th>
                         <td
@@ -284,7 +284,7 @@
                         ><span v-html="$options.filters.readMore(reOrderField(javelin.fields)[6].value)"></span></td>
                       </tr>
                       <tr v-if="reOrderField(dataJavelin.list[0].fields)[7]">
-                        <th class="jbth"
+                        <th style="padding-left:20px;padding-right:20px;" class="jbth"
                           height="70px"
                         >{{reOrderField(dataJavelin.list[0].fields)[7].field_template.name}}</th>
 
@@ -309,7 +309,7 @@
                         </td>
                       </tr>
                       <tr v-if="reOrderField(dataJavelin.list[0].fields)[8]">
-                        <th class="jbth"
+                        <th style="padding-left:20px;padding-right:20px;" class="jbth"
                           height="70px"
                         >{{reOrderField(dataJavelin.list[0].fields)[8].field_template.name}}</th>
                         <td
@@ -318,7 +318,7 @@
                         ><span v-html="$options.filters.readMore(reOrderField(javelin.fields)[8].value)"></span></td>
                       </tr>
                       <tr v-if="reOrderField(dataJavelin.list[0].fields)[9]">
-                        <th class="jbth"
+                        <th style="padding-left:20px;padding-right:20px;" class="jbth"
                           height="70px"
                         >{{reOrderField(dataJavelin.list[0].fields)[9].field_template.name}}</th>
                         <td

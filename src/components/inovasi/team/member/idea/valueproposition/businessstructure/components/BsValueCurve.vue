@@ -29,7 +29,7 @@
           </div>
         </div>
       
-        <div class="col-md-7">
+        <div class="col-md-7" v-if="role === 'Talent'">
           <a @click="editBS(data)" style="margin: 10px" class="btn btn-default btn-sm">
             <i class="fa fa-edit"></i>
           </a>
@@ -147,6 +147,7 @@ export default {
       template: "",
       toconfirm: false,
       confirmId: "",
+      role:  "",
       act: "",
     };
   },
@@ -154,6 +155,9 @@ export default {
     "form-bs": FormBS,
     "form-ebs": EditBS,
     ondelete: OnDelete,
+  },
+  created: function() {
+    this.role = localStorage.getItem("role");
   },
   methods: {
     learningVC: function() {

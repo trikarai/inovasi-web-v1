@@ -4,7 +4,7 @@
     <div class="modal-mask">
       <div class="modal-wrapper">
         <div class="modal-container">
-          <div class="modal-header">
+          <div class="">
             <slot name="header">
 
               <div class="alert alert-danger" v-show="error" v-for="msg in err_msg.error_details">
@@ -14,22 +14,22 @@
             </slot>
           </div>
           <div class="modal-body">
-
-            
+            <h2>Scoring Form</h2>
+            <div class="garis"></div>
             <div class="ui form">                
               <div class="field">  
-                
+
                 <!--<h3><b>{{data.name}}</b></h3>-->
-                <hr>
+                
                    <div id="dynamicform">
                     <div>
                       <form :name="1">  
                       <div v-for="field, index in data.fields">
                           <fields-comp v-bind:fields="field"></fields-comp>
-                          <hr>
+                         
                         </div>
                       </form>
-                      <hr>
+                      
                     </div>
                   </div>            
                 
@@ -37,6 +37,7 @@
 
                 </div>
               </div>
+              <hr>
               <div v-show="!onSubmit">
                 <button class="btn btn-default" @click.prevent="submitData">Submit</button>
                 <button class="btn btn-danger" @click="$emit('close')">Cancel</button>
@@ -68,7 +69,7 @@
   import fieldscomp from '@/components/field/fields'
 
   export default {
-    props: ['templateid', 'programmeid', 'phaseid', 'participantid', 'tutorid'],
+    props: ['templateid', 'programmeid', 'phaseid', 'participantid', 'tutorid', 'scoringid'],
     components: {
       'error-flash': ErrorFlash,
       'datetime' : datetime,
@@ -103,7 +104,6 @@
         auth.getData(this, '/team/form_template/' + this.templateid)
       },
       submitData: function () {
-        alert('submitdata')
         for (var x = 0; x < this.data.fields.length; x++) {
           this.getFormValues(x)
         }
@@ -137,4 +137,11 @@
 </script>  
 <style lang="css">
 @import '../../../../team/member/idea/modal.css';
+.garis {
+  display: block;
+  width: 45px;
+  height: 5px;
+  background: #8bc751;
+  margin-bottom: 20px;
+}
 </style>

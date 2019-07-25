@@ -317,7 +317,7 @@ const routes = [
           component: TutorProgrammeParticipantIdea
         },
         {
-          name: 'Participant Idea',
+          name: 'Participant Persona',
           path: '/tutor/:tutorId/participant/:teamId/idea/:ideaId/cs',
           component: TutorProgrammeParticipantCS
         },
@@ -332,7 +332,7 @@ const routes = [
           component: TeamEmpathyMap
         },
         {
-          name: 'Participant Persona',
+          name: 'Participant Value Proposition',
           path: '/tutor/:tutorId/participant/:teamId/idea/:ideaId/cs/:customersegmentId/persona/:personaId/vp',
           component: TeamValueProposition
         },

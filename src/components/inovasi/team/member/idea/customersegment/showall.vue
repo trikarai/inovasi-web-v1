@@ -54,7 +54,7 @@
           <nav class="remahroti" aria-label="breadcrumb" v-else>
               <ol class="breadcrumb">
               <li class="breadcrumb-item"><router-link v-bind:to="'/personnel/dashboard'">Beranda</router-link></li>
-              <li class="breadcrumb-item"><router-link v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs'">Ide</router-link></li>
+              <li class="breadcrumb-item"><router-link v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'">Ide</router-link></li>
               <li class="breadcrumb-item active" aria-current="page">Tipe Pengguna</li>
             </ol>
           </nav> 

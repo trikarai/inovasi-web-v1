@@ -51,7 +51,7 @@
               </li>
               <li class="breadcrumb-item">
                 <router-link
-                  v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs/'+customersegmentId"
+                  v-bind:to="'/tutor/'+tutorId+'/participant/'+teamId+'/idea/'+ideaId+'/cs/'"
                 >Tipe Pengguna</router-link>
               </li>
               <li class="breadcrumb-item">
