@@ -71,7 +71,7 @@
                     </div>
                     <div class="row">
                       <div class="col-md-4">
-                        <label>Asset</label>
+                        <label>Asset/Technology</label>
                       </div>
                       <div class="col-md-6">
                         <!-- <textarea class="kotak" type="text" v-model="data.asset"></textarea> -->
