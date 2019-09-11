@@ -64,6 +64,7 @@ import TeamValueProposition from '@/components/inovasi/team/member/idea/valuepro
 import TeamCompetitor from '@/components/inovasi/team/member/idea/valueproposition/competitor/showall'
 import TeamBusinessStructure from '@/components/inovasi/team/member/idea/valueproposition/businessstructure/showall'
 import TeamExperiment from '@/components/inovasi/team/member/idea/valueproposition/experiment/showall'
+import TeamMetric from '@/components/inovasi/team/member/idea/valueproposition/metric/showall'
 import TeamExperimentDetail from '@/components/inovasi/team/member/idea/valueproposition/experiment/experimentdetail'
 
 import TalentReservation from '@/components/inovasi/team/member/reservation/reservation'
@@ -573,6 +574,11 @@ const routes = [
           name: 'Percobaan Bisnis',
           path: '/team/:teamId/idea/:ideaId/cs/:customersegmentId/persona/:personaId/vp/:valuepropositionId/experiment',
           component: TeamExperiment
+        },
+        {
+          name: 'Metric Bisnis',
+          path: '/team/:teamId/idea/:ideaId/cs/:customersegmentId/persona/:personaId/vp/:valuepropositionId/metric',
+          component: TeamMetric
         },
         {
           name: 'Detil Percobaan',
