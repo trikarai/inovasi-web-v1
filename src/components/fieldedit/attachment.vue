@@ -10,9 +10,9 @@
           <input
             id="uploadImage"
             type="file"
-            accept="image/*"
+            accept="image/*, application/pdf"
             v-on:change="fileChange($event.target.files)"
-          >
+          />
           <a @click="uploadFile" class="button btn-sm btn-danger">
             <i class="fa fa-upload" style="margin-top:15px"></i>
           </a>
@@ -27,20 +27,23 @@
         <div class="col-md-4">
           <label style="padding: 6px">{{field.field_template.name}}</label>
         </div>
-        <div  class="col-md-6" v-if="onSubmit">
+        <div class="col-md-6" v-if="onSubmit">
           <onsub v-show="onSubmit"></onsub>
-        </div>  
+        </div>
         <div class="col-md-6" v-if="!onSubmit">
           <!-- {{field.attachment}} -->
           <div v-for="attachment in field.attachment">
             <!-- <img style="width: 200px;"
               :src="'/inovasi/public/uploads' + attachment.file_meta.file_path"
-            > -->
-            <img style="width: 200px;"
+            >-->
+            <img
+              style="width: 200px;"
               :src="'http://start.mikti.id/inovasi/public/uploads' + attachment.file_meta.file_path"
-            >
+            />
             <!-- <button class="btn btn-sm btn-danger" @click.prevent="deleteAttachment(attachment.file_meta.id)"><i class="fa fa-trash"></i> Hapus Attachment</button> -->
-            <button class="btn btn-sm btn-danger" @click.prevent="hapusPath()"><i class="fa fa-trash"></i> Ganti Attachment</button>
+            <button class="btn btn-sm btn-danger" @click.prevent="hapusPath()">
+              <i class="fa fa-trash"></i> Ganti Attachment
+            </button>
           </div>
         </div>
       </div>
@@ -52,8 +55,15 @@
       </div>
       <div class="col-md-6" v-if="field.attachment.length == 0">
         <!-- {{data}} -->
-        <img id="uploadPreview" style="width: 100px; height: 100px;">
-        <br>
+        <img v-if="ext != 'pdf'" id="uploadPreview" style="width: 100px; height: 100px;" />
+        <br />
+        <img
+          v-if="ext == 'pdf'"
+          src="https://www.sandhata.com/wp-content/uploads/2016/11/pdf-icon.png"
+          style="width: 100px; height: 100px;"
+        />
+        <br />
+        <br />
         <template v-if="progressShow">
           <progress :value="progressCount" max="100"></progress>
           {{progressCount}} %
@@ -68,16 +78,20 @@
       <div class="col-md-6">
         <!-- <input class="kotak" type="text" :name="field.id"> -->
         <!-- {{field}} -->
-        <select v-if="field.attachment.length != 0"
+        <select
+          v-if="field.attachment.length != 0"
           style="width: 100%;height: 75px; display:none"
           :name="field.field_template.id"
           multiple
           class="kotak"
         >
-          <option :value="field.attachment[0].file_meta.id" selected>{{ field.attachment[0].file_meta.file_path }}</option>
+          <option
+            :value="field.attachment[0].file_meta.id"
+            selected
+          >{{ field.attachment[0].file_meta.file_path }}</option>
         </select>
-        <input v-else type="hidden" value="" :name="field.field_template.id"></input>
-        <br>
+        <input v-else type="hidden" value :name="field.field_template.id" />
+        <br />
         <i class="fa fa-check-circle" style="color:green"></i> Image Uploaded
       </div>
     </div>
@@ -114,7 +128,8 @@ export default {
       selectedFile: null,
       data: "",
       headers: {},
-      onSubmit: false
+      onSubmit: false,
+      ext: ""
     };
   },
   created: function() {},
@@ -130,6 +145,7 @@ export default {
       oFReader.onload = function(oFREvent) {
         document.getElementById("uploadPreview").src = oFREvent.target.result;
       };
+      this.ext = fileList[0].name.split(".").pop();
       this.preview = true;
     },
     uploadFile: function() {
@@ -168,32 +184,40 @@ export default {
         )
         .then(data => {
           this.data = data.data;
-          var file_meta = {'file_meta': {'id': this.data.id, 'file_path': this.data.file_path}}
-          this.field.attachment.push(file_meta)
+          var file_meta = {
+            file_meta: { id: this.data.id, file_path: this.data.file_path }
+          };
+          this.field.attachment.push(file_meta);
           this.fieldPath = true;
           this.progressShow = false;
         });
     },
-    hapusPath: function(){
-      this.field.attachment.splice(0,1)
+    hapusPath: function() {
+      this.field.attachment.splice(0, 1);
     },
-    deleteAttachment: function(id){
-      console.log('deleting')
-      this.error = false
-      this.onSubmit = true
-      this.$http.delete(CONFIG.APIENDPOINT + "/team/" + this.teamId + "/file/"+ id, {headers: auth.getAuthHeader()})
-      .then(res =>{
-        console.log('deleting successful')
-        console.log(res)
-        this.field.attachment.splice(0,1)
-        this.onSubmit = false
-      }, error =>{
-        console.log('deleting failed')
-        console.log(error)
-        this.err_msg = error.body.meta;
-        this.onSubmit = false
-        this.error = true;
-      })
+    deleteAttachment: function(id) {
+      console.log("deleting");
+      this.error = false;
+      this.onSubmit = true;
+      this.$http
+        .delete(CONFIG.APIENDPOINT + "/team/" + this.teamId + "/file/" + id, {
+          headers: auth.getAuthHeader()
+        })
+        .then(
+          res => {
+            console.log("deleting successful");
+            console.log(res);
+            this.field.attachment.splice(0, 1);
+            this.onSubmit = false;
+          },
+          error => {
+            console.log("deleting failed");
+            console.log(error);
+            this.err_msg = error.body.meta;
+            this.onSubmit = false;
+            this.error = true;
+          }
+        );
     }
   }
 };

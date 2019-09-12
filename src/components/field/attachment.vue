@@ -9,7 +9,7 @@
         <input
           id="uploadImage"
           type="file"
-          accept="image/*"
+          accept="image/*, application/pdf"
           v-on:change="fileChange($event.target.files)"
         >
         
@@ -20,7 +20,8 @@
         <label style="padding: 6px" v-if="fieldPath">{{field.name}}</label>
       </div>
       <div class="col-md-6">
-        <img id="uploadPreview" style="width: 100px; height: 100px;"><br>
+        <img v-if="ext != 'pdf'" id="uploadPreview" style="width: 100px; height: 100px;"><br>
+        <img v-if="ext == 'pdf'" src="https://www.sandhata.com/wp-content/uploads/2016/11/pdf-icon.png" style="width: 100px; height: 100px;"><br>
         <a @click="uploadFile" class="button btn-sm btn-danger">
           <i class="fa fa-upload" style="margin-top:15px"></i>
         </a>
@@ -74,7 +75,8 @@ export default {
       files: new FormData(),
       selectedFile: null,
       data: "",
-      headers: {}
+      headers: {},
+      ext: ""
     };
   },
   created: function() {},
@@ -90,6 +92,7 @@ export default {
       oFReader.onload = function(oFREvent) {
         document.getElementById("uploadPreview").src = oFREvent.target.result;
       };
+      this.ext = fileList[0].name.split(".").pop();
       this.preview = true;
     },
     uploadFile: function() {
