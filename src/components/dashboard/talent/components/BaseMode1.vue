@@ -131,6 +131,7 @@
                     </router-link>
                     <br>
                     <router-link
+                      v-if="teamId != ''"
                       style="width:100%;margin-top:5px;"
                       class="btn btn-sm btn-default"
                       v-bind:to="'/team/'+ teamId + '/browse'"
@@ -1019,10 +1020,10 @@
           <div style="display: -webkit-inline-box;">
             <div>
               <div class="abunder" v-if="dataVP.total === 0">
-                <b>Final</b>
+                Langkah <b>9</b>
               </div>
               <div class="bbunder" v-else>
-                <b>Final</b>
+                Langkah <b>9</b>
               </div>
 
               <div class="judulbunder" style="margin-left: 10px">
