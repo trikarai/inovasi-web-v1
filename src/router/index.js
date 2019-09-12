@@ -65,6 +65,8 @@ import TeamCompetitor from '@/components/inovasi/team/member/idea/valuepropositi
 import TeamBusinessStructure from '@/components/inovasi/team/member/idea/valueproposition/businessstructure/showall'
 import TeamExperiment from '@/components/inovasi/team/member/idea/valueproposition/experiment/showall'
 import TeamMetric from '@/components/inovasi/team/member/idea/valueproposition/metric/showall'
+import TeamDevPlan from '@/components/inovasi/team/member/idea/valueproposition/development/devcanvas'
+import TeamPitchDeck from '@/components/inovasi/team/member/idea/valueproposition/pitch/pitch'
 import TeamExperimentDetail from '@/components/inovasi/team/member/idea/valueproposition/experiment/experimentdetail'
 
 import TalentReservation from '@/components/inovasi/team/member/reservation/reservation'
@@ -579,6 +581,16 @@ const routes = [
           name: 'Metric Bisnis',
           path: '/team/:teamId/idea/:ideaId/cs/:customersegmentId/persona/:personaId/vp/:valuepropositionId/metric',
           component: TeamMetric
+        },
+        {
+          name: 'Rencana Pengembangan',
+          path: '/team/:teamId/idea/:ideaId/cs/:customersegmentId/persona/:personaId/vp/:valuepropositionId/dev',
+          component: TeamDevPlan
+        },
+        {
+          name: 'Data Bisnis',
+          path: '/team/:teamId/idea/:ideaId/cs/:customersegmentId/persona/:personaId/vp/:valuepropositionId/business',
+          component: TeamPitchDeck
         },
         {
           name: 'Detil Percobaan',

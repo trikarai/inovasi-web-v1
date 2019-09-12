@@ -640,9 +640,9 @@
       color: #565656;
       word-break: break-all;
     }
-    .padkiriEV {
+    /* .padkiriEV { */
       /* padding-left: 25px !important; */
-    }
+    /* } */
     .garistabel td {
       border: 1px solid #e4e4e4 !important;
     }
