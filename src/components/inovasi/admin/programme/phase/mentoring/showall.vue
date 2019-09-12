@@ -164,7 +164,7 @@
         this.showFormTrack = true
       },
       deleteTrack: function (id){
-        this.$http.delete(CONFIG.APIENDPOINT + '/programme/'+ this.programmeId +'/phase/'+ this.phaseId +'/mentoring/' + this.mentoringId + '/track_involvement/' + id, {header: auth.getAuthHeader()})
+        this.$http.delete(CONFIG.APIENDPOINT + '/programme/'+ this.programmeId +'/phase/'+ this.phaseId +'/mentoring/' + this.mentoringId + '/track_involvement/' + id, {headers: auth.getAuthHeader()})
                 .then(response => {
                   console.log(response)
                   this.closeModalRefreshTrack()
