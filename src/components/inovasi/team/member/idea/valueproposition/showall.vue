@@ -162,17 +162,17 @@
                     </td>
                     <td>
                       <template v-if="role === 'Talent'">
-                        <router-link class="btn btn-default btn-sm" v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/businessstructure#vp'"><i class="fa fa-sitemap"></i> Analisa Bisnis</router-link><br>
+                        <router-link class="btn btn-default btn-sm baten" v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/businessstructure#vp'">Analisa Bisnis</router-link><br>
                         <!-- <router-link style="margin-top:5px;" class="btn btn-default btn-sm" v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/competitor'"><i class="fa fa-trophy"></i> Kompetitor</router-link><br> -->
-                        <router-link style="margin-top:5px;" class="btn btn-default btn-sm" v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/experiment'"><i class="fa fa-thermometer-2"></i> Percobaan Bisnis</router-link>
-                        <router-link style="margin-top:5px;" class="btn btn-default btn-sm" v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/metric'"><i class="fa fa-thermometer-2"></i> Metric</router-link>
-                        <router-link style="margin-top:5px;" class="btn btn-default btn-sm" v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/dev'"><i class="fa fa-thermometer-2"></i> Rencana Pengembangan</router-link>
-                        <router-link style="margin-top:5px;" class="btn btn-default btn-sm" v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/business'"><i class="fa fa-thermometer-2"></i> Data Bisnis</router-link>
+                        <router-link style="margin-top:5px;" class="btn btn-default btn-sm baten" v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/experiment'">Percobaan Bisnis</router-link><br>
+                        <router-link style="margin-top:5px;" class="btn btn-default btn-sm baten" v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/metric'">Metric</router-link>
+                        <router-link style="margin-top:5px;" class="btn btn-default btn-sm baten" v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/dev'">Rencana Pengembangan</router-link>
+                        <router-link style="margin-top:5px;" class="btn btn-default btn-sm baten" v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/business'">Data Bisnis</router-link>
                       </template>  
                       <template v-else>
-                        <router-link class="btn btn-default btn-sm" v-bind:to="'/tutor/'+tutorId+'/participant/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/businessstructure'"><i class="fa fa-sitemap"></i> Business Analysis</router-link><br>
-                        <router-link style="margin-top:5px;" class="btn btn-default btn-sm" v-bind:to="'/tutor/'+tutorId+'/participant/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/competitor'"><i class="fa fa-trophy"></i> Competitor</router-link><br>
-                        <router-link style="margin-top:5px;" class="btn btn-default btn-sm" v-bind:to="'/tutor/'+tutorId+'/participant/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/experiment'"><i class="fa fa-thermometer-2"></i> Experiment</router-link>
+                        <router-link class="btn btn-default btn-sm baten" v-bind:to="'/tutor/'+tutorId+'/participant/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/businessstructure'"><i class="fa fa-sitemap"></i> Business Analysis</router-link><br>
+                        <router-link style="margin-top:5px;" class="btn btn-default btn-sm baten" v-bind:to="'/tutor/'+tutorId+'/participant/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/competitor'"><i class="fa fa-trophy"></i> Competitor</router-link><br>
+                        <router-link style="margin-top:5px;" class="btn btn-default btn-sm baten" v-bind:to="'/tutor/'+tutorId+'/participant/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/experiment'"><i class="fa fa-thermometer-2"></i> Experiment</router-link>
                       </template>  
                     </td>
 <!--
@@ -484,5 +484,9 @@
       padding-left: 5px;
       padding-right: 5px;
       font-size: 10px;
+    }
+    .baten {
+      background-color: #3c3c3c !important;
+      color: #fff !important;
     }
 </style>

@@ -300,6 +300,7 @@
                 <i class="fa fa-info-circle"></i>
                 Klik disini apabila kamu ingin mempelajari tentang {{data.name}}
               </button>-->
+              <div style="padding: 30px" v-show="dataExp.total == 0"><h5>No {{data.name}} Data</h5></div>
               <a
                 v-if="role === 'Talent'"
                 style="margin: 10px"
@@ -369,7 +370,7 @@
                     </tbody>
                   </table>
                 </div>
-                <div class="box-body" style="padding: 10px" v-else>No {{data.name}} Data</div>
+                
               </div>
               <onsub v-show="onSubmit"></onsub>
             </div>

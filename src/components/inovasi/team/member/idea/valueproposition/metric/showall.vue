@@ -399,7 +399,7 @@
                             style="color:#0085a4;font-weight:900;"
                           >{{data.date | moment("dddd")}}</span>
                           <br />
-                          {{data.date | moment("D MMMM YY")}}
+                          {{data.date | moment("D MMMM YYYY")}}
                         </td>
                         <!--<td><a class="btn btn-info btn-sm" @click="expDetail(data)"><i class="fa fa-asterisk"></i> Detail</a></td>-->
                         <td>
@@ -440,7 +440,7 @@
                     </tbody>
                   </table>
                 </div>
-                <div class="box-body" style="padding: 10px" v-else>No {{data.name}} Data</div>
+                <div class="box-body" style="padding: 30px" v-else>No {{data.name}} Data</div>
               </div>
               <onsub v-show="onSubmit"></onsub>
             </div>

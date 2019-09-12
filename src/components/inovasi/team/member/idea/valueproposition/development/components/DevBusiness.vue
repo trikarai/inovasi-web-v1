@@ -62,7 +62,8 @@
       </div>
     </template>
 
-    <table class="table">
+    
+    <table v-if="data" class="table">
       <thead>
         <tr>
           <th></th>
@@ -98,11 +99,11 @@
               </div>
             </td>
           </template>
-          <template v-if="data.attachment.length == 0">
+          <!-- <template v-if="data.attachment.length == 0">
             <td>
               <span>No attachment found</span>
             </td>
-          </template>
+          </template> -->
           <template v-if="data.value != null">
             <td>
               <span v-html="data.value">null</span>
@@ -114,10 +115,12 @@
         </tr>
       </tbody>
     </table>
-
+    
     <template v-if="!data">
       <!-- <h4 style="padding:10px">Tidak ada data, Mohon untuk upload data Value Curve berupa image(*.jpg , *.png)</h4> -->
-      <hr />
+      <div style="padding:30px;">
+        <h5>No Data Available</h5>
+      </div>
       <a
         v-if="role === 'Talent'"
         class="btn btn-default btn-sm"
@@ -159,8 +162,8 @@
 </template>
 <script>
 import auth from "@/httpcontrol";
-import FormBS from "../../../valueproposition/businessstructure/newBS";
-import EditBS from "../../../valueproposition/businessstructure/editBS";
+import FormBS from "./newBS";
+import EditBS from "./editBS";
 import OnDelete from "@/components/ondelete";
 
 export default {

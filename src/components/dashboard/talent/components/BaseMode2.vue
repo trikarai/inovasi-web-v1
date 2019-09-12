@@ -307,7 +307,7 @@
                                   class="btn btn-vp btn-sm"
                                   v-bind:to="'/team/'+ teamId + '/idea/'+ mainDashboard.id + '/cs/' + cs.id + '/persona/' + cs.main_persona.id + '/vp/' + cs.main_persona.active_value_proposition.id + '/businessstructure#vp'"
                                 >
-                                  <i class="fa fa-sitemap"></i> Analisa Bisnis
+                                   Analisa Bisnis
                                 </router-link>
                                 <br>
                                 <!-- <router-link
@@ -323,8 +323,30 @@
                                   class="btn btn-vp btn-sm"
                                   v-bind:to="'/team/'+ teamId + '/idea/'+ mainDashboard.id + '/cs/' + cs.id + '/persona/' + cs.main_persona.id + '/vp/' + cs.main_persona.active_value_proposition.id + '/experiment'"
                                 >
-                                  <i class="fa fa-thermometer-2"></i> Percobaan Bisnis
+                                 Percobaan Bisnis
                                 </router-link>
+                                <router-link
+                                  style="margin-top:5px;"
+                                  class="btn btn-vp btn-sm"
+                                  v-bind:to="'/team/'+ teamId + '/idea/'+ mainDashboard.id + '/cs/' + cs.id + '/persona/' + cs.main_persona.id + '/vp/' + cs.main_persona.active_value_proposition.id + '/Metric'"
+                                >
+                                   Metric
+                                </router-link>
+                                <router-link
+                                  style="margin-top:5px;"
+                                  class="btn btn-vp btn-sm"
+                                  v-bind:to="'/team/'+ teamId + '/idea/'+ mainDashboard.id + '/cs/' + cs.id + '/persona/' + cs.main_persona.id + '/vp/' + cs.main_persona.active_value_proposition.id + '/dev'"
+                                >
+                                   Rencana Pengembangan
+                                </router-link>
+                                <router-link
+                                  style="margin-top:5px;"
+                                  class="btn btn-vp btn-sm"
+                                  v-bind:to="'/team/'+ teamId + '/idea/'+ mainDashboard.id + '/cs/' + cs.id + '/persona/' + cs.main_persona.id + '/vp/' + cs.main_persona.active_value_proposition.id + '/business'"
+                                >
+                                   Data Bisnis 
+                                </router-link>
+                                
                               </div>
 
                               <div id="button-group" class="pbuttonk">
