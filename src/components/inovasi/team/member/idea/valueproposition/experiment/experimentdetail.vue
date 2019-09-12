@@ -14,12 +14,12 @@
               </tr>
             </thead>
             <tbody style="border-top-style: hidden;">
-              <tr v-for="data in reOrderArray(dataExp.fields)">
+              <tr v-for="(data, index) in reOrderArray(dataExp.fields)" :key="index">
                 <td width="25%">
                   <b>{{data.field_template.name}}</b>
                 </td>
                 <template v-if="data.attachment">
-                    <div v-for="attachment in data.attachment">
+                    <div v-for="(attachment, index) in data.attachment" :key="index">
                       <img :src="'/inovasi/public/uploads' + attachment.file_meta.file_path">
                       <!-- <img :src="'http://start.mikti.id/inovasi/public/uploads' + attachment.file_meta.file_path"> -->
                     </div>
@@ -28,7 +28,7 @@
                   <td><span v-html="data.value"></span></td>
                 </template>
                 <template v-else>
-                  <td v-for="option in data.selected_options">{{option.option.name}}</td>
+                  <td v-for="(option, index) in data.selected_options" :key="index">{{option.option.name}}</td>
                 </template>
               </tr>
             </tbody>
