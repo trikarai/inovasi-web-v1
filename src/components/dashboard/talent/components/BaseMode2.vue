@@ -190,7 +190,7 @@
                             style="background: #efefef;padding: 20px;margin-right: 10px"
                           >
                             <router-link
-                              v-bind:to="'/team/'+ teamId + '/idea/'+ mainDashboard.id + '/cs/' + cs.id + '/persona/' + cs.main_persona.id + '/vp'"
+                              v-bind:to="'/team/'+ teamId + '/idea/'+ mainDashboard.id + '/cs/'"
                             >
                               <h3 style="text-align: center;color:black;">
                                 Tipe Pengguna
@@ -205,7 +205,7 @@
                               <div
                                 class="text-concat"
                                 style="padding-left: 15px;padding-right: 15px; color: #6f6f6f;margin-bottom:10px;"
-                              >{{cs.main_persona.name}} - {{cs.main_persona.description}}</div>
+                              ><b>{{cs.main_persona.name}}</b> - {{cs.main_persona.description}}</div>
                             </div>
                             <div class="panel-group" :id="'accordion'+index">
                               <div
@@ -222,7 +222,7 @@
                                   </h4>
                                 </div>
                                 <div :id="aspect.id" class="panel-collapse collapse out">
-                                  <div class="panel-body bisaenter"><span v-html="aspect.value"></span></div>
+                                  <div class="panel-body bisaenter" style="word-break: break-word;"><span v-html="aspect.value"></span></div>
                                 </div>
                               </div>
                             </div>
@@ -249,7 +249,7 @@
                             <div
                               class="row text-concat"
                               style="padding-left: 15px;padding-right: 15px; color: #6f6f6f;margin-bottom:10px;"
-                            >Goal - <span v-html="cs.main_persona.aspect[4].value"></span></div>
+                            ><b>Goal</b> - <span v-html="cs.main_persona.aspect[4].value"></span></div>
                             <div class="panel-group" :id="'accordion2'+index">
                               <div
                                 class="panel panel-default"
@@ -265,7 +265,7 @@
                                   </h4>
                                 </div>
                                 <div :id="aspect.id" class="panel-collapse collapse out">
-                                  <div class="panel-body bisaenter"><span v-html="aspect.value"></span></div>
+                                  <div class="panel-body bisaenter" style="word-break: break-word;"><span v-html="aspect.value"></span></div>
                                 </div>
                               </div>
                             </div>
@@ -388,7 +388,7 @@
                               <div
                                 class="row text-concat"
                                 style="padding-left: 15px;padding-right: 15px; color: #6f6f6f;margin-bottom:10px;"
-                              >{{cs.main_persona.active_value_proposition.business_structure.fields[0].field_template.name}} - <span v-html="cs.main_persona.active_value_proposition.business_structure.fields[0].value"></span></div>
+                              ><b>{{cs.main_persona.active_value_proposition.business_structure.fields[0].field_template.name}}</b> - <span v-html="cs.main_persona.active_value_proposition.business_structure.fields[0].value"></span></div>
                               <div class="panel-group" :id="'accordion3'+index">
                                 <div
                                   class="panel panel-default"
@@ -404,7 +404,7 @@
                                     </h4>
                                   </div>
                                   <div :id="data.id" class="panel-collapse collapse out">
-                                    <div class="panel-body bisaenter"><span v-html="data.value"></span></div>
+                                    <div class="panel-body bisaenter" style="word-break: break-word;"><span v-html="data.value"></span></div>
                                   </div>
                                 </div>
                               </div>

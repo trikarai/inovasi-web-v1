@@ -58,11 +58,11 @@
           
           <main class="pagebody">
             <div style="padding-bottom: 30px;white-space: pre-line" class="col-md-12">
-              <h3 class="tabcs" style="margin-left: 13px;"><span>Segmen Pelanggan</span>
+              <h3 class="tabcs" style="margin-left: 13px;"><span><b>Segmen Pelanggan</b></span>
                 <button v-if="role === 'Talent'" @click="editPersona(dataParent)" class="btn btn-default btn-sm"><i class="fa fa-edit"></i></button>
                 <router-link v-if="role === 'Talent'" class="tmblvpkanan" style="float: right;cursor: pointer;"  v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/'"><i class="fa fa-chevron-right pnhkanan"></i></router-link> 
                 <router-link v-else class="tmblvpkanan" style="float: right;cursor: pointer;"  v-bind:to="'/tutor/' + tutorId + '/participant/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/'"><i class="fa fa-chevron-right pnhkanan"></i></router-link> 
-                <span class="tombvpnext">Value Proposition</span>              
+                <span class="tombvpnext"><b>Value Proposition</b></span>              
               </h3>
 
               <div v-if="dataParent != 0">
@@ -117,7 +117,7 @@
                 </div>
                        
                 <div class="col-md-6" style="position: relative;bottom: 56px;">
-                  <h3 class="tabcs"><span>Empathy Map</span></h3>
+                  <h3 class="tabcs"><span><b>Empathy Map</b></span></h3>
                   <table class="table garistabel tabel-bordered table-striped tabelEM" style="border: 1px solid #e4e4e4;word-break: break-word;">
                     <tbody>
                       <tr style="font-weight: bold">
