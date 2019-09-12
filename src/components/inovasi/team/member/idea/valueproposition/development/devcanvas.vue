@@ -76,7 +76,7 @@
 
           <ul class="nav nav-tabs">
             <li class="active">
-              <a data-toggle="tab" href="#javelinboard">Development Summary</a>
+              <a data-toggle="tab" href="#javelinboard">Product Development Summary</a>
             </li>
             <li v-if="dataTemplate.total != 0">
               <!--Metric-->
