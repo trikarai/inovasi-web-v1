@@ -1013,7 +1013,7 @@
       </div>
       <div class="row" style="position: relative;bottom: 45px;">
         <div class="col-md-3" style="padding: 20px;">
-          Lakukan UJI coba &
+          Lakukan beberapa metoda &
           <br>Validasi IDE-mu
         </div>
         <div class="col-md-9">
@@ -1045,13 +1045,28 @@
                   <p>
                     Untuk memastikan seluruh asumsi yang ada pada ide kalian valid, perlu dilakukan percobaan sehingga memiliki bukti yang kuat. Terjadinya Pivot sangat mungkin terjadi.
                     <br>
-                    <b>Hint</b>: Untuk memudahkan kalian dalam memahami setiap tools dalam percobaan yang kami sediakan, kami menyediakan materi pada setiap jenis percobaan.
+                    <!-- <b>Hint</b>: Untuk memudahkan kalian dalam memahami setiap tools dalam percobaan yang kami sediakan, kami menyediakan materi pada setiap jenis percobaan. -->
                   </p>
                   <router-link
                     v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + csId + '/persona/' + personaId + '/vp/' + vpId + '/experiment'"
                     class="btn btn-sm btn-primary"
                     style="width: 100%"
                   >Lakukan Percobaan</router-link>
+                  <router-link
+                    v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + csId + '/persona/' + personaId + '/vp/' + vpId + '/metric'"
+                    class="btn btn-sm btn-primary"
+                    style="width: 100%;margin-top:5px;"
+                  >Metric</router-link>
+                  <router-link
+                    v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + csId + '/persona/' + personaId + '/vp/' + vpId + '/dev'"
+                    class="btn btn-sm btn-primary"
+                    style="width: 100%;margin-top:5px;"
+                  >Rencana Pengembangan</router-link>
+                  <router-link
+                    v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + csId + '/persona/' + personaId + '/vp/' + vpId + '/business'"
+                    class="btn btn-sm btn-primary"
+                    style="width: 100%;margin-top:5px;"
+                  >Data Bisnis</router-link>
                 </div>
               </div>
             </div>
@@ -1502,14 +1517,14 @@ export default {
   text-align: center;
 }
 .bbunder {
-  background: #faff00;
+  background: #ffb300;
   display: inline-block;
   /* padding: 24px; */
   border-radius: 100%;
   height: 100px;
   width: 100px;
   padding-top: 36px;
-  color: #000;
+  color: #fff;
   border: 4px solid #ffe105;
   text-align: center;
 }

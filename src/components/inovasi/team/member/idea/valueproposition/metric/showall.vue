@@ -84,7 +84,7 @@
               <a data-toggle="tab" href="#main">Main</a>
             </li>-->
             <li class="active">
-              <a data-toggle="tab" href="#javelinboard">Matrick Summary</a>
+              <a data-toggle="tab" href="#javelinboard">Metric Summary</a>
             </li>
 
             <!-- <li v-for="(data, index) in dataTemplate.list">
