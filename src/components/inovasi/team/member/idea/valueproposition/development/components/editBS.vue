@@ -4,7 +4,7 @@
 
 
     <div id="style-2" class="modal-mask">
-      <div class="modal-wrapper">
+      <div id="devbis2" class="modal-w">
         <div class="modal-container">
 
 
@@ -103,8 +103,12 @@
      }
   }
 </script>  
-<style lang="css">
+<style lang="css" scoped>
 @import './modal.css';
+
+#devbis2 .modal-w {
+  max-width: 958px !important;
+}
 
 #style-2::-webkit-scrollbar-track
 {

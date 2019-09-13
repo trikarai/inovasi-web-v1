@@ -187,7 +187,7 @@
     }
   }
 </script>  
-<style lang="css">
+<style lang="css" scoped>
 @import '../modal.css';
 
 #style-2::-webkit-scrollbar-track

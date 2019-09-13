@@ -264,7 +264,7 @@
     }
   }
 </script>  
-<style lang="css">
+<style lang="css" scoped>
     .rating {
         float:left;
         width:200px;

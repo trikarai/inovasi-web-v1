@@ -51,7 +51,7 @@
     }
   }
 </script>  
-<style lang="css">
+<style lang="css" scoped>
 .actions button {
      font-size: inherit;
      margin: 4px;

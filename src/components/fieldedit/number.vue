@@ -3,7 +3,7 @@
     <div class="col-md-4">
         <label>{{field.field_template.name}}</label>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-8">
       <input class="kotak" type="number" :name="field.field_template.id" :value="field.value"/>
     </div>
   </div>

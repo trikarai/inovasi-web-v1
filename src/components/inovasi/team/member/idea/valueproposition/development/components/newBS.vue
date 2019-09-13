@@ -4,7 +4,7 @@
 
 
     <div id="style-2" class="modal-mask">
-      <div class="modal-wrapper">
+      <div id="devbis" class="modal-w">
         <div class="modal-container">
 
               <error-flash v-bind:error="error" v-bind:success="success" v-bind:err_msg="err_msg"/>
@@ -104,8 +104,12 @@
      }
   }
 </script>  
-<style lang="css">
+<style lang="css" scoped>
 @import './modal.css';
+
+#devbis .modal-w {
+  max-width: 958px !important;
+}
 
 .editr {
   min-width: 204px;

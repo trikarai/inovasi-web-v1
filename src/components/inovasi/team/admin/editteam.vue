@@ -123,6 +123,6 @@
     }
   }
 </script>  
-<style lang="css">
+<style lang="css" scoped>
 @import '../member/idea/modal.css';
 </style>

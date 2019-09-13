@@ -39,6 +39,6 @@
     }
   }
 </script>  
-<style lang="css">
+<style lang="css" scoped>
 @import '../../talent/profile/modal/modal.css';
 </style>

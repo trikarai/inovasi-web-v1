@@ -5,7 +5,7 @@
       <div class="col-md-4">
         <label style="padding: 6px">{{field.field_template.name}}</label>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-8">
         <textarea
           style="width: 100%;height: 100px;"
           class="kotak"
@@ -20,7 +20,7 @@
       <div class="col-md-4">
         <label style="padding: 6px">{{field.field_template.name}}</label>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-8">
         <wysiwyg class="kotak" v-model="content" />
       </div>
     </div>

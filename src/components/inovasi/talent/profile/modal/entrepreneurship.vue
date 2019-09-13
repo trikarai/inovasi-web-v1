@@ -171,7 +171,7 @@
     }
   }
 </script>  
-<style lang="css">
+<style lang="css" scoped>
     .garis {
         display: block;
         width: 45px;

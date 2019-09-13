@@ -493,6 +493,7 @@ a:focus {
   line-height: 1;
   position: absolute;
   left: 55px;
+  white-space: normal
 }
 .user-panel > .info > p {
   font-weight: 600;

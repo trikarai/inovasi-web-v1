@@ -249,6 +249,6 @@ export default {
   }
 };
 </script>  
-<style lang="css">
+<style lang="css" scoped>
 @import "../../modal.css";
 </style>

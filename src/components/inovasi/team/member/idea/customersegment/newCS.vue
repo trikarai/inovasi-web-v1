@@ -121,7 +121,7 @@
     }
   }
 </script>  
-<style lang="css">
+<style lang="css" scoped>
     .kotak {
         border: 2px solid #eaeaea;
         border-radius: 3px;

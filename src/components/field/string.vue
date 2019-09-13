@@ -4,7 +4,7 @@
       <div class="col-md-4">
         <label style="padding: 6px">{{field.name}}</label>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-8">
         <!--<input type="text" :name="field.id">-->
         <textarea
           style="width: 100%;height: 100px;"
@@ -21,7 +21,7 @@
       <div class="col-md-4">
         <label style="padding: 6px">{{field.name}}</label>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-8">
         <wysiwyg class="kotak" v-model="content" />
       </div>
     </div>

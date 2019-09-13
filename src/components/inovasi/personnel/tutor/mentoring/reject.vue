@@ -102,6 +102,6 @@
     }
   }
 </script>  
-<style lang="css">
+<style lang="css" scoped>
 @import '../../../team/member/idea/modal.css';
 </style>

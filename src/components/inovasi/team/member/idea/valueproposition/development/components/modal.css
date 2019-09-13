@@ -15,7 +15,7 @@
   display: flex !important;
   transition: opacity .3s ease;
 }
-.modal-wrapper {
+.modal-w {
   display: -webkit-box !important;
   display: -moz-box !important;
   display: -ms-flexbox !important;
