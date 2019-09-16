@@ -141,7 +141,7 @@
                   <tr v-for="data in data.list">
                     <td style="padding: 20px">
                         <div class="">
-                            <div style="white-space: pre-line;word-break: normal;" class="linkli__url">{{data.description}}</div>
+                            <div style="white-space: pre-line;word-break: normal;text-align: justify" class="linkli__url">{{data.description}}</div>
                             <div v-if="data.is_active == true" style="padding:6px;">
                                 <span class="statusp">Utama</span>
                             </div>

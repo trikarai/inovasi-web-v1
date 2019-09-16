@@ -26,7 +26,7 @@
                                 <label>Deskripsi <a href="#" class="tultip" data-toggle="tooltip" data-placement="right" title="Value Proposition adalah sebuah pernyataan terkait value yang akan diperoleh oleh pelanggan dengan menggunakan produk/jasa anda. Isinya dapat berupa manfaat-manfaat yang akan diperoleh pelanggan. Selain menjelaskan manfaat, Value Proposition yang baik juga menjelaskan mengapa produk/jasa anda lebih baik dibandingkan dengan kompetitor."> <i style="margin-left: 20px" class="fa fa-info-circle"></i></a></label>
                               </div>
                               <div class="col-md-6">
-                                  <textarea style="border: 2px solid #eaeaea;height: 130px;width: 100%;" class="kotak" type="text" v-model="data.description" maxlength="750"></textarea>
+                                  <textarea style="border: 2px solid #eaeaea;height: 130px;width: 100%;" class="kotak" type="text" v-model="data.description"></textarea>
                               </div>
                         </div>
                       </form>
