@@ -161,11 +161,10 @@
                           <template v-else>
                             <router-link class="btn btn-default btn-sm baten" v-bind:to="'/tutor/'+tutorId+'/participant/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/businessstructure'">Analisa Bisnis</router-link>
                             <!-- <router-link style="margin-top:5px;" class="btn btn-default btn-sm baten" v-bind:to="'/tutor/'+tutorId+'/participant/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/competitor'"><i class="fa fa-trophy"></i> Competitor</router-link><br> -->
-                            <router-link style="margin-top:5px;" class="btn btn-default btn-sm baten" v-bind:to="'/tutor/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/experiment'">Percobaan Bisnis</router-link>
                             <router-link style="margin-top:5px;" class="btn btn-default btn-sm baten" v-bind:to="'/tutor/'+tutorId+'/participant/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/experiment'">Percobaan Bisnis</router-link>
-                            <router-link style="margin-top:5px;" class="btn btn-default btn-sm baten" v-bind:to="'/tutor/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/metric'">Metric</router-link>
-                            <router-link style="margin-top:5px;" class="btn btn-default btn-sm baten" v-bind:to="'/tutor/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/dev'">Rencana Pengembangan</router-link>
-                            <router-link style="margin-top:5px;" class="btn btn-default btn-sm baten" v-bind:to="'/tutor/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/business'">Data Bisnis</router-link>
+                            <router-link style="margin-top:5px;" class="btn btn-default btn-sm baten" v-bind:to="'/tutor/'+tutorId+'/participant/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/metric'">Metric</router-link>
+                            <router-link style="margin-top:5px;" class="btn btn-default btn-sm baten" v-bind:to="'/tutor/'+tutorId+'/participant/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/dev'">Rencana Pengembangan</router-link>
+                            <router-link style="margin-top:5px;" class="btn btn-default btn-sm baten" v-bind:to="'/tutor/'+tutorId+'/participant/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/business'">Data Bisnis</router-link>
                           </template>  
                         </div>
 

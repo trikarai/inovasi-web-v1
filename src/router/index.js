@@ -361,6 +361,21 @@ const routes = [
           component: TeamBusinessStructure
         },
         {
+          name: 'Metric',
+          path: '/tutor/:tutorId/participant/:teamId/idea/:ideaId/cs/:customersegmentId/persona/:personaId/vp/:valuepropositionId/metric',
+          component: TeamMetric
+        },
+        {
+          name: 'Development Plan',
+          path: '/tutor/:tutorId/participant/:teamId/idea/:ideaId/cs/:customersegmentId/persona/:personaId/vp/:valuepropositionId/dev',
+          component: TeamDevPlan
+        },
+        {
+          name: 'Business Data',
+          path: '/tutor/:tutorId/participant/:teamId/idea/:ideaId/cs/:customersegmentId/persona/:personaId/vp/:valuepropositionId/business',
+          component: TeamPitchDeck
+        },
+        {
           name: 'registration',
           path: '/coordinator/programme/:programmeId/registration',
           component: CoordinatorProgrammeRegistration,
