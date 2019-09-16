@@ -141,39 +141,46 @@
                   <tr v-for="data in data.list">
                     <td style="padding: 20px">
                         <div class="">
-                            <div style="white-space: pre-line" class="linkli__url">{{data.description}}</div>
-                        </div>
-                        <div class="" style="margin-top: 20px">
-                          <template v-if="data.is_active == true">
-                            <div style="padding:6px;" class="col-md-6">
+                            <div style="white-space: pre-line;word-break: normal;" class="linkli__url">{{data.description}}</div>
+                            <div v-if="data.is_active == true" style="padding:6px;">
                                 <span class="statusp">Utama</span>
                             </div>
-                            <a v-if="role === 'Talent'" class="btn btn-default" @click="updateVP(data.id)"><i class="fa fa-pencil"></i></a>
+                            <div v-else style="padding:6px;">
+                                <a v-if="role === 'Talent'" class="btn btn-default midea" @click="activateVP(data.id)"><i class="fa fa-check"></i> Ubah jadi Utama</a>
+                            </div>                     
+                        </div>
+                        <div class="" style="margin-top: 20px">                         
+                          <template v-if="role === 'Talent'">
+                            <router-link class="btn btn-default btn-sm baten" v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/businessstructure#vp'">Analisa Bisnis</router-link>
+                            <!-- <router-link style="margin-top:5px;" class="btn btn-default btn-sm" v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/competitor'"><i class="fa fa-trophy"></i> Kompetitor</router-link><br> -->
+                            <router-link style="margin-top:5px;" class="btn btn-default btn-sm baten" v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/experiment'">Percobaan Bisnis</router-link>
+                            <router-link style="margin-top:5px;" class="btn btn-default btn-sm baten" v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/metric'">Metric</router-link>
+                            <router-link style="margin-top:5px;" class="btn btn-default btn-sm baten" v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/dev'">Rencana Pengembangan</router-link>
+                            <router-link style="margin-top:5px;" class="btn btn-default btn-sm baten" v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/business'">Data Bisnis</router-link>
+                          </template>  
+                          <template v-else>
+                            <router-link class="btn btn-default btn-sm baten" v-bind:to="'/tutor/'+tutorId+'/participant/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/businessstructure'">Analisa Bisnis</router-link>
+                            <!-- <router-link style="margin-top:5px;" class="btn btn-default btn-sm baten" v-bind:to="'/tutor/'+tutorId+'/participant/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/competitor'"><i class="fa fa-trophy"></i> Competitor</router-link><br> -->
+                            <router-link style="margin-top:5px;" class="btn btn-default btn-sm baten" v-bind:to="'/tutor/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/experiment'">Percobaan Bisnis</router-link>
+                            <router-link style="margin-top:5px;" class="btn btn-default btn-sm baten" v-bind:to="'/tutor/'+tutorId+'/participant/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/experiment'">Percobaan Bisnis</router-link>
+                            <router-link style="margin-top:5px;" class="btn btn-default btn-sm baten" v-bind:to="'/tutor/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/metric'">Metric</router-link>
+                            <router-link style="margin-top:5px;" class="btn btn-default btn-sm baten" v-bind:to="'/tutor/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/dev'">Rencana Pengembangan</router-link>
+                            <router-link style="margin-top:5px;" class="btn btn-default btn-sm baten" v-bind:to="'/tutor/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/business'">Data Bisnis</router-link>
+                          </template>  
+                        </div>
+
+                    </td>
+                    <td>
+                      <div style="display:flex">
+                          <template v-if="data.is_active == true">                          
+                            <a v-if="role === 'Talent'" class="btn btn-default" style="margin-right:5px" @click="updateVP(data.id)"><i class="fa fa-pencil"></i></a>
                             <a v-if="role === 'Talent'" class="btn btn-danger" @click="confirm('Delete', data.id)"><i class="fa fa-trash"></i></a>
                           </template>
-                          <template v-else>
-                            <div style="padding:6px;" class="col-md-6">
-                                <a v-if="role === 'Talent'" class="btn btn-default midea" @click="activateVP(data.id)"><i class="fa fa-check"></i> Ubah jadi Utama</a>
-                            </div>
-                            <a v-if="role === 'Talent'" class="btn btn-default" @click="updateVP(data.id)"><i class="fa fa-pencil"></i></a>
+                          <template v-else>                           
+                            <a v-if="role === 'Talent'" class="btn btn-default" style="margin-right:5px" @click="updateVP(data.id)"><i class="fa fa-pencil"></i></a>
                             <a v-if="role === 'Talent'" class="btn btn-danger" @click="confirm('Delete', data.id)"><i class="fa fa-trash"></i></a>
                           </template>
                         </div>
-                    </td>
-                    <td>
-                      <template v-if="role === 'Talent'">
-                        <router-link class="btn btn-default btn-sm baten" v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/businessstructure#vp'">Analisa Bisnis</router-link><br>
-                        <!-- <router-link style="margin-top:5px;" class="btn btn-default btn-sm" v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/competitor'"><i class="fa fa-trophy"></i> Kompetitor</router-link><br> -->
-                        <router-link style="margin-top:5px;" class="btn btn-default btn-sm baten" v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/experiment'">Percobaan Bisnis</router-link><br>
-                        <router-link style="margin-top:5px;" class="btn btn-default btn-sm baten" v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/metric'">Metric</router-link>
-                        <router-link style="margin-top:5px;" class="btn btn-default btn-sm baten" v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/dev'">Rencana Pengembangan</router-link>
-                        <router-link style="margin-top:5px;" class="btn btn-default btn-sm baten" v-bind:to="'/team/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/business'">Data Bisnis</router-link>
-                      </template>  
-                      <template v-else>
-                        <router-link class="btn btn-default btn-sm baten" v-bind:to="'/tutor/'+tutorId+'/participant/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/businessstructure'"><i class="fa fa-sitemap"></i> Business Analysis</router-link><br>
-                        <router-link style="margin-top:5px;" class="btn btn-default btn-sm baten" v-bind:to="'/tutor/'+tutorId+'/participant/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/competitor'"><i class="fa fa-trophy"></i> Competitor</router-link><br>
-                        <router-link style="margin-top:5px;" class="btn btn-default btn-sm baten" v-bind:to="'/tutor/'+tutorId+'/participant/'+ teamId + '/idea/'+ ideaId + '/cs/' + customersegmentId + '/persona/' + personaId + '/vp/' + data.id + '/experiment'"><i class="fa fa-thermometer-2"></i> Experiment</router-link>
-                      </template>  
                     </td>
 <!--
                 <td>
