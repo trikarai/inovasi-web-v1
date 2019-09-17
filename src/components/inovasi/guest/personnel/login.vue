@@ -31,6 +31,7 @@
 
           <div class="footer">
              <h4>Personnel Area</h4>
+             <span ><a href="/v2">Try &beta; BETA</a></span>
           </div>
         </div>
         <div class="card alt">
