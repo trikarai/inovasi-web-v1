@@ -137,7 +137,9 @@ export default {
     fileChange(fileList) {
       this.files.set("file", fileList[0]);
       this.selectedFile = fileList[0];
-      this.headers["name"] = fileList[0].name;
+      var name = fileList[0].name;
+      var str = name.replace(/\s/g, "");
+      this.headers["name"] = str;
       // console.log(this.files);
       var oFReader = new FileReader();
       oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);

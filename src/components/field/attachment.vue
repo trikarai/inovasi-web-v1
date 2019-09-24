@@ -3,7 +3,7 @@
     <!-- {{field.id}} -->
     <div class="row" v-show="!fieldPath">
       <div class="col-md-4">
-        <label style="padding: 6px" >{{field.name}}</label>
+        <label style="padding: 6px">{{field.name}}</label>
       </div>
       <div class="col-md-6">
         <input
@@ -11,8 +11,7 @@
           type="file"
           accept="image/*, application/pdf"
           v-on:change="fileChange($event.target.files)"
-        >
-        
+        />
       </div>
     </div>
     <div class="row" v-if="preview">
@@ -29,7 +28,9 @@
           <em>*make sure to upload image first before submit the form</em>
         </small>
         <template v-if="progressShow">
-        <progress :value="progressCount" max="100"></progress> {{progressCount}} % </template>
+          <progress :value="progressCount" max="100"></progress>
+          {{progressCount}} %
+        </template>
       </div>
     </div>
     <!-- response : {{data}} -->
@@ -39,10 +40,15 @@
       </div>
       <div class="col-md-6">
         <!-- <input class="kotak" type="text" :name="field.id"> -->
-        <select style="width: 100%;height: 75px; display:none" :name="field.id" multiple class="kotak">
+        <select
+          style="width: 100%;height: 75px; display:none"
+          :name="field.id"
+          multiple
+          class="kotak"
+        >
           <option :value="data.id" selected>{{ data.file_path }}</option>
         </select>
-        <br>
+        <br />
         <i class="fa fa-check-circle" style="color:green"></i> Image Uploaded
       </div>
     </div>
@@ -84,7 +90,9 @@ export default {
     fileChange(fileList) {
       this.files.set("file", fileList[0]);
       this.selectedFile = fileList[0];
-      this.headers["name"] = fileList[0].name;
+      var name = fileList[0].name;
+      var str = name.replace(/\s/g, "");
+      this.headers["name"] = str;
       // console.log(this.files);
       var oFReader = new FileReader();
       oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);
