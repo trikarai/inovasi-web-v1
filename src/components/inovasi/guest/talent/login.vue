@@ -41,6 +41,7 @@
             </router-link>
             <!--            <span style="color:#848484;font-weight: 900;padding: 0px 10px;">|</span> -->
             <!--            <a href="http://dilo.id/login-dilo?view=reset"><i style="color:#96cc62" class="fa fa-key"></i> lupa your password?</a>-->
+            <br />
             <span>
               <a href="/v2/#/login">Try New &beta; BETA</a>
             </span>
