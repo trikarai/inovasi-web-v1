@@ -31,6 +31,16 @@
         </div>
       </div>
 
+      <div class="row container-fluid">
+        <div class="row">
+          <div class="col-md-6">
+            <a href="/v2/#/talent/dashboard">
+              <i class="fa fa-asterisk"> try New &beta;eta Experimental UI</i>
+            </a>
+          </div>
+        </div>
+      </div>
+
       <!--Mode 1 Component Start-->
       <mode-one
         v-show="!mode"
@@ -57,7 +67,7 @@
       v-if="showFormIdea"
       @close="showFormIdea = false"
       @closeModalRefresh="closeModalRefresh()"
-    ></form-idea> -->
+    ></form-idea>-->
 
     <form-propose v-bind:teamId="teamId" v-if="showPropose" @close="showPropose = false"></form-propose>
   </div>
@@ -88,7 +98,7 @@ export default {
       firstload: false,
       activeProgram: false,
       loadingProgram: false,
-      showPropose : false
+      showPropose: false
     };
   },
   components: {
@@ -308,69 +318,68 @@ export default {
   display: -ms-flexbox;
   display: flex;
 }
-    .cteamd{
-        background: #e4e4e4;
-/*        color: #fff;*/
-        display: inline-block;
-        padding: 13px;
-        text-align: center;
-        border-left-width: thick;
-        border-left-color: #8bc751;
-        border-left-style: solid;
-        }
-    .pgreen {
-        color: #fff;
-/*        background-color: #8bc751;*/
-        background-color:#efefef;
-/*        border-color: #8bc751;*/
-        border-color:#efefef;
-        padding: 6px;
-    }
-    .putama {
-        border-color: #efefef; 
-    }
-    .garis {
-        display: block;
-        width: 45px;
-        height: 5px;
-        background: #8bc751;
-        margin-bottom: 10px;
-    }
-    .garist {
-        width: 45px;
-        height: 5px;
-        background: #8bc751;
-        margin-bottom: 20px !important;
-        margin: 0 auto;
-    }
-    .text-concat {
-      position: relative;
-      display: inline-block;
-      word-wrap: break-word;
-      overflow: hidden;
-      max-height: 3.5em; 
-      line-height: 1.2em;
-/*      text-align:justify;*/
-    }
-    .tex {
-        position: relative;
-        
-    }
-    .tex.ellipsis::after {
-        content: "...";
-        position: absolute;
-        right: 168px;
-        bottom: 5px;
+.cteamd {
+  background: #e4e4e4;
+  /*        color: #fff;*/
+  display: inline-block;
+  padding: 13px;
+  text-align: center;
+  border-left-width: thick;
+  border-left-color: #8bc751;
+  border-left-style: solid;
 }
-    .pbuttonk {
-        float: right;
-        position: absolute;
-        bottom: 15px;
-        right: 15px;
-    }
-    .pscale {
-        padding: 20px;
-        padding-right: 0px;
-        padding-left: 31px;
-    }
+.pgreen {
+  color: #fff;
+  /*        background-color: #8bc751;*/
+  background-color: #efefef;
+  /*        border-color: #8bc751;*/
+  border-color: #efefef;
+  padding: 6px;
+}
+.putama {
+  border-color: #efefef;
+}
+.garis {
+  display: block;
+  width: 45px;
+  height: 5px;
+  background: #8bc751;
+  margin-bottom: 10px;
+}
+.garist {
+  width: 45px;
+  height: 5px;
+  background: #8bc751;
+  margin-bottom: 20px !important;
+  margin: 0 auto;
+}
+.text-concat {
+  position: relative;
+  display: inline-block;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 3.5em;
+  line-height: 1.2em;
+  /*      text-align:justify;*/
+}
+.tex {
+  position: relative;
+}
+.tex.ellipsis::after {
+  content: "...";
+  position: absolute;
+  right: 168px;
+  bottom: 5px;
+}
+.pbuttonk {
+  float: right;
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+}
+.pscale {
+  padding: 20px;
+  padding-right: 0px;
+  padding-left: 31px;
+}
 </style>  
