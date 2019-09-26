@@ -17,7 +17,7 @@
           webkitallowfullscreen="true"
         ></iframe>
       </div>
-    </div> -->
+    </div>-->
 
     <template v-if="data">
       <!-- <button class="btn btn-info" @click="learningVC" style="border-radius: 5px; padding: 2px 8px;">
@@ -29,7 +29,7 @@
             <a data-toggle="collapse" href="#collapsevc">
               <b>Pelajari Materi Business Dev</b>
             </a>
-          </div> -->
+          </div>-->
           <div class>
             <div id="collapsevc" class="panel-collapse collapse">
               <div class="panel-body">
@@ -62,7 +62,6 @@
       </div>
     </template>
 
-    
     <table v-if="data" class="table">
       <thead>
         <tr>
@@ -79,16 +78,19 @@
             <td>
               <div v-for="attachment in data.attachment">
                 <template v-if="checkExt(attachment.file_meta.file_path) == 'pdf'">
-                  <a target="_blank" :href="'http://start.mikti.id/inovasi/public/uploads' + attachment.file_meta.file_path">
-                  <img
-                    src="https://www.sandhata.com/wp-content/uploads/2016/11/pdf-icon.png"
-                    style="width: 50px; height: 50px;"
-                  /> click to open
+                  <a
+                    target="_blank"
+                    :href="'http://start.mikti.id/inovasi/public/uploads' + attachment.file_meta.file_path"
+                  >
+                    <img
+                      src="https://www.sandhata.com/wp-content/uploads/2016/11/pdf-icon.png"
+                      style="width: 50px; height: 50px;"
+                    /> click to open
                   </a>
                 </template>
                 <template v-else>
                   <img
-                    :src="'/inovasi/public/uploads' + attachment.file_meta.file_path"
+                    :src="'https://start.mikti.id/inovasi/public/uploads' + attachment.file_meta.file_path"
                     class="img-responsive img-rounded"
                     width="550px"
                   />
@@ -103,7 +105,7 @@
             <td>
               <span>No attachment found</span>
             </td>
-          </template> -->
+          </template>-->
           <template v-if="data.value != null">
             <td>
               <span v-html="data.value">null</span>
@@ -115,18 +117,15 @@
         </tr>
       </tbody>
     </table>
-    
+
     <template v-if="!data">
       <!-- <h4 style="padding:10px">Tidak ada data, Mohon untuk upload data Value Curve berupa image(*.jpg , *.png)</h4> -->
       <div style="padding:30px;">
         <h5>No Data Available</h5>
       </div>
-      <a
-        v-if="role === 'Talent'"
-        class="btn btn-default btn-sm"
-        @click="addBS()"
-      >
-        <i class="fa fa-plus"></i> Tambah {{bsname}}
+      <a v-if="role === 'Talent'" class="btn btn-default btn-sm" @click="addBS()">
+        <i class="fa fa-plus"></i>
+        Tambah {{bsname}}
       </a>
     </template>
 
